@@ -117,6 +117,43 @@ export default function Article() {
             dignissimos minus impedit quisquam odio totam?
           </p>
         </div>
+        <div className="article__ending">
+          <div className="article__ending__published">
+            Published on January 1, 2021 @ 10.00pm
+          </div>
+          <div className="article__ending__edited">
+            Last edited at January 1, 2021 @ 10.00pm
+          </div>
+        </div>
+        <div className="article__read-more">
+          <div className="article__read-more__heading">Read More</div>
+          <div className="article__read-more__articles-list">
+            <div className="item">
+              <div className="item__thumbnail"></div>
+              <div className="item__details">
+                <div className="item__details__title">Blog 1</div>
+                <div className="item__details__excerpt">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Ipsum, repellat officiis ducimus debitis eligendi sunt
+                  similique dolores facere esse explicabo distinctio harum
+                  laborum impedit.
+                </div>
+              </div>
+            </div>
+            <div className="item">
+              <div className="item__thumbnail"></div>
+              <div className="item__details">
+                <div className="item__details__title">Blog 1</div>
+                <div className="item__details__excerpt">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Ipsum, repellat officiis ducimus debitis eligendi sunt
+                  similique dolores facere esse explicabo distinctio harum
+                  laborum impedit.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

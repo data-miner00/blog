@@ -1,6 +1,5 @@
 .article
   padding: 50px
-  // background-color: aliceblue
 
   .content-wrapper
     padding: 0 80px
@@ -27,8 +26,8 @@
   
       &__top
         padding: 20px 0
-        border-top: 2px solid #eee
-        border-bottom: 2px solid #eee
+        border-top: 1px solid #eee
+        border-bottom: 1px solid #eee
         &__title
           font-weight: 600
           font-size: 1.1em
@@ -78,17 +77,17 @@
       display: flex
       align-items: center
       &__avatar
-        width: 50px
-        height: 50px
+        width: 40px
+        height: 40px
         background: #eee
         border-radius: 250px
       &__rhs
-        padding-left: 20px
+        padding-left: 16px
         display: flex
         flex-direction: column
         row-gap: 3px
         &__name
-          font-weight: 600
+          font-weight: 700
 
     &__action-group
       display: flex
@@ -98,8 +97,41 @@
       .box
         font-size: 1em
       
-
   &__body
     font-size: 1.25em
     line-height: 1.6
     padding: 42px 0
+
+  &__ending
+    padding: 30px 0
+    color: #cdcdcd
+    text-align: center
+    border-bottom: 1px solid #eee
+    font-size: .85em
+    font-style: italic
+
+  &__read-more
+    padding-top: 80px
+    &__heading
+      font-size: 2em
+      font-weight: 800
+
+    &__articles-list
+      padding: 40px 0
+
+      .item
+        display: flex
+        padding-bottom: 40px
+        
+        &__thumbnail
+          height: 160px
+          width: 200px
+          background: #eee
+        &__details
+          padding-left: 40px
+          width: 430px
+          &__title
+            font-size: 1.75em
+            font-weight: 600
+            padding-bottom: 20px
+        
