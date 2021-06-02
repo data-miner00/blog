@@ -1,8 +1,12 @@
+import Link from "next/link";
+
 export default function Layout({ children }) {
   return (
     <div className="layout">
       <header>
-        <div className="logo">mumk</div>
+        <Link href="/">
+          <div className="logo">mumk</div>
+        </Link>
         <div className="burger">
           <svg
             id="burger"
