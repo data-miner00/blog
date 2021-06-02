@@ -8,6 +8,7 @@
 
 .layout {
   background-color: var(--color2);
+  position: relative;
 }
 
 header {
@@ -20,10 +21,15 @@ header {
   align-items: center;
   justify-content: space-between;
   color: white;
-  position: sticky;
+  /* position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 5; */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 5;
+  width: 100%;
 }
 
 .logo {
@@ -31,6 +37,7 @@ header {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .page-content {
