@@ -1,3 +1,5 @@
+$color: #D88C9A
+  
 .article
   padding: 150px 50px 50px 50px
 
@@ -9,7 +11,6 @@
     left: 0
     top: 150px
     width: 100%
-    height: 400px
     z-index: 0
     opacity: 0
     pointer-events: none
@@ -35,6 +36,7 @@
         &__author
           font-size: .75em
           color: lightgray
+          margin-top: 5px
 
         &__tags
           margin-top: 30px
@@ -43,14 +45,21 @@
           gap: 5px
 
           .label-tag
-            font-size: .675em
-            text-transform: uppercase
-            padding: 2px 4px
-            background: gray
+            font-size: .625em
+            color: black
+            padding: 5px 8px
+            background: #eee
       &__btm
         display: flex
         justify-content: space-between
         padding: 20px 50px 20px 0
+
+        .action
+          transition: color .2s
+          cursor: pointer
+
+          &:hover
+            color: $color
 
         .action--cheers
           display: flex
@@ -64,7 +73,7 @@
       font-weight: 600
 
     &__subtitle
-      color: gray
+      color: #cdcdcd
       font-size: 1.5em
   
   &__author
@@ -79,8 +88,9 @@
       &__avatar
         width: 40px
         height: 40px
-        background: #eee
         border-radius: 250px
+        position: relative
+        overflow: hidden
       &__rhs
         padding-left: 16px
         display: flex
@@ -91,16 +101,23 @@
 
     &__action-group
       display: flex
-      width: 60px
+      width: 80px
       justify-content: space-between
 
       .box
-        font-size: 1em
+        font-size: 1.5em
+        transition: color .2s
+        cursor: pointer
+
+        &:hover
+          color: $color
       
   &__body
     font-size: 1.25em
     line-height: 1.6
     padding: 42px 0
+    width: 100%
+    overflow: hidden
 
   &__ending
     padding: 30px 0
@@ -129,7 +146,7 @@
           background: #eee
         &__details
           padding-left: 40px
-          width: 430px
+          width: calc(100% - 200px)
           &__title
             font-size: 1.75em
             font-weight: 600
