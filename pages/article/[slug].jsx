@@ -7,15 +7,62 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Fa } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { getLanguage } from "../../services/getLanguage";
+import { client } from "../../services/getContentfulClient";
+import { getDate } from "../../services/getDate";
 
-export default function Article() {
+export const getStaticPaths = async () => {
+  const res = await client.getEntries({
+    content_type: "article",
+  });
+
+  const paths = res.items.map((item) => ({
+    params: { slug: item.fields.slug },
+  }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+};
+
+export const getStaticProps = async (context) => {
+  const { items } = await client.getEntries({
+    content_type: "article",
+    "fields.slug": context.params.slug,
+  });
+
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { article: items[0] },
+    revalidate: 10,
+  };
+};
+
+export default function Article({ article }) {
+  console.log(article);
+  const { title, subtitle, tags, image, cheers, language, content } =
+    article.fields;
+  const { createdAt, updatedAt } = article.sys;
+
   useEffect(() => {
     const floatTip = document.getElementsByClassName("article__float-tip")[0];
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
         floatTip.style.opacity = 1;
+        floatTip.style.pointerEvents = "all";
       } else {
         floatTip.style.opacity = 0;
+        floatTip.style.pointerEvents = "none";
       }
     });
   }, []);
@@ -23,7 +70,7 @@ export default function Article() {
   return (
     <div className="article">
       <Head>
-        <title>Next Blog</title>
+        <title>{title} | Next Blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="article__float-tip">
@@ -31,32 +78,31 @@ export default function Article() {
           <div className="article__float-tip__content">
             <div className="article__float-tip__content__top">
               <div className="article__float-tip__content__top__title">
-                This is my blog
+                {title}
               </div>
               <div className="article__float-tip__content__top__author">
                 by Chong Mum Khong
               </div>
               <div className="article__float-tip__content__top__tags">
-                <div className="label-tag">abc</div>
-                <div className="label-tag">abc</div>
-                <div className="label-tag">abc</div>
-                <div className="label-tag">absdc</div>
-                <div className="label-tag">abdsfc</div>
-                <div className="label-tag">abc</div>
+                {tags.map((tag) => (
+                  <div key={tag} className="label-tag">
+                    {tag}
+                  </div>
+                ))}
               </div>
             </div>
             <div className="article__float-tip__content__btm">
-              <div className="action--cheers">
+              <div className="action--cheers action">
                 <div className="action--cheers__icon">
                   <Fa icon={faGlassCheers}></Fa>
                 </div>
-                <div className="action--cheers__counter">3</div>
+                <div className="action--cheers__counter">{cheers}</div>
               </div>
 
-              <div className="action--coffee">
+              <div className="action">
                 <Fa icon={faCoffee}></Fa>
               </div>
-              <div className="action--flag">
+              <div className="action">
                 <Fa icon={faFlag}></Fa>
               </div>
             </div>
@@ -64,26 +110,34 @@ export default function Article() {
         </div>
       </div>
       <div className="article__illus">
-        <img src="/illus.jpg" alt="illustration" width="100%" />
+        <img
+          src={`https:${image.fields.file.url}`}
+          alt="illustration"
+          width="100%"
+        />
       </div>
       <div className="content-wrapper">
         <div className="article__info">
-          <div className="article__info__title">
-            This is my first article woohoo.
-          </div>
-          <div className="article__info__subtitle">
-            This is something detailed to explain my title
-          </div>
+          <div className="article__info__title">{title}</div>
+          <div className="article__info__subtitle">{subtitle}</div>
         </div>
         <div className="article__author">
           <div className="article__author__name-group">
-            <div className="article__author__name-group__avatar"></div>
+            <div className="article__author__name-group__avatar">
+              <Image
+                src="/1803151.jpg"
+                layout="fill"
+                alt="Author's avatar"
+                objectFit="cover"
+                objectPosition="top"
+              />
+            </div>
             <div className="article__author__name-group__rhs">
               <div className="article__author__name-group__rhs__name">
                 Chong Mum Khong
               </div>
               <div className="article__author__name-group__rhs__date">
-                January 26<sup>th</sup> • English
+                {getDate(createdAt, 2)} • {getLanguage(language)}
               </div>
             </div>
           </div>
@@ -97,32 +151,14 @@ export default function Article() {
           </div>
         </div>
         <div className="article__body">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur
-            dicta rerum libero cumque quas fugiat. Molestiae, voluptate, non
-            quibusdam cumque ad tenetur beatae ipsam dignissimos minus impedit
-            quisquam odio totam? Lorem ipsum dolor sit amet consectetur,
-            adipisicing elit. Tenetur dicta rerum libero cumque quas fugiat.
-            Molestiae, voluptate, non quibusdam cumque ad tenetur beatae ipsam
-            dignissimos minus impedit quisquam odio totam? Lorem ipsum dolor sit
-            amet consectetur, adipisicing elit.
-          </p>
-          <br></br>
-          <p>
-            Tenetur dicta rerum libero cumque quas fugiat. Molestiae, voluptate,
-            non quibusdam cumque ad tenetur beatae ipsam dignissimos minus
-            impedit quisquam odio totam? Lorem ipsum dolor sit amet consectetur,
-            adipisicing elit. Tenetur dicta rerum libero cumque quas fugiat.
-            Molestiae, voluptate, non quibusdam cumque ad tenetur beatae ipsam
-            dignissimos minus impedit quisquam odio totam?
-          </p>
+          {documentToReactComponents(content)}
         </div>
         <div className="article__ending">
           <div className="article__ending__published">
-            Published on January 1, 2021 @ 10.00pm
+            Published on {getDate(createdAt, 3)}
           </div>
           <div className="article__ending__edited">
-            Last edited at January 1, 2021 @ 10.00pm
+            Last edited at {getDate(updatedAt, 3)}
           </div>
         </div>
         <div className="article__read-more">
