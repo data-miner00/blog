@@ -6,11 +6,12 @@ import {
   faGlassCheers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Fa } from "@fortawesome/react-fontawesome";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { getLanguage } from "../../services/getLanguage";
 import { client } from "../../services/getContentfulClient";
 import { getDate } from "../../services/getDate";
+import Skeleton from "../../components/Skeleton";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -50,19 +51,21 @@ export const getStaticProps = async (context) => {
 
 export default function Article({ article }) {
   console.log(article);
+  if (!article) return <Skeleton />;
   const { title, subtitle, tags, image, cheers, language, content } =
     article.fields;
   const { createdAt, updatedAt } = article.sys;
 
+  const floatTipRef = useRef();
+
   useEffect(() => {
-    const floatTip = document.getElementsByClassName("article__float-tip")[0];
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
-        floatTip.style.opacity = 1;
-        floatTip.style.pointerEvents = "all";
+        floatTipRef.current.style.opacity = 1;
+        floatTipRef.current.style.pointerEvents = "all";
       } else {
-        floatTip.style.opacity = 0;
-        floatTip.style.pointerEvents = "none";
+        floatTipRef.current.style.opacity = 0;
+        floatTipRef.current.style.pointerEvents = "none";
       }
     });
   }, []);
@@ -73,7 +76,7 @@ export default function Article({ article }) {
         <title>{title} | Next Blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div className="article__float-tip">
+      <div className="article__float-tip" ref={floatTipRef}>
         <div className="inner-wrapper">
           <div className="article__float-tip__content">
             <div className="article__float-tip__content__top">
