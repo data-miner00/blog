@@ -1,9 +1,25 @@
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 export default function Layout({ children }) {
+  const headerRef = useRef();
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 50) {
+        headerRef.current.style.background = "#361d12";
+        // header.style.borderBottom = "1px solid #eee";
+        // header.style.backdropFilter = "blur(5px)";
+      } else {
+        headerRef.current.style.background = "transparent";
+        // header.style.borderBottom = "none";
+        // header.style.backdropFilter = "none";
+      }
+    });
+  }, []);
+
   return (
     <div className="layout">
-      <header>
+      <header ref={headerRef}>
         <Link href="/">
           <div className="logo">mumk</div>
         </Link>
@@ -34,6 +50,10 @@ export default function Layout({ children }) {
       </header>
 
       <div className="page-content">{children}</div>
+
+      <footer className="footer">
+        <div className="footer__copy">Chong Mum Khong &copy; 2021</div>
+      </footer>
     </div>
   );
 }
