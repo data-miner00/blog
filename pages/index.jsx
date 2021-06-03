@@ -1,3 +1,4 @@
+import Head from "next/head";
 import {
   faDiscord,
   faFacebook,
@@ -5,35 +6,28 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon as Fa } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import { PostPreview } from "../components/PostPreview";
+import { client } from "../services/getContentfulClient";
 
-export default function Home() {
-  const [preview, setPreview] = useState([
-    {
-      imgUrl: "/illus.jpg",
-      title: "This is my title and it must be over 10 words long",
-      subtitle:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-      slug: "this-is-my-title",
-      language: "en",
-      date: "June 3, 2012",
-      tags: ["story", "horror", "title"],
+export const getStaticProps = async () => {
+  const res = await client.getEntries({ content_type: "article" });
+  return {
+    props: {
+      articles: res.items,
     },
-    {
-      imgUrl: "/illus.jpg",
-      title: "This is my title and it must be over 10 words long",
-      subtitle:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-      slug: "this-is-my-title",
-      language: "kr",
-      date: "June 3, 2012",
-      tags: ["story", "horror", "humanity"],
-    },
-  ]);
+    revalidate: 10,
+  };
+};
+
+export default function Home({ articles }) {
+  console.log(articles);
 
   return (
     <div className="home">
+      <Head>
+        <title>Home | Next Blog</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <div className="home__banner">
         <div className="wrap">
           <div className="home__banner__label">
@@ -91,8 +85,8 @@ export default function Home() {
 
       <div className="home__posts">
         <div className="wrap">
-          {preview.map((post) => (
-            <PostPreview post={post} />
+          {articles.map((post) => (
+            <PostPreview key={post.fields.slug} post={post} />
           ))}
         </div>
       </div>
