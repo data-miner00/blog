@@ -12,15 +12,18 @@ import { getLanguage } from "../../services/getLanguage";
 import { client } from "../../services/getContentfulClient";
 import { getDate } from "../../services/getDate";
 import Header from "../../components/Header";
+import Skeleton from "../../components/Skeleton";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
     content_type: "article",
   });
 
-  const paths = res.items.map((item) => ({
-    params: { slug: item.fields.slug },
-  }));
+  const paths = res.items.map((item) => {
+    return {
+      params: { slug: item.fields.slug },
+    };
+  });
 
   return {
     paths,
@@ -51,6 +54,7 @@ export const getStaticProps = async (context) => {
 
 export default function Article({ article }) {
   console.log(article);
+  if (!article) return <Skeleton />;
   const { title, subtitle, tags, image, cheers, language, content } =
     article.fields;
   const { createdAt, updatedAt } = article.sys;
