@@ -9,6 +9,7 @@ import { FontAwesomeIcon as Fa } from "@fortawesome/react-fontawesome";
 import { PostPreview } from "../components/PostPreview";
 import { client } from "../services/getContentfulClient";
 import Header from "../components/Header";
+import { useRef, useEffect } from "react";
 
 export const getStaticProps = async () => {
   const res = await client.getEntries({ content_type: "article" });
@@ -22,15 +23,28 @@ export const getStaticProps = async () => {
 
 export default function Home({ articles }) {
   console.log(articles);
+  const animationBarRef = useRef();
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 50) {
+        animationBarRef.current.style.visibility = "hidden";
+      } else {
+        animationBarRef.current.style.visibility = "visible";
+      }
+    });
+  }, []);
 
   return (
     <div className="home">
-      <Header />
       <Head>
         <title>Home | Next Blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      {/* <a href='https://www.freepik.com/photos/background'>Background photo created by denamorado - www.freepik.com</a> */}
+
+      <Header />
+      {/* Photo by <a href="https://unsplash.com/@danielcgold?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dan Gold</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */}
+
       <div className="home__banner">
         <div className="wrap">
           <div className="home__banner__label">
@@ -43,11 +57,14 @@ export default function Home({ articles }) {
             <p>
               i study, i document, i rant, <span id="wrte">i wrte</span>. Names
               Mum Khong, this is my personal blogging site. Topics of all kinds{" "}
-              <span id="avai">available</span>.
+              <a href="#posts">
+                <span id="avai">available</span>
+              </a>
+              .
             </p>
           </div>
         </div>
-        <div className="home__banner__animation">
+        <div className="home__banner__animation" ref={animationBarRef}>
           <div id="animated-rect"></div>
         </div>
       </div>
@@ -56,6 +73,7 @@ export default function Home({ articles }) {
 
       <div className="home__author">
         <div className="wrap">
+          <div className="home__author__label">About Me</div>
           <div className="home__author__card">
             <div className="home__author__card__avatar">
               <img src="1803151.jpg" alt="my avatar" />
@@ -88,7 +106,7 @@ export default function Home({ articles }) {
         </div>
       </div>
 
-      <div className="home__posts">
+      <div className="home__posts" id="posts">
         <div className="wrap">
           {articles.map((post) => (
             <PostPreview key={post.fields.slug} post={post} />

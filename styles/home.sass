@@ -1,15 +1,16 @@
 .home
   position: relative
+  scroll-behavior: smooth
 
   &__banner
-    border: 1px soild black
+    // border: 1px soild black
     height: 100vh
     justify-content: center
     display: flex
     align-items: center
     position: relative
     overflow: hidden
-    background: url(/wooden-background.jpg)
+    background: url(/mountain.jpg)
     background-size: cover
     background-position: center
     background-repeat: no-repeat
@@ -43,7 +44,7 @@
           right: 0
           bottom: -3px
           height: 3px
-          background: brown
+          background: palevioletred
       
     &__animation
       position: absolute
@@ -68,14 +69,18 @@
     display: flex
     justify-content: center
     padding: 100px 0
+
+    &__label
+
+
     &__card
       display: flex
       width: 650px
-      border: 1px solid #black
+      // border: 1px solid #black
       border-radius: 10px
       box-shadow: 1px 1px 5px  black
       overflow: hidden
-      background: palevioletred
+      background: var(--color1)
 
 
       &__avatar
