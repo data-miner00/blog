@@ -12,6 +12,7 @@ import { getLanguage } from "../../services/getLanguage";
 import { client } from "../../services/getContentfulClient";
 import { getDate } from "../../services/getDate";
 import Skeleton from "../../components/Skeleton";
+import Header from "../../components/Header";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -76,6 +77,7 @@ export default function Article({ article }) {
         <title>{title} | Next Blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      <Header />
       <div className="article__float-tip" ref={floatTipRef}>
         <div className="inner-wrapper">
           <div className="article__float-tip__content">

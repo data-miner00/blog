@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon as Fa } from "@fortawesome/react-fontawesome";
 import { PostPreview } from "../components/PostPreview";
 import { client } from "../services/getContentfulClient";
+import Header from "../components/Header";
 
 export const getStaticProps = async () => {
   const res = await client.getEntries({ content_type: "article" });
@@ -24,10 +25,12 @@ export default function Home({ articles }) {
 
   return (
     <div className="home">
+      <Header />
       <Head>
         <title>Home | Next Blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      {/* <a href='https://www.freepik.com/photos/background'>Background photo created by denamorado - www.freepik.com</a> */}
       <div className="home__banner">
         <div className="wrap">
           <div className="home__banner__label">
@@ -44,7 +47,9 @@ export default function Home({ articles }) {
             </p>
           </div>
         </div>
-        <div className="home__banner__animation"></div>
+        <div className="home__banner__animation">
+          <div id="animated-rect"></div>
+        </div>
       </div>
 
       <div className="home__disclaimer"></div>
