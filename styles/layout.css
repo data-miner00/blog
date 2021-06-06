@@ -1,7 +1,8 @@
 :root {
   --padding: 0 20%;
 
-  --color1: #31263e;
+  --color1: #6c63ff;
+  /* --color1: #31263e; */
   --color2: #44355b;
   --color3: #221e22;
 }
@@ -49,7 +50,7 @@ footer {
   display: flex;
   font-size: 0.75em;
 
-  color: gray;
+  color: #eee;
   align-items: center;
   justify-content: space-between;
 }
