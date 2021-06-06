@@ -11,7 +11,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { getLanguage } from "../../services/getLanguage";
 import { client } from "../../services/getContentfulClient";
 import { getDate } from "../../services/getDate";
-import Skeleton from "../../components/Skeleton";
 import Header from "../../components/Header";
 
 export const getStaticPaths = async () => {
@@ -52,7 +51,6 @@ export const getStaticProps = async (context) => {
 
 export default function Article({ article }) {
   console.log(article);
-  if (!article) return <Skeleton />;
   const { title, subtitle, tags, image, cheers, language, content } =
     article.fields;
   const { createdAt, updatedAt } = article.sys;
