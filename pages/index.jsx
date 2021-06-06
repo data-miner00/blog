@@ -1,6 +1,6 @@
 import Head from "next/head";
 import {
-  faDiscord,
+  faTwitter,
   faFacebook,
   faInstagram,
   faLinkedin,
@@ -69,11 +69,11 @@ export default function Home({ articles }) {
         </div>
       </div>
 
-      <div className="home__disclaimer"></div>
-
       <div className="home__author">
         <div className="wrap">
-          <div className="home__author__label">About Me</div>
+          <div className="home__author__label">
+            <h3>About Me</h3>
+          </div>
           <div className="home__author__card">
             <div className="home__author__card__avatar">
               <img src="1803151.jpg" alt="my avatar" />
@@ -82,25 +82,55 @@ export default function Home({ articles }) {
               <div className="home__author__card__details__para">
                 <p>
                   Hi there. I am Mum Khong, a Software Engineerinng freshgrads
-                  from UTAR. I am 24 this year and jobless atm. The incentive of
-                  making this blog is to improve my writing and critical
-                  thinking skills and spend quality time instead of wasting it.
+                  from UTAR. I am 24 this year. The incentive of making this
+                  blog is to improve my writing and critical thinking skills and
+                  make good use of my time.
                 </p>
               </div>
               <div className="home__author__card__details__social">
-                <div>
-                  <Fa icon={faFacebook} />
+                <div
+                  className="home__author__card__details__social__icon"
+                  id="facebook"
+                >
+                  <a href="" target="_blank">
+                    <Fa icon={faFacebook} />
+                  </a>
                 </div>
-                <div>
-                  <Fa icon={faLinkedin} />
+
+                <div
+                  className="home__author__card__details__social__icon"
+                  id="instagram"
+                >
+                  <a href="" target="_blank">
+                    <Fa icon={faInstagram} />
+                  </a>
                 </div>
-                <div>
-                  <Fa icon={faInstagram} />
+                <div className="home__author__card__details__social__icon">
+                  <a href="" target="_blank">
+                    <Fa icon={faTwitter} />
+                  </a>
                 </div>
-                <div>
-                  <Fa icon={faDiscord} />
+                <div className="home__author__card__details__social__icon">
+                  <a href="#">
+                    <Fa icon={faLinkedin} />
+                  </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="home__disclaimer">
+        <div className="wrap-wrap">
+          <div className="wrap">
+            <div className="home__disclaimer__label">Disclaimer:</div>
+            <div className="home__disclaimer__body">
+              The articles written are by no means a reliable source for scholar
+              reference whatsoever. Though facts are frequently described in the
+              articles, the content as a whole might be severely opinionated.
+              Fact-finding must be performed by one's who intend to cite an
+              excerpt from any of my article.
             </div>
           </div>
         </div>
@@ -111,6 +141,12 @@ export default function Home({ articles }) {
           {articles.map((post) => (
             <PostPreview key={post.fields.slug} post={post} />
           ))}
+        </div>
+      </div>
+
+      <div className="home__illustration">
+        <div className="wrap">
+          <img src="undraw_wall_post.svg" alt="" />
         </div>
       </div>
     </div>
