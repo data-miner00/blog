@@ -8,7 +8,7 @@
 
 .layout {
   /* background-color: #361d12; */
-  background-color: #0c090a;
+  background-color: #1c1c1c;
   position: relative;
 }
 
@@ -43,6 +43,7 @@ header {
 
 footer {
   height: 80px;
+  /* background: #504d94; */
   background: var(--color1);
   padding: var(--padding);
   display: flex;
