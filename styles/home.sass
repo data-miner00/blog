@@ -98,6 +98,8 @@
         display: flex
         flex-direction: column
         justify-content: space-between
+        // text-indent: 50px
+        // text-align: justify
 
         &__social
           display: flex
@@ -154,10 +156,23 @@
 
   &__illustration
     padding: 100px 0
+    
 
     .wrap
+      position: relative
       width: fit-content
       margin: 0 auto
+
+    &__credit
+      position: absolute
+      right: 0
+      bottom: -30px
+      font-size: .625em
+      // text-transform: uppercase
+
+      #undraw
+        color: var(--color1)
+
     
 @keyframes f 
   0% 
@@ -171,3 +186,51 @@
     transform: translateY(0)
     opacity: 0
   
+@media screen and (max-width: 1400px)
+  .home
+    &__posts
+      .wrap
+        flex-direction: column
+        align-items: center
+
+    &__illustration
+      &__image
+        height: 400px
+
+@media screen and (max-width: 1200px)
+  .home
+    &__banner
+      &__label
+        font-size: 1.8em
+        line-height: 1.25
+      &__para
+        font-size: 0.95em
+
+    &__author
+      padding: 100px 0
+    &__illustration
+      &__image
+        height: 300px
+
+@media screen and (max-width: 1024px)
+  .home
+    &__disclaimer
+      padding-left: 5%
+      padding-right: 5%
+
+@media screen and (max-width: 850px)
+  .home
+    &__banner
+      height: 70vh
+      &__label
+        font-size: 1.3em
+      &__para
+        font-size: 0.8em
+        width: 300px
+        margin-top: 5px
+      &__animation
+        display: none
+
+    &__author
+      &__label
+        font-size: 1.3em

@@ -23,17 +23,19 @@
     position: relative
 
   &__details
-    flex-grow: 1
-    max-width: 400px
+    
+    width: 400px
     padding: 0 20px
 
     &__title
       font-size: 1.25em
       color: rgba(255,255,255, .8)
 
+
     &__subtitle
       color: #c0c0c0
       margin-top: 8px
+ 
 
     .row
       display: flex
@@ -59,3 +61,22 @@
         padding: 5px 8px
         background: #eee
 
+@media screen and (max-width: 1536px)
+  .post-preview
+    &__details
+      &__title
+        font-size: 1em
+      &__subtitle
+        font-size: 0.85em
+
+@media screen and (max-width: 1400px)
+  .post-preview
+    width: 70%
+
+@media screen and (max-width: 1200px)
+  .post-preview
+    width: 85%
+
+@media screen and (max-width: 850px)
+  .post-preview
+    width: 100%

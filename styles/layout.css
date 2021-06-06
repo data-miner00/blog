@@ -103,3 +103,19 @@ footer {
 #place {
   color: white;
 }
+
+@media screen and (max-width: 1200px) {
+  .footer {
+    height: 100px;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+  }
+  .footer__made-by {
+    font-size: 1em;
+  }
+  header {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
