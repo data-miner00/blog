@@ -18,30 +18,9 @@ export default function Header() {
           <rect x="13" y="5" width="4" height="12" fill="white" />
           <rect x="7" y="9" width="4" height="8" fill="white" />
           <rect x="1" y="1" width="4" height="16" fill="white" />
-          <rect
-            id="rect3"
-            x="13"
-            y="1"
-            width="4"
-            height="16"
-            fill="palevioletred"
-          />
-          <rect
-            id="rect1"
-            x="1"
-            y="1"
-            width="4"
-            height="16"
-            fill="palevioletred"
-          />
-          <rect
-            id="rect2"
-            x="7"
-            y="1"
-            width="4"
-            height="16"
-            fill="palevioletred"
-          />
+          <rect id="rect3" x="13" y="1" width="4" height="16" fill="#6c63ff" />
+          <rect id="rect1" x="1" y="1" width="4" height="16" fill="#6c63ff" />
+          <rect id="rect2" x="7" y="1" width="4" height="16" fill="#6c63ff" />
         </svg>
       </div>
     </header>
