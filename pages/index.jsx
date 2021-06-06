@@ -76,7 +76,7 @@ export default function Home({ articles }) {
           </div>
           <div className="home__author__card">
             <div className="home__author__card__avatar">
-              <img src="1803151.jpg" alt="my avatar" />
+              <img src="1803151.jpg" alt="my avatar" id="avatar" />
             </div>
             <div className="home__author__card__details">
               <div className="home__author__card__details__para">

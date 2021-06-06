@@ -234,3 +234,43 @@
     &__author
       &__label
         font-size: 1.3em
+
+@media screen and (max-width: 768px)
+  .home
+    &__posts
+      padding-left: 10%
+      padding-right: 10%
+      
+@media screen and (max-width: 500px)
+  .home
+    &__author
+      &__card
+        position: relative
+        width: 400px
+        font-size: 0.85em
+        overflow: visible
+        &__avatar
+          width: 140px
+          height: 160px
+          #avatar
+            height: 140px
+        &__details
+          
+          
+          &__social
+            position: absolute
+            left: 50%
+            bottom: -70px
+            width: 200px
+            transform: translateX(-50%)
+
+    &__disclaimer
+      .wrap-wrap
+        .wrap
+          flex-direction: column
+      &__label
+        margin-bottom: 10px
+
+    &__posts
+      padding-left: 5px
+      padding-right: 5px
