@@ -92,7 +92,7 @@ export default function Home({ articles }) {
                   className="home__author__card__details__social__icon"
                   id="facebook"
                 >
-                  <a href="" target="_blank">
+                  <a href="#" target="_blank">
                     <Fa icon={faFacebook} />
                   </a>
                 </div>
@@ -101,16 +101,22 @@ export default function Home({ articles }) {
                   className="home__author__card__details__social__icon"
                   id="instagram"
                 >
-                  <a href="" target="_blank">
+                  <a href="#" target="_blank">
                     <Fa icon={faInstagram} />
                   </a>
                 </div>
-                <div className="home__author__card__details__social__icon">
-                  <a href="" target="_blank">
+                <div
+                  className="home__author__card__details__social__icon"
+                  id="twitter"
+                >
+                  <a href="#" target="_blank">
                     <Fa icon={faTwitter} />
                   </a>
                 </div>
-                <div className="home__author__card__details__social__icon">
+                <div
+                  className="home__author__card__details__social__icon"
+                  id="linkedin"
+                >
                   <a href="#">
                     <Fa icon={faLinkedin} />
                   </a>
@@ -146,7 +152,16 @@ export default function Home({ articles }) {
 
       <div className="home__illustration">
         <div className="wrap">
-          <img src="undraw_wall_post.svg" alt="" />
+          <img
+            src="undraw_wall_post.svg"
+            alt=""
+            className="home__illustration__image"
+          />
+          <div className="home__illustration__credit">
+            <a href="https://undraw.co" target="_blank">
+              Lovely illustration by <span id="undraw">unDraw.co</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
