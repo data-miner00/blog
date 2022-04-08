@@ -13,6 +13,7 @@ import { client } from "../../services/getContentfulClient";
 import { getDate } from "../../services/getDate";
 import Header from "../../components/Header";
 import Skeleton from "../../components/Skeleton";
+import Layout from "../../components/Layout";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -63,13 +64,18 @@ export default function Article({ article }) {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        floatTipRef.current.style.opacity = 1;
-        floatTipRef.current.style.pointerEvents = "all";
-      } else {
-        floatTipRef.current.style.opacity = 0;
-        floatTipRef.current.style.pointerEvents = "none";
+      if (floatTipRef.current) {
+        if (window.pageYOffset > 300) {
+          floatTipRef.current.style.opacity = 1;
+          floatTipRef.current.style.pointerEvents = "all";
+        } else {
+          floatTipRef.current.style.opacity = 0;
+          floatTipRef.current.style.pointerEvents = "none";
+        }
       }
+      return function cleanup() {
+        window.removeEventListener("scroll");
+      };
     });
   }, []);
 
@@ -201,3 +207,7 @@ export default function Article({ article }) {
     </div>
   );
 }
+
+Article.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

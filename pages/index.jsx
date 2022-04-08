@@ -10,6 +10,7 @@ import { PostPreview } from "../components/PostPreview";
 import { client } from "../services/getContentfulClient";
 import Header from "../components/Header";
 import { useRef, useEffect } from "react";
+import Layout from "../components/Layout";
 
 export const getStaticProps = async () => {
   const res = await client.getEntries({ content_type: "article" });
@@ -27,11 +28,16 @@ export default function Home({ articles }) {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 50) {
-        animationBarRef.current.style.visibility = "hidden";
-      } else {
-        animationBarRef.current.style.visibility = "visible";
+      if (animationBarRef.current) {
+        if (window.pageYOffset > 50) {
+          animationBarRef.current.style.visibility = "hidden";
+        } else {
+          animationBarRef.current.style.visibility = "visible";
+        }
       }
+      return function cleanup() {
+        window.removeEventListener("scroll");
+      };
     });
   }, []);
 
@@ -167,3 +173,7 @@ export default function Home({ articles }) {
     </div>
   );
 }
+
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
