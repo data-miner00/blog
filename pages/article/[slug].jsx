@@ -86,9 +86,9 @@ export default function Article({ article }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header />
-      <div className="article__float-tip" ref={floatTipRef}>
+      <div className="article__float-tip">
         <div className="inner-wrapper">
-          <div className="article__float-tip__content">
+          <div className="article__float-tip__content" ref={floatTipRef}>
             <div className="article__float-tip__content__top">
               <div className="article__float-tip__content__top__title">
                 {title}

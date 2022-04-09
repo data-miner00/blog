@@ -14,10 +14,7 @@ $color: #D88C9A
     top: 150px
     width: 100%
     z-index: 0
-    opacity: 0
     pointer-events: none
-    transition: opacity .2s
-    will-change: opacity
     
     .inner-wrapper
       width: 78%
@@ -26,6 +23,10 @@ $color: #D88C9A
 
     &__content
       width: 200px
+      opacity: 0
+      transition: opacity .2s
+      will-change: opacity
+      pointer-events: none
   
       &__top
         padding: 20px 0
