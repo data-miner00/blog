@@ -3,6 +3,9 @@
     hr
         margin: 30px 0
 
+    code
+        font-size: .85em
+
     & > p
         word-break: break-word
 
@@ -17,8 +20,14 @@
         border-radius: 5px
         display: block
 
-    & > ol, & ul
-        padding-left: 20px
+    & > ol, ul
+        padding-left: 40px
+
+    & > ol
+        @apply list-decimal
+
+    ul
+        @apply list-disc
 
     & > blockquote
         position: relative
