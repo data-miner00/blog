@@ -1,6 +1,9 @@
 import Props from "./Props";
 
-export default function ClapIcon({ className = "" }: Props): JSX.Element {
+export default function ClapIcon({
+  className = "",
+  fill = "#fff",
+}: Props): JSX.Element {
   return (
     <svg
       width="24"
@@ -8,6 +11,7 @@ export default function ClapIcon({ className = "" }: Props): JSX.Element {
       viewBox="0 0 24 24"
       aria-label="clap"
       className={className}
+      fill={fill}
     >
       <path
         fillRule="evenodd"
