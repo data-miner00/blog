@@ -14,6 +14,14 @@ import { getDate } from "../../services/getDate";
 import Header from "../../components/Header";
 import Skeleton from "../../components/Skeleton";
 import Layout from "../../components/Layout";
+import { BLOCKS } from "@contentful/rich-text-types";
+import TwitterIcon from "../../components/icons/logo/TwitterIcon";
+import FacebookIcon from "../../components/icons/logo/FacebookIcon";
+import LinkedInIcon from "../../components/icons/logo/LinkedInIcon";
+import ChainIcon from "../../components/icons/ChainIcon";
+import ClapIconFill from "../../components/icons/ClapIconFill";
+import BookmarkIcon from "../../components/icons/BookmarkIcon";
+import DialogIcon from "../../components/icons/DialogIcon";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -53,10 +61,20 @@ export const getStaticProps = async (context) => {
   };
 };
 
+const renderOptions = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+      if (node.data.target.fields.file.contentType === "image/jpeg") {
+        return <Image src={node.data.target.fields.file.url} />;
+      }
+    },
+  },
+};
+
 export default function Article({ article }) {
   console.log(article);
   if (!article) return <Skeleton />;
-  const { title, subtitle, tags, image, cheers, language, content } =
+  const { title, subtitle, tags, image, cheers, language, content, minutes } =
     article.fields;
   const { createdAt, updatedAt } = article.sys;
 
@@ -65,7 +83,7 @@ export default function Article({ article }) {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (floatTipRef.current) {
-        if (window.pageYOffset > 300) {
+        if (window.pageYOffset > 500) {
           floatTipRef.current.style.opacity = 1;
           floatTipRef.current.style.pointerEvents = "all";
         } else {
@@ -107,7 +125,7 @@ export default function Article({ article }) {
             <div className="article__float-tip__content__btm">
               <div className="action--cheers action">
                 <div className="action--cheers__icon">
-                  <Fa icon={faGlassCheers}></Fa>
+                  <ClapIconFill fill="#fff" />
                 </div>
                 <div className="action--cheers__counter">{cheers}</div>
               </div>
@@ -147,24 +165,35 @@ export default function Article({ article }) {
             </div>
             <div className="article__author__name-group__rhs">
               <div className="article__author__name-group__rhs__name">
-                Chong Mum Khong
+                <span>Chong Mum Khong</span>
+                <a href="https://www.facebook.com" target="_blank">
+                  Follow
+                </a>
               </div>
               <div className="article__author__name-group__rhs__date">
-                {getDate(createdAt, 2)} • {getLanguage(language)}
+                {getDate(createdAt, 2)}&nbsp;&nbsp;·&nbsp;&nbsp;{minutes} min
+                read&nbsp;&nbsp;·&nbsp;&nbsp;
+                {getLanguage(language)}
               </div>
             </div>
           </div>
           <div className="article__author__action-group">
-            <div className="box">
-              <Fa icon={faCoffee} />
+            <div>
+              <TwitterIcon />
             </div>
-            <div className="box">
-              <Fa icon={faFlag} />
+            <div>
+              <FacebookIcon />
+            </div>
+            <div>
+              <LinkedInIcon />
+            </div>
+            <div>
+              <ChainIcon />
             </div>
           </div>
         </div>
         <div className="article__body">
-          {documentToReactComponents(content)}
+          {documentToReactComponents(content, renderOptions)}
         </div>
         <div className="article__ending">
           <div className="article__ending__published">

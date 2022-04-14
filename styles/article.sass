@@ -57,13 +57,6 @@ $color: #D88C9A
         justify-content: space-between
         padding: 20px 50px 20px 0
 
-        .action
-          transition: color .2s
-          cursor: pointer
-
-          &:hover
-            color: $color
-
         .action--cheers
           display: flex
           &__counter
@@ -83,14 +76,13 @@ $color: #D88C9A
     display: flex
     justify-content: space-between
     align-items: center
-    font-size: .75em
 
     &__name-group
       display: flex
       align-items: center
       &__avatar
-        width: 40px
-        height: 40px
+        width: 50px
+        height: 50px
         border-radius: 250px
         position: relative
         overflow: hidden
@@ -100,11 +92,24 @@ $color: #D88C9A
         flex-direction: column
         row-gap: 3px
         &__name
-          font-weight: 700
+          display: flex
+          align-items: center
+
+          & > *
+            display: block
+
+          a
+            border: 1px solid #eee
+            border-radius: 4px
+            padding: 2px 10px
+            margin-left: 10px
+        
+        &__date
+          color: #ccc
 
     &__action-group
       display: flex
-      width: 80px
+      width: 120px
       justify-content: space-between
 
       .box
