@@ -2,7 +2,7 @@ import Props from "./Props";
 
 export default function ClapIcon({
   className = "",
-  fill = "#fff",
+  fill = "#000",
 }: Props): JSX.Element {
   return (
     <svg

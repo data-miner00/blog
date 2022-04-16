@@ -203,35 +203,6 @@ export default function Article({ article }) {
             Last edited at {getDate(updatedAt, 3)}
           </div>
         </div>
-        <div className="article__read-more">
-          <div className="article__read-more__heading">Read More</div>
-          <div className="article__read-more__articles-list">
-            <div className="item">
-              <div className="item__thumbnail"></div>
-              <div className="item__details">
-                <div className="item__details__title">Blog 1</div>
-                <div className="item__details__excerpt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ipsum, repellat officiis ducimus debitis eligendi sunt
-                  similique dolores facere esse explicabo distinctio harum
-                  laborum impedit.
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="item__thumbnail"></div>
-              <div className="item__details">
-                <div className="item__details__title">Blog 1</div>
-                <div className="item__details__excerpt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ipsum, repellat officiis ducimus debitis eligendi sunt
-                  similique dolores facere esse explicabo distinctio harum
-                  laborum impedit.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
