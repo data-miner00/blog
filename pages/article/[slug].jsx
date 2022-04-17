@@ -1,11 +1,5 @@
 import Image from "next/image";
 import Head from "next/head";
-import {
-  faCoffee,
-  faFlag,
-  faGlassCheers,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon as Fa } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { getLanguage } from "../../services/getLanguage";
@@ -19,9 +13,11 @@ import TwitterIcon from "../../components/icons/logo/TwitterIcon";
 import FacebookIcon from "../../components/icons/logo/FacebookIcon";
 import LinkedInIcon from "../../components/icons/logo/LinkedInIcon";
 import ChainIcon from "../../components/icons/ChainIcon";
-import ClapIconFill from "../../components/icons/ClapIconFill";
-import BookmarkIcon from "../../components/icons/BookmarkIcon";
+import ClapIcon from "../../components/icons/ClapIcon";
+import BookmarkIcon from "../../components/icons/AddBookmarkIcon";
+import ArrowPointingUpFromBoxIcon from "../../components/icons/ArrowPointingUpFromBoxIcon";
 import DialogIcon from "../../components/icons/DialogIcon";
+import AddBookmarkIcon from "../../components/icons/AddBookmarkIcon";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -125,16 +121,16 @@ export default function Article({ article }) {
             <div className="article__float-tip__content__btm">
               <div className="action--cheers action">
                 <div className="action--cheers__icon">
-                  <ClapIconFill fill="#fff" />
+                  <ClapIcon fill="#fff" />
                 </div>
                 <div className="action--cheers__counter">{cheers}</div>
               </div>
 
               <div className="action">
-                <Fa icon={faCoffee}></Fa>
+                <DialogIcon fill="#fff" />
               </div>
               <div className="action">
-                <Fa icon={faFlag}></Fa>
+                <AddBookmarkIcon fill="#fff" />
               </div>
             </div>
           </div>
@@ -188,7 +184,11 @@ export default function Article({ article }) {
               <LinkedInIcon />
             </div>
             <div>
-              <ChainIcon />
+              <ChainIcon size={34} />
+            </div>
+            <div className="vr"></div>
+            <div>
+              <ArrowPointingUpFromBoxIcon fill="#ccc" size={34} />
             </div>
           </div>
         </div>
@@ -196,6 +196,26 @@ export default function Article({ article }) {
           {documentToReactComponents(content, renderOptions)}
         </div>
         <div className="article__ending">
+          <div className="article__ending__actions">
+            <div className="article__ending__actions__left">
+              <div className="flex items-center mr-5">
+                <ClapIcon size={34} fill="#fff" className="mr-1" />
+                <span className="text-lg">{cheers}</span>
+              </div>
+              <div>
+                <DialogIcon size={34} fill="#fff" />
+              </div>
+            </div>
+            <div className="article__ending__actions__right">
+              <BookmarkIcon size={34} fill="#fff" />
+              <ArrowPointingUpFromBoxIcon size={34} fill="#fff" />
+            </div>
+          </div>
+          <div className="article__ending__tags">
+            {tags.map((tag) => (
+              <span>{tag}</span>
+            ))}
+          </div>
           <div className="article__ending__published">
             Published on {getDate(createdAt, 3)}
           </div>

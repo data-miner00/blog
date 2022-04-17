@@ -1,5 +1,4 @@
-$color: #D88C9A
-  
+
 .article
   // padding: 150px 50px 50px 50px
   padding: 150px calc(20% + 50px) 50px
@@ -99,7 +98,8 @@ $color: #D88C9A
             display: block
 
           a
-            border: 1px solid #eee
+            background: var(--color1)
+            border: 1px solid var(--color1)
             border-radius: 4px
             padding: 2px 10px
             margin-left: 10px
@@ -110,16 +110,15 @@ $color: #D88C9A
 
     &__action-group
       display: flex
-      width: 120px
+      width: 230px
       justify-content: space-between
+      align-items: center
 
-      .box
-        font-size: 1.5em
-        transition: color .2s
-        cursor: pointer
-
-        &:hover
-          color: $color
+      .vr
+        width: 1px
+        background: #888
+        margin: 0 10px
+        height: 20px
       
   &__body
     font-size: 1.25em
@@ -130,10 +129,27 @@ $color: #D88C9A
   &__ending
     padding: 30px 0
     color: #cdcdcd
-    text-align: center
-    border-bottom: 1px solid #eee
     font-size: .85em
-    font-style: italic
+    &__actions
+      display: flex
+      justify-content: space-between
+      margin-bottom: 50px
+      &__left
+        display: flex
+        align-items: center
+        gap: 10px
+      &__right
+        display: flex
+        align-items: center
+        gap: 10px
+    &__tags
+      display: flex
+      gap: 10px
+      span
+        color: white
+        display: block
+        padding: 4px 10px
+        background: var(--color1)
 
 @media screen and (max-width: 1536px)
   .article
