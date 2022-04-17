@@ -1,8 +1,11 @@
 import Props from "./Props";
 
-export default function ChainIcon(props: Props): JSX.Element {
+export default function ChainIcon({
+  className,
+  size = 24,
+}: Props): JSX.Element {
   return (
-    <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

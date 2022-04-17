@@ -3,11 +3,12 @@ import Props from "./Props";
 export default function ArrowPointingUpFromBoxIcon({
   className = "",
   fill = "#000",
+  size = 24,
 }: Props): JSX.Element {
   return (
     <svg
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       className={className}
