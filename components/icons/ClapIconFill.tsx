@@ -3,11 +3,12 @@ import Props from "./Props";
 export default function ClapIconFill({
   className = "",
   fill = "#fff",
+  size = 24,
 }: Props): JSX.Element {
   return (
     <svg
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       className={className}
       fill={fill}
       viewBox="0 0 24 24"

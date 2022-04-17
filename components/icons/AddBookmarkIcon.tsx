@@ -3,11 +3,12 @@ import Props from "./Props";
 export default function AddBookmarkIcon({
   className = "",
   fill = "#292929",
+  size = 25,
 }: Props): JSX.Element {
   return (
     <svg
-      width="25"
-      height="25"
+      width={size}
+      height={size}
       viewBox="0 0 25 25"
       fill="none"
       className={className}
