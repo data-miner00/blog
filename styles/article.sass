@@ -141,7 +141,7 @@
       &__right
         display: flex
         align-items: center
-        gap: 10px
+        gap: 30px
     &__tags
       display: flex
       gap: 10px
@@ -150,6 +150,57 @@
         display: block
         padding: 4px 10px
         background: var(--color1)
+
+    &__author
+      border: 1px solid #888
+      padding: 40px
+      &__name
+        font-weight: 800
+        margin-top: 12px
+
+      &__followers
+        margin-top: 8px
+        font-size: 1.15em
+
+      &__tagline
+        margin-top: 12px
+        font-weight: 600
+
+      &__description
+        @apply text-gray-500
+
+      &__actions
+        display: flex
+        margin-top: 20px
+        justify-content: space-between
+        &__left
+          display: flex
+          align-items: center
+          .follow-btn
+            background: var(--color1)
+            border: 1px solid var(--color1)
+            border-radius: 999px
+            padding: 8px 16px
+            line-height: 1.2
+          .mail-btn
+            margin-left: 10px
+            border-radius: 999px
+            background: var(--color1)
+        &__right
+          display: flex
+          gap: 10px
+
+          div
+            height: 34px
+            width: 34px
+            display: grid
+            place-items: center
+
+        
+
+    &__dates
+      text-align: center
+      margin: 20px 0
 
 @media screen and (max-width: 1536px)
   .article

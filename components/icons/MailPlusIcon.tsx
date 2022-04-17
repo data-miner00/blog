@@ -1,13 +1,18 @@
 import Props from "./Props";
 
-export default function MailPlusIcon({ className = "" }: Props): JSX.Element {
+export default function MailPlusIcon({
+  className = "",
+  fill = "#fff",
+  size = 24,
+}: Props): JSX.Element {
   return (
     <svg
-      width="38"
-      height="38"
+      width={size}
+      height={size}
       viewBox="0 0 38 38"
       fill="none"
       className={className}
+      stroke="#fff"
     >
       <rect x="26.25" y="9.25" width="0.5" height="6.5" rx="0.25"></rect>
       <rect

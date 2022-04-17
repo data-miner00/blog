@@ -11,6 +11,7 @@ import Layout from "../../components/Layout";
 import { BLOCKS } from "@contentful/rich-text-types";
 import TwitterIcon from "../../components/icons/logo/TwitterIcon";
 import FacebookIcon from "../../components/icons/logo/FacebookIcon";
+import GitHubIcon from "../../components/icons/logo/GitHubIcon";
 import LinkedInIcon from "../../components/icons/logo/LinkedInIcon";
 import ChainIcon from "../../components/icons/ChainIcon";
 import ClapIcon from "../../components/icons/ClapIcon";
@@ -18,6 +19,8 @@ import BookmarkIcon from "../../components/icons/AddBookmarkIcon";
 import ArrowPointingUpFromBoxIcon from "../../components/icons/ArrowPointingUpFromBoxIcon";
 import DialogIcon from "../../components/icons/DialogIcon";
 import AddBookmarkIcon from "../../components/icons/AddBookmarkIcon";
+import MailPlusIcon from "../../components/icons/MailPlusIcon";
+import GlobeIcon from "../../components/icons/GlobeIcon";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -199,16 +202,16 @@ export default function Article({ article }) {
           <div className="article__ending__actions">
             <div className="article__ending__actions__left">
               <div className="flex items-center mr-5">
-                <ClapIcon size={34} fill="#fff" className="mr-1" />
-                <span className="text-lg">{cheers}</span>
+                <ClapIcon size={28} fill="#fff" className="mr-1" />
+                <span>{cheers}</span>
               </div>
               <div>
-                <DialogIcon size={34} fill="#fff" />
+                <DialogIcon size={28} fill="#fff" />
               </div>
             </div>
             <div className="article__ending__actions__right">
-              <BookmarkIcon size={34} fill="#fff" />
-              <ArrowPointingUpFromBoxIcon size={34} fill="#fff" />
+              <BookmarkIcon size={28} fill="#fff" />
+              <ArrowPointingUpFromBoxIcon size={28} fill="#fff" />
             </div>
           </div>
           <div className="article__ending__tags">
@@ -216,11 +219,50 @@ export default function Article({ article }) {
               <span>{tag}</span>
             ))}
           </div>
-          <div className="article__ending__published">
-            Published on {getDate(createdAt, 3)}
+          <div className="article__ending__dates">
+            <span>
+              - Article published on {getDate(createdAt, 3)} · Last edited at{" "}
+              {getDate(updatedAt, 3)} -
+            </span>
           </div>
-          <div className="article__ending__edited">
-            Last edited at {getDate(updatedAt, 3)}
+
+          <div className="article__ending__author">
+            <div className=" h-16 w-16 rounded-full bg-gray-300"></div>
+            <div className="article__ending__author__name">
+              <span>Chong Mum Khong</span>
+            </div>
+            <div className="article__ending__author__followers">
+              0 Followers
+            </div>
+            <div className="article__ending__author__tagline">
+              Mind your own business.
+            </div>
+            <div className="article__ending__author__description">
+              Son, Friend, Moron, Tech Advocate, Paper money Investor, CSS,
+              Next.js, Nuxt.js · @kusama @solana @cardano @avalanche · #English
+              #Japanese #Malay #Chinese #Korean
+            </div>
+            <div className="article__ending__author__actions">
+              <div className="article__ending__author__actions__left">
+                <div className="follow-btn">
+                  <span>Follow</span>
+                </div>
+                <div className="mail-btn">
+                  <MailPlusIcon size={34} />
+                </div>
+              </div>
+              <div className="article__ending__author__actions__right">
+                <FacebookIcon />
+                <TwitterIcon />
+                <LinkedInIcon />
+                <div>
+                  <GitHubIcon fill="#A8A8A8" />
+                </div>
+                <div>
+                  <GlobeIcon fill="#A8A8A8" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
