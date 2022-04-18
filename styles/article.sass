@@ -1,6 +1,5 @@
 
 .article
-  // padding: 150px 50px 50px 50px
   padding: 150px calc(20% + 50px) 50px
   position: relative
 
@@ -128,8 +127,7 @@
 
   &__ending
     padding: 30px 0
-    color: #cdcdcd
-    font-size: .85em
+
     &__actions
       display: flex
       justify-content: space-between
@@ -152,8 +150,13 @@
         background: var(--color1)
 
     &__author
-      border: 1px solid #888
-      padding: 40px
+      &__avatar
+        width: 80px
+        height: 80px
+        border-radius: 250px
+        position: relative
+        overflow: hidden
+
       &__name
         font-weight: 800
         margin-top: 12px
@@ -196,11 +199,63 @@
             display: grid
             place-items: center
 
-        
-
     &__dates
+      font-size: .85em
       text-align: center
       margin: 20px 0
+      @apply text-gray-600
+
+    &__subscription
+      color: white
+      border-top: 4px solid var(--color1)
+      padding: 40px
+      background: #212121
+      margin-bottom: 100px
+
+      h1
+        font-size: 2em
+        font-weight: 600
+
+      &__author
+        font-size: .8em
+        span
+          text-transform: uppercase
+          
+      &__pitch
+        margin-top: 30px
+      
+      &__email
+        display: flex
+        margin: 20px 0
+        align-items: center
+        .input-wrapper
+          flex-grow: 1
+          padding-right: 30px
+          input
+            padding: 3px 0
+            background: transparent
+            border-bottom: 1px solid #ccc
+            width: 100%
+            outline: none
+            &:hover
+              border-bottom-color: #fff
+            &:active, &:focus
+              border-bottom-color: var(--color1)
+
+        .btn-wrapper
+          background: var(--color1)
+          padding: 0 10px
+          border-radius: 999px
+          transition: background .2s
+          &:hover
+            background: #4F46E5
+          button    
+            display: flex
+            align-items: center
+            padding-right: 8px
+      &__terms
+        font-size: 12px
+
 
 @media screen and (max-width: 1536px)
   .article
@@ -218,7 +273,31 @@
     &__float-tip
       display: none
 
+    &__author
+      flex-direction: column
+      &__action-group
+        margin-top: 20px
+
+    &__ending
+      &__subscription
+        padding: 20px
+        h1
+          font-size: 24px
+
+        &__email
+          flex-direction: column
+          gap: 20px
+
+          .input-wrapper
+            padding-right: 0
+      &__author
+        &__actions
+          flex-direction: column
+          gap: 20px
+
 @media screen and (max-width: 768px)
   .article
     .content-wrapper
       padding: 0
+
+    

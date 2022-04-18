@@ -221,26 +221,70 @@ export default function Article({ article }) {
           </div>
           <div className="article__ending__dates">
             <span>
-              - Article published on {getDate(createdAt, 3)} · Last edited at{" "}
-              {getDate(updatedAt, 3)} -
+              - Article first published on {getDate(createdAt, 3)} · Last edited
+              at {getDate(updatedAt, 3)} -
             </span>
           </div>
 
+          <div className="article__ending__subscription">
+            <h1>Sign me up for more stories like this</h1>
+            <p className="article__ending__subscription__author">
+              By <span>Chong Mum Khong</span>
+            </p>
+            <p className="article__ending__subscription__pitch">
+              I share things that I find interesting, things that I see value,
+              opinion that matters. Might not fit everyone's appetite but if it
+              indeed resonates with you, please consider to follow my
+              newsletter. For technical writings in the form of documentation,
+              blog and tutorial, you may find me at
+              https://book-dun-three.vercel.app where I will be posting there
+              regularly as well.
+            </p>
+            <div className="article__ending__subscription__email">
+              <div className="input-wrapper">
+                <input type="text" placeholder="Your email" />
+              </div>
+              <div className="btn-wrapper">
+                <button>
+                  <MailPlusIcon size={38} />
+                  <div>Get this newsletter</div>
+                </button>
+              </div>
+            </div>
+            <div className="article__ending__subscription__terms">
+              <p>
+                By signing up, you will receive weekly email on my article and
+                give me the consent to keep track of your email in my database.
+                Review the <span className="underline">Privacy Policy</span> for
+                more information about my privacy practices.
+              </p>
+            </div>
+          </div>
+
           <div className="article__ending__author">
-            <div className=" h-16 w-16 rounded-full bg-gray-300"></div>
+            <div className="article__ending__author__avatar">
+              <Image
+                src="/1803151.jpg"
+                layout="fill"
+                alt="Author's avatar"
+                objectFit="cover"
+                objectPosition="top"
+              />
+            </div>
             <div className="article__ending__author__name">
               <span>Chong Mum Khong</span>
             </div>
             <div className="article__ending__author__followers">
-              0 Followers
+              3.14 Followers
             </div>
             <div className="article__ending__author__tagline">
               Mind your own business.
             </div>
             <div className="article__ending__author__description">
               Son, Friend, Moron, Tech Advocate, Paper money Investor, CSS,
-              Next.js, Nuxt.js · @kusama @solana @cardano @avalanche · #English
-              #Japanese #Malay #Chinese #Korean
+              Next.js, Nuxt.js · @kusama @solana @cardano @avalanche @terra ·
+              #English #Japanese #Malay #Chinese #Korean · $supernatural
+              $science $tech $fitness $finance
             </div>
             <div className="article__ending__author__actions">
               <div className="article__ending__author__actions__left">
@@ -252,15 +296,25 @@ export default function Article({ article }) {
                 </div>
               </div>
               <div className="article__ending__author__actions__right">
-                <FacebookIcon />
-                <TwitterIcon />
-                <LinkedInIcon />
-                <div>
-                  <GitHubIcon fill="#A8A8A8" />
-                </div>
-                <div>
-                  <GlobeIcon fill="#A8A8A8" />
-                </div>
+                <a href="">
+                  <FacebookIcon />
+                </a>
+                <a href="">
+                  <TwitterIcon />
+                </a>
+                <a href="">
+                  <LinkedInIcon />
+                </a>
+                <a href="">
+                  <div>
+                    <GitHubIcon fill="#A8A8A8" />
+                  </div>
+                </a>
+                <a href="">
+                  <div>
+                    <GlobeIcon fill="#A8A8A8" />
+                  </div>
+                </a>
               </div>
             </div>
           </div>
