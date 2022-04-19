@@ -1,34 +1,148 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div id="top"></div>
 
-## Getting Started
+<!-- PROJECT SHIELDS -->
 
-First, run the development server:
+![Build Shield](https://img.shields.io/badge/build-passing-brightgreen)
+![Coverage Shield](https://img.shields.io/badge/coverage-100%25-brightgreen)
+![Test Shield](https://img.shields.io/badge/test-failing-critical)
+![Veracode Shield](https://img.shields.io/badge/veracode-inactive-inactive)
+![Star Shield](https://img.shields.io/badge/stars-0-ff69b4)
+![Issues Shield](https://img.shields.io/badge/issues-0-blue)
+![Contentful Shield](https://img.shields.io/badge/contentful-active-blue)
+![e2e Shield](https://img.shields.io/badge/e2e-unset-inactive)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/data-miner00/blog">
+    <img src="https://static.wikia.nocookie.net/diarchy-mapping/images/a/a4/Bloby.png/revision/latest?cb=20200514073822" alt="Logo" width="80" height="80">
+  </a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <h3 align="center">Blog</h3>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+  <p align="center">
+    A place for my non-technical writings shared to the world.
+    <br />
+    <a href=""><strong>Visit website »</strong></a>
+    <br />
+    <br />
+    <a href="">Visit book</a>
+    ·
+    <a href="https://github.com/data-miner00/blog/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/data-miner00/blog/issues">Request Feature</a>
+  </p>
+</div>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#previously">Previously</a></li>
+        <li><a href="#now">Now</a></li>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<!-- ABOUT THE PROJECT -->
 
-## Learn More
+## About The Project
 
-To learn more about Next.js, take a look at the following resources:
+I am an semi-avid writer where I will try to document everything I found intereseting and useful that can also serves as a refresher for later in the form of words, typically as an article or blogpost. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Previously
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+I originally started this project around a year ago (as of the current edit) around May 2021 as my first hands-on project after I finished my last semester in the university. I have considered it to be completed around June 6 whereby most aspects of the blog had already been taken care of. However, there are actually a lot of things to be worked on and improve but I refuse to acknowledge it and goes on with my life on other projects. It was left with a lot of bugs too!
 
-## Deploy on Vercel
+### Now
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I have decided to refurbish this project and make it into actual use for my future blog posting. It took a lot of courage to actually dive back into an old project that had been abandoned the day it was declared "complete" and to be honest, I am very happy with my decision as making it better and better really motivates me to progress further.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Built With
+
+Here is a list of technologies that this projects are built and depend on.
+
+- [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+- [Sass](https://sass-lang.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Contentful](https://www.contentful.com)
+- [Bootstrap](https://getbootstrap.com)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ROADMAP -->
+
+## Roadmap
+
+- [x] Initiate project
+- [x] Work on first phase
+- [ ] Work on second phase
+- [ ] Add a brand new version of ui a.k.a v2
+- [ ] Use env for all urls
+- [ ] Add dark mode/light mode
+- [ ] Add i18n
+  - [ ] English
+  - [ ] Japanese
+- [ ] Add animations
+
+See the [open issues](https://github.com/data-miner00/blog/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Chong Mum Khong - [@has66771004](https://twitter.com/has66771004) - noname1@1utar.my
+
+Project Link: [https://github.com/data-miner00/blog](https://github.com/data-miner00/blog)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+Resources that I've found useful and used for reference as well as information gathering during my quest to revamp this project from its previous version.
+
+- [Choose an Open Source License](https://choosealicense.com)
+- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+- [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
+- [Malven's Grid Cheatsheet](https://grid.malven.co/)
+- [Img Shields](https://shields.io)
+- [GitHub Pages](https://pages.github.com)
+- [Font Awesome](https://fontawesome.com)
+- [React Icons](https://react-icons.github.io/react-icons/search)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
