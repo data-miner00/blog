@@ -82,7 +82,10 @@ export default function Article({ article }) {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (floatTipRef.current) {
-        if (window.pageYOffset > 500) {
+        if (
+          window.pageYOffset > 500 &&
+          window.pageYOffset < document.documentElement.scrollHeight - 1800
+        ) {
           floatTipRef.current.style.opacity = 1;
           floatTipRef.current.style.pointerEvents = "all";
         } else {
