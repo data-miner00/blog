@@ -2,150 +2,61 @@
   position: relative
 
   &__banner
-    // border: 1px soild black
-    height: 100vh
+    height: 500px
     justify-content: center
-    display: flex
-    align-items: center
     position: relative
     overflow: hidden
     background: url(/mountain.jpg)
     background-size: cover
-    background-position: center
+    background-position: bottom
     background-repeat: no-repeat
+    padding: 100px 20% 0
+    border-bottom: medium double #ccc
 
     &__label
-      font-size: 48px
+      font-size: 36px
       font-weight: 800
-      text-align: center
       width: 800px
-      letter-spacing: 2px
       line-height: 80px
 
     &__para
       width: 500px
-      margin: 0 auto
-      // font-size: 1.5em
       line-height: 1.625
-      text-align: center
 
-      #wrte
-        // color: brown
-        font-weight: 800
+    &__button
+      margin-top: 60px
+      font-size: 20px
+      button
+        display: block
+        padding: 7px 20px 9px
+        color: black
+        background: #fff
+        border-radius: 999px
+        line-height: 24px
+        width: 230px
+        text-align: center
 
-      #avai
-        // color: brown
-        font-weight: 800
-        position: relative
-        &::before
-          content: ''
-          position: absolute
-          left: 0
-          right: 0
-          bottom: -3px
-          height: 3px
-          background: palevioletred
-      
-    &__animation
-      position: absolute
-      bottom: 0
-      left: 50%
-      transform: translateX(-50%)
-      height: 45px
-      width: 5px
-      background: rgba(255,255,255,.2)
+        &:hover
+          background: rgba(255, 255, 255, 0.95)
 
-      #animated-rect
-        height: 100%
-        width: 100%
-        background: white
-        transform: translateY(100%)
-        opacity: 0
-        animation: f 1s linear 2s infinite
-
-  &__author
-    display: flex
-    justify-content: center
-    padding: 250px 0
-
-    &__label
-      font-size: 1.75em
-      text-align: center
-      margin-bottom: 100px
-
-    &__card
-      display: flex
-      width: 650px
-      // border: 1px solid #black
-      border-radius: 10px
-      box-shadow: 2px 2px 10px black
-      overflow: hidden
-      background: var(--color1)
-
-
-      &__avatar
-        height: 200px
-        width: 180px
-        background: #eee
-        display: grid
-        place-items: center
-
-        img
-          display: block
-
-      &__details
-        width: calc(100% - 180px)
-        padding: 20px 
-        display: flex
-        flex-direction: column
-        justify-content: space-between
-        // text-indent: 50px
-        // text-align: justify
-
-        &__social
-          display: flex
-          font-size: 2em
-          justify-content: space-around
-          padding-bottom: 10px
-          
-          
-          &__icon
-            cursor: pointer
-            transition: color .3s ease
-
-          
-          #facebook:hover
-            color: #3b5998
-          #instagram:hover
-            color: #dd2a7b
-          #twitter:hover
-            color: #00acee
-          #linkedin:hover
-            color: #0e76a8
-      
-  &__disclaimer
+  &__trending
     padding: 100px 20%
-    // background: #eee
-
-    .wrap-wrap
-      border-top: 1px solid #eee
-      border-bottom: 1px solid #eee
-      .wrap
-        display: flex
-        padding: 50px 0
-        width: 70%
-        margin: 0 auto
-      
 
     &__label
-      text-transform: uppercase
-      font-style: italic
-      color: gray
-      font-size: 1.25em
-      margin-right: 50px
+      display: flex
+      align-items: center
+      margin-bottom: 16px
+      div
+        margin-left: 10px
+        text-transform: uppercase
+        font-size: 12px
+        font-weight: 800
 
-    &__body
-      color: lightgray
+    &__content
+      display: grid
+      grid-template-rows: 1fr 1fr
+      grid-template-columns: repeat(3, 1fr)
+      gap: 30px
 
   &__posts
     padding: 100px 20%
@@ -155,38 +66,7 @@
       column-gap: 10px
       row-gap: 50px
 
-  &__illustration
-    padding: 100px 0
-    
 
-    .wrap
-      position: relative
-      width: fit-content
-      margin: 0 auto
-
-    &__credit
-      position: absolute
-      right: 0
-      bottom: -30px
-      font-size: .625em
-      // text-transform: uppercase
-
-      #undraw
-        color: var(--color1)
-
-    
-@keyframes f 
-  0% 
-    transform: translateY(100%)
-    opacity: 0
-  
-  45% 
-    opacity: 1
-  
-  100% 
-    transform: translateY(0)
-    opacity: 0
-  
 @media screen and (max-width: 1400px)
   .home
     &__posts
