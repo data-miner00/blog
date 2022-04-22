@@ -161,7 +161,42 @@ export default function Home({ articles }) {
                 />
               ))}
             </main>
-            <aside></aside>
+            <aside>
+              <div className="sticky top-[70px]">
+                <div className="mb-6">
+                  <p className="uppercase text-xs font-extrabold text-white tracking-[0.083em]">
+                    Discover more of what matters to you
+                  </p>
+                </div>
+                <div className=" pb-6 border-b border-solid border-gray-600">
+                  {[
+                    "Self",
+                    "Meditation",
+                    "Environment",
+                    "Investing",
+                    "Text",
+                  ].map((t) => (
+                    <div className="inline-block">
+                      <div className="inline-block py-[6px] px-[16px] border border-gray-600 rounded-[3px] text-gray-300 mb-2 mr-2 text-[13px] ">
+                        <span>{t}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="py-6">
+                  <p className="text-gray-500 text-xs">
+                    Inspired by{" "}
+                    <a
+                      href="https://medium.com/"
+                      target="_blank"
+                      className="font-bold hover:underline"
+                    >
+                      Medium.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </aside>
           </div>
         </section>
 
