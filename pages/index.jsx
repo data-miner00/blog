@@ -5,6 +5,7 @@ import { client } from "../services/getContentfulClient";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 import TrendingItem from "../components/TrendingItem";
+import HomefeedItem from "../components/HomefeedItem";
 
 import TrendingIcon from "../components/icons/TrendingIcon";
 
@@ -25,6 +26,9 @@ const tempData = [
     avatarUrl:
       "https://miro.medium.com/fit/c/40/40/1*abRenZmSXa-oa2rm9tCJwg.png",
     title: "A very good soothing music for the night",
+    description:
+      "This is a very very long long pong description than span almost two lines i suppose",
+    coverImgUrl: "/mountain.jpg",
     date: "Apr 5",
     minRead: 6,
   },
@@ -34,6 +38,9 @@ const tempData = [
     avatarUrl:
       "https://miro.medium.com/fit/c/40/40/1*AQbRi7322aPUWTzp_zOhTg.png",
     title: "A very good soothing music for the night",
+    description:
+      "This is a very very long long pong description than span almost two lines i suppose",
+    coverImgUrl: "/mountain.jpg",
     date: "Apr 5",
     minRead: 6,
   },
@@ -43,6 +50,9 @@ const tempData = [
     avatarUrl:
       "https://miro.medium.com/fit/c/40/40/1*1v3kYlO1sYoqfZLuKzIwbQ.png",
     title: "A very good soothing music for the night",
+    description:
+      "This is a very very long long pong description than span almost two lines i suppose",
+    coverImgUrl: "/mountain.jpg",
     date: "Apr 5",
     minRead: 6,
   },
@@ -51,6 +61,9 @@ const tempData = [
     author: "Chong Mum Khong",
     avatarUrl: "/1803151smol.jpg",
     title: "A very good soothing music for the night",
+    description:
+      "This is a very very long long pong description than span almost two lines i suppose",
+    coverImgUrl: "/mountain.jpg",
     date: "Apr 5",
     minRead: 6,
   },
@@ -59,6 +72,9 @@ const tempData = [
     author: "Chong Mum Khong",
     avatarUrl: "/1803151smol.jpg",
     title: "A very good soothing music for the night",
+    description:
+      "This is a very very long long pong description than span almost two lines i suppose",
+    coverImgUrl: "/mountain.jpg",
     date: "Apr 5",
     minRead: 6,
   },
@@ -67,6 +83,9 @@ const tempData = [
     author: "Chong Mum Khong",
     avatarUrl: "/1803151smol.jpg",
     title: "A very good soothing music for the night",
+    description:
+      "This is a very very long long pong description than span almost two lines i suppose",
+    coverImgUrl: "/mountain.jpg",
     date: "Apr 5",
     minRead: 6,
   },
@@ -83,7 +102,7 @@ export default function Home({ articles }) {
       </Head>
       <div className="home">
         <Header />
-        <div className="home__banner">
+        <section className="home__banner">
           <div className="home__banner__label">
             <span>It's almost sunset.</span>
           </div>
@@ -98,37 +117,61 @@ export default function Home({ articles }) {
           <div className="home__banner__button">
             <button>Recommend me</button>
           </div>
-        </div>
+        </section>
 
-        <div className="home__trending">
-          <div className="home__trending__label">
-            <TrendingIcon />
-            <div>
-              <span>Trending on Mumk</span>
+        <section className="home__trending">
+          <div className="wrap">
+            <div className="home__trending__label">
+              <TrendingIcon />
+              <div>
+                <span>Trending on Mumk</span>
+              </div>
+            </div>
+            <div className="home__trending__content">
+              {tempData.map((t) => (
+                <TrendingItem
+                  key={t.index}
+                  index={t.index}
+                  author={t.author}
+                  avatarUrl={t.avatarUrl}
+                  minRead={t.minRead}
+                  title={t.title}
+                  date={t.date}
+                />
+              ))}
             </div>
           </div>
-          <div className="home__trending__content">
-            {tempData.map((t) => (
-              <TrendingItem
-                key={t.index}
-                index={t.index}
-                author={t.author}
-                avatarUrl={t.avatarUrl}
-                minRead={t.minRead}
-                title={t.title}
-                date={t.date}
-              />
-            ))}
-          </div>
-        </div>
+        </section>
 
-        <div className="home__posts">
+        <section className="home__feeds">
+          <div className="wrap">
+            <main>
+              {tempData.map((t) => (
+                <HomefeedItem
+                  key={t.index}
+                  author={t.author}
+                  avatarUrl={t.avatarUrl}
+                  coverImgUrl={t.coverImgUrl}
+                  minRead={t.minRead}
+                  description={t.description}
+                  title={t.title}
+                  date={t.date}
+                  language="English"
+                  category="Uncategorized"
+                />
+              ))}
+            </main>
+            <aside></aside>
+          </div>
+        </section>
+
+        <section className="home__posts">
           <div className="wrap">
             {articles.map((post) => (
               <PostPreview key={post.fields.slug} post={post} />
             ))}
           </div>
-        </div>
+        </section>
       </div>
     </>
   );

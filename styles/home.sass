@@ -40,7 +40,13 @@
           background: rgba(255, 255, 255, 0.95)
 
   &__trending
-    padding: 100px 20%
+    display: flex
+    justify-content: center
+    padding: 56px 0
+
+    .wrap
+      max-width: 1192px
+      margin: 0 64px
 
     &__label
       display: flex
@@ -58,9 +64,33 @@
       grid-template-columns: repeat(3, 1fr)
       gap: 30px
 
-  &__posts
-    padding: 100px 20%
+  &__feeds
+    padding: 56px 0
+    display: flex
+    justify-content: center
+    border-top: 1px solid #333
     .wrap
+      max-width: 1192px
+      margin: 0 64px
+      display: grid
+      grid-template-columns: repeat(8, 1fr) repeat(4, minmax(48px, 1fr))
+      grid-template-rows: 1fr
+
+    main
+      grid-row-start: 1
+      grid-column: 1 / span 7
+
+    aside
+      grid-row-start: 1
+      grid-column: 9 / span 4
+
+  &__posts
+    display: flex
+    justify-content: center
+    padding: 56px 0
+    .wrap
+      max-width: 1192px
+      margin: 0 64px
       display: flex
       flex-wrap: wrap
       column-gap: 10px
