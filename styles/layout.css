@@ -38,23 +38,6 @@ header {
   cursor: pointer;
 }
 
-.page-content {
-  /* padding: var(--padding); */
-}
-
-footer {
-  height: 80px;
-  /* background: #504d94; */
-  background: var(--color1);
-  padding: var(--padding);
-  display: flex;
-  font-size: 0.75em;
-
-  color: #eee;
-  align-items: center;
-  justify-content: space-between;
-}
-
 /* Burger */
 #rect1,
 #rect2,
@@ -77,45 +60,4 @@ footer {
 #burger:hover #rect2,
 #burger:hover #rect3 {
   transform: translateY(0);
-}
-
-.footer__logo {
-  display: flex;
-  width: 139px;
-  justify-content: space-between;
-  align-items: center;
-  height: fit-content;
-  background-color: palevioletred;
-}
-
-.footer__logo__word {
-  font-size: 1.5em;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 800;
-}
-
-#love {
-  color: palevioletred;
-  cursor: pointer;
-}
-
-#place {
-  color: white;
-}
-
-@media screen and (max-width: 1200px) {
-  .footer {
-    height: 100px;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 0;
-  }
-  .footer__made-by {
-    font-size: 1em;
-  }
-  header {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
 }
