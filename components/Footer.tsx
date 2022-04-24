@@ -5,8 +5,103 @@ import GitHubIcon from "./icons/logo/GitHubIcon";
 import TwitterIcon from "./icons/logo/TwitterIcon";
 import DiscordIcon from "./icons/logo/DiscordIcon";
 
-const LINK =
-  "https://www.google.com.my/maps/place/Silverscape+Luxury+Residences/@2.1842208,102.2603256,16.58z/data=!4m5!3m4!1s0x31d1ee04c849c9c5:0xfd2f48ac5ca0a43f!8m2!3d2.1819983!4d102.2627071";
+import {
+  personalUrl,
+  projectsUrl,
+  mapLocationUrl,
+  socialsUrl,
+  githubUrl,
+} from "../services/getUrls";
+
+type FooterMenuSection = {
+  label: string;
+  href: string;
+};
+
+const aboutMeSection: FooterMenuSection[] = [
+  {
+    label: "Introduction",
+    href: personalUrl.intro,
+  },
+  {
+    label: "Education",
+    href: personalUrl.edu,
+  },
+  {
+    label: "Portfolio",
+    href: personalUrl.portfolio,
+  },
+  {
+    label: "Resume",
+    href: personalUrl.resume,
+  },
+];
+
+const githubSection: FooterMenuSection[] = [
+  {
+    label: "Repository",
+    href: githubUrl.repo,
+  },
+  {
+    label: "Issues",
+    href: githubUrl.issues,
+  },
+  {
+    label: "Pull requests",
+    href: githubUrl.pr,
+  },
+  {
+    label: "Readme",
+    href: githubUrl.readme,
+  },
+  {
+    label: "CI/CD",
+    href: "",
+  },
+];
+
+const projectsSection: FooterMenuSection[] = [
+  {
+    label: "Personal website",
+    href: projectsUrl.personal,
+  },
+  {
+    label: "Newtab",
+    href: projectsUrl.newtab,
+  },
+  {
+    label: "Book",
+    href: projectsUrl.book,
+  },
+  {
+    label: "Twitter clone",
+    href: projectsUrl.twitter,
+  },
+  {
+    label: "Covid Tracker",
+    href: projectsUrl.covid,
+  },
+  {
+    label: "Hackernews",
+    href: projectsUrl.hacker,
+  },
+  {
+    label: "Hungry",
+    href: projectsUrl.hungry,
+  },
+  {
+    label: "Leed",
+    href: projectsUrl.hungry,
+  },
+  {
+    label: "Promotion website",
+    href: projectsUrl.promo,
+  },
+  {
+    label: "Resource website",
+    href: projectsUrl.resource,
+  },
+];
 
 export default function Footer(): JSX.Element {
   return (
@@ -19,15 +114,25 @@ export default function Footer(): JSX.Element {
               My personal blogging website on non-technical stuffs.
             </div>
             <div className="mt-6 flex gap-2">
-              <div className="flex justify-center items-center h-8 w-8">
-                <GitHubIcon />
-              </div>
-              <div className="flex justify-center items-center h-8 w-8">
-                <DiscordIcon size={20} />
-              </div>
+              <a href={socialsUrl.github} target="_blank">
+                <div className="flex justify-center items-center h-8 w-8">
+                  <GitHubIcon />
+                </div>
+              </a>
 
-              <LinkedInIcon fill="white" />
-              <TwitterIcon fill="white" />
+              <a href={socialsUrl.discord} target="_blank">
+                <div className="flex justify-center items-center h-8 w-8">
+                  <DiscordIcon size={20} />
+                </div>
+              </a>
+
+              <a href={socialsUrl.linkedin} target="_blank">
+                <LinkedInIcon fill="white" />
+              </a>
+
+              <a href={socialsUrl.twitter} target="_blank">
+                <TwitterIcon fill="white" />
+              </a>
             </div>
 
             <div className="relative mt-4 h-24">
@@ -40,112 +145,39 @@ export default function Footer(): JSX.Element {
           <div className="col-span-2 md:row-start-1 md:col-start-5 text-lg">
             <div className="font-semibold">About me</div>
             <ul className="mt-6">
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Introduction
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Education
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Portfolio
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Resume
-                </a>
-              </li>
+              {aboutMeSection.map((s) => (
+                <li className="mt-1">
+                  <a className="footer-item-link" href={s.href} target="_blank">
+                    {s.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="col-span-2 md:row-start-2 md:col-start-5 text-lg">
             <div className="font-semibold">GitHub</div>
             <ul className="mt-6">
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Repository
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Issues
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Pull requests
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Discussions
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  CI/CD
-                </a>
-              </li>
+              {githubSection.map((s) => (
+                <li className="mt-1">
+                  <a className="footer-item-link" href={s.href} target="_blank">
+                    {s.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="md:row-start-1 md:col-start-7 col-span-2 text-lg row-span-full">
             <div className="font-semibold">Projects</div>
+
             <ul className="mt-6">
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Personal website
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Newtab
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Book
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Twitter clone
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Covid tracker
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Hackernews
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Hungry
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Leed
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Promotion website
-                </a>
-              </li>
-              <li className="mt-1">
-                <a className="footer-item-link" href="">
-                  Resources website
-                </a>
-              </li>
+              {projectsSection.map((s) => (
+                <li className="mt-1">
+                  <a className="footer-item-link" href={s.href} target="_blank">
+                    {s.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -171,7 +203,7 @@ export default function Footer(): JSX.Element {
           <div className="text-lg text-gray-400 md:col-span-full xl:col-start-1 xl:row-start-3 xl:row-span-1 mt-24">
             <p>
               Made by Mum Khong with ❤ at{" "}
-              <a className="footer-item-link" href={LINK}>
+              <a className="footer-item-link" href={mapLocationUrl}>
                 Malacca, Malaysia.
               </a>
             </p>
