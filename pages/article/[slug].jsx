@@ -21,6 +21,7 @@ import DialogIcon from "../../components/icons/DialogIcon";
 import AddBookmarkIcon from "../../components/icons/AddBookmarkIcon";
 import MailPlusIcon from "../../components/icons/MailPlusIcon";
 import GlobeIcon from "../../components/icons/GlobeIcon";
+import DiscordIcon from "../../components/icons/logo/DiscordIcon";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -300,7 +301,9 @@ export default function Article({ article }) {
               </div>
               <div className="article__ending__author__actions__right">
                 <a href="">
-                  <FacebookIcon />
+                  <div>
+                    <DiscordIcon size={20} fill="#A8A8A8" />
+                  </div>
                 </a>
                 <a href="">
                   <TwitterIcon />

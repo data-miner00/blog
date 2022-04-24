@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 import LinkedInIcon from "./icons/logo/LinkedInIcon";
-import FacebookIcon from "./icons/logo/FacebookIcon";
 import GitHubIcon from "./icons/logo/GitHubIcon";
 import TwitterIcon from "./icons/logo/TwitterIcon";
+import DiscordIcon from "./icons/logo/DiscordIcon";
 
 const LINK =
   "https://www.google.com.my/maps/place/Silverscape+Luxury+Residences/@2.1842208,102.2603256,16.58z/data=!4m5!3m4!1s0x31d1ee04c849c9c5:0xfd2f48ac5ca0a43f!8m2!3d2.1819983!4d102.2627071";
@@ -22,7 +22,10 @@ export default function Footer(): JSX.Element {
               <div className="flex justify-center items-center h-8 w-8">
                 <GitHubIcon />
               </div>
-              <FacebookIcon fill="white" />
+              <div className="flex justify-center items-center h-8 w-8">
+                <DiscordIcon size={20} />
+              </div>
+
               <LinkedInIcon fill="white" />
               <TwitterIcon fill="white" />
             </div>
