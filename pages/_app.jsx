@@ -4,6 +4,7 @@ import "../styles/home.sass";
 import "../styles/article.sass";
 import "../styles/preview.sass";
 import "../styles/content.sass";
+import "../styles/footer.sass";
 
 function App({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
