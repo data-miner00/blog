@@ -107,8 +107,9 @@ export default function Footer(): JSX.Element {
   return (
     <footer className="border-t border-solid border-gray-600 pt-48 h-screen">
       <div className="mx-[10vw]">
-        <div className="max-w-7xl mx-auto grid xl:grid-cols-12 xl:gap-x-6 xl:grid-rows-3">
-          <div className="xl:col-span-3 xl:row-span-2 md:col-span-3 pb-[150px] overflow-hidden text-2xl">
+        <div className="max-w-7xl mx-auto grid xl:grid-cols-12 xl:gap-x-6 md:auto-rows-auto xl:grid-rows-3 md:gap-4 md:grid-cols-8">
+          {/* 1 */}
+          <div className="col-start-1 row-start-1 xl:col-span-3 xl:row-span-2 md:col-span-3 xl:pb-[150px] overflow-hidden text-2xl">
             <div className="uppercase font-bold text-white">Mumk</div>
             <div className="font-semibold text-gray-400 mt-6">
               My personal blogging website on non-technical stuffs.
@@ -142,7 +143,9 @@ export default function Footer(): JSX.Element {
               />
             </div>
           </div>
-          <div className="col-span-2 md:row-start-1 md:col-start-5 text-lg">
+
+          {/* 2 */}
+          <div className="col-span-2 md:row-start-1 md:col-start-4 xl:col-start-5 text-lg">
             <div className="font-semibold">About me</div>
             <ul className="mt-6">
               {aboutMeSection.map((s) => (
@@ -154,7 +157,9 @@ export default function Footer(): JSX.Element {
               ))}
             </ul>
           </div>
-          <div className="col-span-2 md:row-start-2 md:col-start-5 text-lg">
+
+          {/* 3 */}
+          <div className="col-span-2 md:row-start-1 xl:row-start-2 xl:col-start-5 md:col-start-6 text-lg">
             <div className="font-semibold">GitHub</div>
             <ul className="mt-6">
               {githubSection.map((s) => (
@@ -167,7 +172,8 @@ export default function Footer(): JSX.Element {
             </ul>
           </div>
 
-          <div className="md:row-start-1 md:col-start-7 col-span-2 text-lg row-span-full">
+          {/* 4 */}
+          <div className="md:row-start-1 md:col-start-8 xl:col-start-7 xl:col-span-2 text-lg md:row-span-3">
             <div className="font-semibold">Projects</div>
 
             <ul className="mt-6">
@@ -181,7 +187,8 @@ export default function Footer(): JSX.Element {
             </ul>
           </div>
 
-          <div className="text-lg md:row-start-1 xl:row-span-1 xl:col-start-9 xl:col-span-4">
+          {/* 5 */}
+          <div className="text-lg md:row-start-2 xl:row-start-1 xl:row-span-1 xl:col-start-9 xl:col-span-4 md:col-span-4">
             <div className="font-semibold">About</div>
             <p className="text-gray-400 mt-6">
               Started out back in May 2021 but poorly designed and maintained.
@@ -190,7 +197,8 @@ export default function Footer(): JSX.Element {
             </p>
           </div>
 
-          <div className="text-lg md:row-start-2 xl:row-span-1 xl:col-start-9 xl:col-span-4">
+          {/* 6 */}
+          <div className="text-lg md:row-start-2 xl:row-span-1 xl:col-start-9 xl:col-span-4 md:col-start-5 md:col-span-3">
             <div className="font-semibold">Built with</div>
             <div className="mt-6">
               <div className=" flex items-center">
@@ -200,7 +208,8 @@ export default function Footer(): JSX.Element {
             </div>
           </div>
 
-          <div className="text-lg text-gray-400 md:col-span-full xl:col-start-1 xl:row-start-3 xl:row-span-1 mt-24">
+          {/* 7 */}
+          <div className="text-lg text-gray-400 md:col-span-full xl:col-start-1 xl:row-start-3 xl:row-span-1 xl:mt-24">
             <p>
               Made by Mum Khong with ❤ at{" "}
               <a className="footer-item-link" href={mapLocationUrl}>
