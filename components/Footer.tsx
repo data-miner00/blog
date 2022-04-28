@@ -105,11 +105,11 @@ const projectsSection: FooterMenuSection[] = [
 
 export default function Footer(): JSX.Element {
   return (
-    <footer className="border-t border-solid border-gray-600 pt-48 min-h-screen">
+    <footer className="border-t border-solid border-gray-600 pt-12 pb-12 md:pb-0 md:pt-48 min-h-screen">
       <div className="mx-[10vw]">
-        <div className="max-w-7xl mx-auto grid xl:grid-cols-12 xl:gap-x-6 md:auto-rows-auto xl:grid-rows-3 md:gap-4 md:grid-cols-8">
+        <div className="max-w-7xl mx-auto grid gap-y-12 md:gap-y-0 grid-cols-1 xl:grid-cols-12 xl:gap-x-6 md:auto-rows-auto xl:grid-rows-3 md:gap-4 md:grid-cols-8">
           {/* 1 */}
-          <div className="col-start-1 row-start-1 xl:col-span-3 xl:row-span-2 md:col-span-3 xl:pb-[150px] overflow-hidden text-2xl">
+          <div className="md:col-start-1 md:row-start-1 xl:col-span-3 xl:row-span-2 md:col-span-3 xl:pb-[150px] overflow-hidden text-2xl">
             <div className="uppercase font-bold text-white">Mumk</div>
             <div className="font-semibold text-gray-400 mt-6">
               My personal blogging website on non-technical stuffs.
@@ -145,7 +145,7 @@ export default function Footer(): JSX.Element {
           </div>
 
           {/* 2 */}
-          <div className="col-span-2 md:row-start-1 md:col-start-4 xl:col-start-5 text-lg">
+          <div className="md:col-span-2 md:row-start-1 md:col-start-4 xl:col-start-5 text-lg">
             <div className="font-semibold">About me</div>
             <ul className="mt-6">
               {aboutMeSection.map((s) => (
@@ -159,7 +159,7 @@ export default function Footer(): JSX.Element {
           </div>
 
           {/* 3 */}
-          <div className="col-span-2 md:row-start-1 xl:row-start-2 xl:col-start-5 md:col-start-6 text-lg">
+          <div className="md:col-span-2 md:row-start-1 xl:row-start-2 xl:col-start-5 md:col-start-6 text-lg">
             <div className="font-semibold">GitHub</div>
             <ul className="mt-6">
               {githubSection.map((s) => (
@@ -201,9 +201,9 @@ export default function Footer(): JSX.Element {
           <div className="text-lg md:row-start-2 xl:row-span-1 xl:col-start-9 xl:col-span-4 md:col-start-5 md:col-span-3">
             <div className="font-semibold">Built with</div>
             <div className="mt-6">
-              <div className=" flex items-center">
+              <div className=" flex items-center justify-center xl:justify-start">
                 <Image src="/nextjs.svg" height="80px" width="250px" />
-                <span className="text-gray-400">et al.</span>
+                <span className="text-gray-400 hidden xl:block">et al.</span>
               </div>
             </div>
           </div>
