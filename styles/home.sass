@@ -1,6 +1,6 @@
 .home
   position: relative
-  //overflow: hidden
+  overflow: hidden
 
   &__banner
     height: 500px
@@ -153,6 +153,25 @@
     &__posts
       padding-left: 10%
       padding-right: 10%
+
+    &__trending
+      &__content
+        grid-template-rows: repeat(3, 1fr)
+        grid-template-columns: 1fr 1fr
+
+    &__feeds
+      .wrap
+        margin: 0 64px
+        grid-template-columns: 1fr
+        grid-template-rows: auto auto
+
+      main
+        grid-row-start: 1
+        grid-column: 1 / 2
+
+      aside
+        grid-row-start: 2
+        grid-column: 1 / 2
       
 @media screen and (max-width: 500px)
   .home
