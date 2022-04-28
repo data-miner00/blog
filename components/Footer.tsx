@@ -105,7 +105,7 @@ const projectsSection: FooterMenuSection[] = [
 
 export default function Footer(): JSX.Element {
   return (
-    <footer className="border-t border-solid border-gray-600 pt-48 h-screen">
+    <footer className="border-t border-solid border-gray-600 pt-48 min-h-screen">
       <div className="mx-[10vw]">
         <div className="max-w-7xl mx-auto grid xl:grid-cols-12 xl:gap-x-6 md:auto-rows-auto xl:grid-rows-3 md:gap-4 md:grid-cols-8">
           {/* 1 */}
