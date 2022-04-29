@@ -3,7 +3,7 @@
   overflow: hidden
 
   &__banner
-    height: 500px
+    min-height: 500px
     justify-content: center
     position: relative
     overflow: hidden
@@ -11,7 +11,7 @@
     background-size: cover
     background-position: bottom
     background-repeat: no-repeat
-    padding: 100px 20% 0
+    padding: 100px 20%
     border-bottom: medium double #ccc
 
     &__label
@@ -111,6 +111,11 @@
 
 @media screen and (max-width: 768px)
   .home
+    &__banner
+      &__label
+        width: 100%
+      &__para
+        width: 100%
     &__posts
       padding-left: 10%
       padding-right: 10%
@@ -135,6 +140,14 @@
       
 @media screen and (max-width: 500px)
   .home
+    &__banner
+      &__label
+        font-size: 24px
+        line-height: 40px
+      &__button
+        margin-top: 30px
+        button
+          margin: 0 auto
     &__trending
 
       .wrap
@@ -144,3 +157,7 @@
         grid-template-rows: repeat(6, 1fr)
         grid-template-columns: 1fr
         gap: 30px
+
+    &__feeds
+      .wrap
+        margin: 0 16px
