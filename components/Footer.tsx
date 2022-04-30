@@ -202,7 +202,9 @@ export default function Footer(): JSX.Element {
             <div className="font-semibold">Built with</div>
             <div className="mt-6">
               <div className=" flex items-center justify-center xl:justify-start">
-                <Image src="/nextjs.svg" height="80px" width="250px" />
+                <a href="https://nextjs.org/" target="_blank">
+                  <Image src="/nextjs.svg" height="80px" width="250px" />
+                </a>
                 <span className="text-gray-400 hidden xl:block">et al.</span>
               </div>
             </div>
