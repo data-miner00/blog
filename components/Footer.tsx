@@ -138,7 +138,7 @@ export default function Footer(): JSX.Element {
 
             <div className="relative mt-4 h-24">
               <img
-                className="absolute bottom-0 -left-20"
+                className="absolute bottom-6 md:bottom-0 -left-[4.5rem] md:-left-20"
                 src="/signature.png"
               />
             </div>
