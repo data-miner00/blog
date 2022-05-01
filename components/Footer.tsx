@@ -148,8 +148,8 @@ export default function Footer(): JSX.Element {
           <div className="md:col-span-2 md:row-start-1 md:col-start-4 xl:col-start-5 text-lg">
             <div className="font-semibold">About me</div>
             <ul className="mt-6">
-              {aboutMeSection.map((s) => (
-                <li className="mt-1">
+              {aboutMeSection.map((s, index) => (
+                <li className="mt-1" key={index}>
                   <a className="footer-item-link" href={s.href} target="_blank">
                     {s.label}
                   </a>
@@ -162,8 +162,8 @@ export default function Footer(): JSX.Element {
           <div className="md:col-span-2 md:row-start-1 xl:row-start-2 xl:col-start-5 md:col-start-6 text-lg">
             <div className="font-semibold">GitHub</div>
             <ul className="mt-6">
-              {githubSection.map((s) => (
-                <li className="mt-1">
+              {githubSection.map((s, index) => (
+                <li className="mt-1" key={index}>
                   <a className="footer-item-link" href={s.href} target="_blank">
                     {s.label}
                   </a>
@@ -177,8 +177,8 @@ export default function Footer(): JSX.Element {
             <div className="font-semibold">Projects</div>
 
             <ul className="mt-6">
-              {projectsSection.map((s) => (
-                <li className="mt-1">
+              {projectsSection.map((s, index) => (
+                <li className="mt-1" key={index}>
                   <a className="footer-item-link" href={s.href} target="_blank">
                     {s.label}
                   </a>
