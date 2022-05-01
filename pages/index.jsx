@@ -94,6 +94,20 @@ const tempData = [
 export default function Home({ articles }) {
   console.log(articles);
 
+  articles = articles.map((a) => ({
+    slug: a.fields.slug,
+    author: "Chong Mum Khong",
+    avatarUrl: "/1803151smol.jpg",
+    title: a.fields.title,
+    description: a.fields.subtitle,
+    date: a.sys.createdAt,
+    coverImgUrl: `https:${a.fields.image.fields.file.url}`,
+    language: a.fields.language,
+    category: a.fields.category,
+    minRead: a.fields.minutes,
+    publication: a.fields.publication,
+  }));
+
   return (
     <>
       <Head>
@@ -146,9 +160,10 @@ export default function Home({ articles }) {
         <section className="home__feeds">
           <div className="wrap">
             <main>
-              {tempData.map((t) => (
+              {articles.map((t) => (
                 <HomefeedItem
-                  key={t.index}
+                  key={t.slug}
+                  slug={t.slug}
                   author={t.author}
                   avatarUrl={t.avatarUrl}
                   coverImgUrl={t.coverImgUrl}
@@ -156,8 +171,9 @@ export default function Home({ articles }) {
                   description={t.description}
                   title={t.title}
                   date={t.date}
-                  language="English"
-                  category="Uncategorized"
+                  language={t.language}
+                  category={t.category}
+                  publication={t.publication}
                 />
               ))}
             </main>
@@ -175,8 +191,8 @@ export default function Home({ articles }) {
                     "Environment",
                     "Investing",
                     "Text",
-                  ].map((t) => (
-                    <div className="inline-block">
+                  ].map((t, index) => (
+                    <div className="inline-block" key={index}>
                       <div className="inline-block py-[6px] px-[16px] border border-gray-600 rounded-[3px] text-gray-300 mb-2 mr-2 text-[13px] ">
                         <span>{t}</span>
                       </div>
@@ -200,13 +216,13 @@ export default function Home({ articles }) {
           </div>
         </section>
 
-        <section className="home__posts">
+        {/* <section className="home__posts">
           <div className="wrap">
             {articles.map((post) => (
               <PostPreview key={post.fields.slug} post={post} />
             ))}
           </div>
-        </section>
+        </section> */}
       </div>
     </>
   );
