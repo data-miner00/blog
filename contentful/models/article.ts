@@ -2,6 +2,8 @@
  * The model for article.
  */
 export default class Article {
+  /* User defined fields
+   ============================================ */
   // The title of the article.
   public title: string;
 
@@ -28,4 +30,21 @@ export default class Article {
 
   // The approximate amount of minutes suggested for reading the article.
   public minutes: number;
+
+  // The big umbrella where the article is published in.
+  public publication: string;
+
+  // The category of the article.
+  public category: string;
+
+  /* Metadata
+   ============================================ */
+  // The unique identifier for internal uses.
+  public id: string;
+
+  // The date and time of creation of the article in ISO format.
+  public createdAt: string;
+
+  // The date and time of last modification of the article in ISO format.
+  public updatedAt: string;
 }
