@@ -1,12 +1,9 @@
 import Head from "next/head";
-import { PostPreview } from "../components/PostPreview";
 import { client } from "../services/getContentfulClient";
-
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 import TrendingItem from "../components/TrendingItem";
 import HomefeedItem from "../components/HomefeedItem";
-
 import TrendingIcon from "../components/icons/TrendingIcon";
 
 export const getStaticProps = async () => {
@@ -215,14 +212,6 @@ export default function Home({ articles }) {
             </aside>
           </div>
         </section>
-
-        {/* <section className="home__posts">
-          <div className="wrap">
-            {articles.map((post) => (
-              <PostPreview key={post.fields.slug} post={post} />
-            ))}
-          </div>
-        </section> */}
       </div>
     </>
   );
