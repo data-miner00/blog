@@ -101,232 +101,236 @@ export default function Article({ article }) {
   }, []);
 
   return (
-    <div className="article">
+    <>
       <Head>
         <title>{title} | Next Blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Header />
-      <div className="article__float-tip">
-        <div className="inner-wrapper">
-          <div className="article__float-tip__content" ref={floatTipRef}>
-            <div className="article__float-tip__content__top">
-              <div className="article__float-tip__content__top__title">
-                {title}
-              </div>
-              <div className="article__float-tip__content__top__author">
-                by Chong Mum Khong
-              </div>
-              <div className="article__float-tip__content__top__tags">
-                {tags.map((tag) => (
-                  <div key={tag} className="label-tag">
-                    {tag}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="article__float-tip__content__btm">
-              <div className="action--cheers action">
-                <div className="action--cheers__icon">
-                  <ClapIcon fill="#fff" />
-                </div>
-                <div className="action--cheers__counter">{cheers}</div>
-              </div>
 
-              <div className="action">
-                <DialogIcon fill="#fff" />
+      <div className="article">
+        <Header />
+        <div className="article__float-tip">
+          <div className="inner-wrapper">
+            <div className="article__float-tip__content" ref={floatTipRef}>
+              <div className="article__float-tip__content__top">
+                <div className="article__float-tip__content__top__title">
+                  {title}
+                </div>
+                <div className="article__float-tip__content__top__author">
+                  by Chong Mum Khong
+                </div>
+                <div className="article__float-tip__content__top__tags">
+                  {tags.map((tag) => (
+                    <div key={tag} className="label-tag">
+                      {tag}
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="action">
-                <AddBookmarkIcon fill="#fff" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="article__illus">
-        <img
-          src={`https:${image.fields.file.url}`}
-          alt="illustration"
-          width="100%"
-        />
-      </div>
-      <div className="content-wrapper">
-        <div className="article__info">
-          <div className="article__info__title">{title}</div>
-          <div className="article__info__subtitle">{subtitle}</div>
-        </div>
-        <div className="article__author">
-          <div className="article__author__name-group">
-            <div className="article__author__name-group__avatar">
-              <Image
-                src="/1803151.jpg"
-                layout="fill"
-                alt="Author's avatar"
-                objectFit="cover"
-                objectPosition="top"
-              />
-            </div>
-            <div className="article__author__name-group__rhs">
-              <div className="article__author__name-group__rhs__name">
-                <span>Chong Mum Khong</span>
-                <a href="https://www.facebook.com" target="_blank">
-                  Follow
-                </a>
-              </div>
-              <div className="article__author__name-group__rhs__date">
-                {getDate(createdAt, 2)}&nbsp;&nbsp;·&nbsp;&nbsp;{minutes} min
-                read&nbsp;&nbsp;·&nbsp;&nbsp;
-                {getLanguage(language)}
+              <div className="article__float-tip__content__btm">
+                <div className="action--cheers action">
+                  <div className="action--cheers__icon">
+                    <ClapIcon fill="#fff" />
+                  </div>
+                  <div className="action--cheers__counter">{cheers}</div>
+                </div>
+
+                <div className="action">
+                  <DialogIcon fill="#fff" />
+                </div>
+                <div className="action">
+                  <AddBookmarkIcon fill="#fff" />
+                </div>
               </div>
             </div>
           </div>
-          <div className="article__author__action-group">
-            <div>
-              <TwitterIcon />
-            </div>
-            <div>
-              <FacebookIcon />
-            </div>
-            <div>
-              <LinkedInIcon />
-            </div>
-            <div>
-              <ChainIcon size={34} />
-            </div>
-            <div className="vr"></div>
-            <div>
-              <ArrowPointingUpFromBoxIcon fill="#ccc" size={34} />
-            </div>
+        </div>
+        <div className="article__illus">
+          <img
+            src={`https:${image.fields.file.url}`}
+            alt="illustration"
+            width="100%"
+          />
+        </div>
+        <div className="content-wrapper">
+          <div className="article__info">
+            <div className="article__info__title">{title}</div>
+            <div className="article__info__subtitle">{subtitle}</div>
           </div>
-        </div>
-        <div className="article__body">
-          {documentToReactComponents(content, renderOptions)}
-        </div>
-        <div className="article__ending">
-          <div className="article__ending__actions">
-            <div className="article__ending__actions__left">
-              <div className="flex items-center mr-5">
-                <ClapIcon size={28} fill="#fff" className="mr-1" />
-                <span>{cheers}</span>
+          <div className="article__author">
+            <div className="article__author__name-group">
+              <div className="article__author__name-group__avatar">
+                <Image
+                  src="/1803151.jpg"
+                  layout="fill"
+                  alt="Author's avatar"
+                  objectFit="cover"
+                  objectPosition="top"
+                />
+              </div>
+              <div className="article__author__name-group__rhs">
+                <div className="article__author__name-group__rhs__name">
+                  <span>Chong Mum Khong</span>
+                  <a href="https://www.facebook.com" target="_blank">
+                    Follow
+                  </a>
+                </div>
+                <div className="article__author__name-group__rhs__date">
+                  {getDate(createdAt, 2)}&nbsp;&nbsp;·&nbsp;&nbsp;{minutes} min
+                  read&nbsp;&nbsp;·&nbsp;&nbsp;
+                  {getLanguage(language)}
+                </div>
+              </div>
+            </div>
+            <div className="article__author__action-group">
+              <div>
+                <TwitterIcon />
               </div>
               <div>
-                <DialogIcon size={28} fill="#fff" />
+                <FacebookIcon />
+              </div>
+              <div>
+                <LinkedInIcon />
+              </div>
+              <div>
+                <ChainIcon size={34} />
+              </div>
+              <div className="vr"></div>
+              <div>
+                <ArrowPointingUpFromBoxIcon fill="#ccc" size={34} />
               </div>
             </div>
-            <div className="article__ending__actions__right">
-              <BookmarkIcon size={28} fill="#fff" />
-              <ArrowPointingUpFromBoxIcon size={28} fill="#fff" />
+          </div>
+          <div className="article__body">
+            {documentToReactComponents(content, renderOptions)}
+          </div>
+          <div className="article__ending">
+            <div className="article__ending__actions">
+              <div className="article__ending__actions__left">
+                <div className="flex items-center mr-5">
+                  <ClapIcon size={28} fill="#fff" className="mr-1" />
+                  <span>{cheers}</span>
+                </div>
+                <div>
+                  <DialogIcon size={28} fill="#fff" />
+                </div>
+              </div>
+              <div className="article__ending__actions__right">
+                <BookmarkIcon size={28} fill="#fff" />
+                <ArrowPointingUpFromBoxIcon size={28} fill="#fff" />
+              </div>
             </div>
-          </div>
-          <div className="article__ending__tags">
-            {tags.map((tag) => (
-              <span>{tag}</span>
-            ))}
-          </div>
-          <div className="article__ending__dates">
-            <span>
-              - Article first published on {getDate(createdAt, 3)} · Last edited
-              at {getDate(updatedAt, 3)} -
-            </span>
-          </div>
+            <div className="article__ending__tags">
+              {tags.map((tag) => (
+                <span>{tag}</span>
+              ))}
+            </div>
+            <div className="article__ending__dates">
+              <span>
+                - Article first published on {getDate(createdAt, 3)} · Last
+                edited at {getDate(updatedAt, 3)} -
+              </span>
+            </div>
 
-          <div className="article__ending__subscription">
-            <h1>Sign me up for more stories like this</h1>
-            <p className="article__ending__subscription__author">
-              By <span>Chong Mum Khong</span>
-            </p>
-            <p className="article__ending__subscription__pitch">
-              I share things that I find interesting, things that I see value,
-              opinion that matters. Might not fit everyone's appetite but if it
-              indeed resonates with you, please consider to follow my
-              newsletter. For technical writings in the form of documentation,
-              blog and tutorial, you may find me at
-              https://book-dun-three.vercel.app where I will be posting there
-              regularly as well.
-            </p>
-            <div className="article__ending__subscription__email">
-              <div className="input-wrapper">
-                <input type="text" placeholder="Your email" />
-              </div>
-              <div className="btn-wrapper">
-                <button>
-                  <MailPlusIcon size={38} />
-                  <div>Get this newsletter</div>
-                </button>
-              </div>
-            </div>
-            <div className="article__ending__subscription__terms">
-              <p>
-                By signing up, you will receive weekly email on my article and
-                give me the consent to keep track of your email in my database.
-                Review the <span className="underline">Privacy Policy</span> for
-                more information about my privacy practices.
+            <div className="article__ending__subscription">
+              <h1>Sign me up for more stories like this</h1>
+              <p className="article__ending__subscription__author">
+                By <span>Chong Mum Khong</span>
               </p>
-            </div>
-          </div>
-
-          <div className="article__ending__author">
-            <div className="article__ending__author__avatar">
-              <Image
-                src="/1803151.jpg"
-                layout="fill"
-                alt="Author's avatar"
-                objectFit="cover"
-                objectPosition="top"
-              />
-            </div>
-            <div className="article__ending__author__name">
-              <span>Chong Mum Khong</span>
-            </div>
-            <div className="article__ending__author__followers">
-              3.14 Followers
-            </div>
-            <div className="article__ending__author__tagline">
-              Mind your own business.
-            </div>
-            <div className="article__ending__author__description">
-              Son, Friend, Moron, Tech Advocate, Paper money Investor, CSS,
-              Next.js, Nuxt.js · @kusama @solana @cardano @avalanche @terra ·
-              #English #Japanese #Malay #Chinese #Korean · $supernatural
-              $science $tech $fitness $finance
-            </div>
-            <div className="article__ending__author__actions">
-              <div className="article__ending__author__actions__left">
-                <div className="follow-btn">
-                  <span>Follow</span>
+              <p className="article__ending__subscription__pitch">
+                I share things that I find interesting, things that I see value,
+                opinion that matters. Might not fit everyone's appetite but if
+                it indeed resonates with you, please consider to follow my
+                newsletter. For technical writings in the form of documentation,
+                blog and tutorial, you may find me at
+                https://book-dun-three.vercel.app where I will be posting there
+                regularly as well.
+              </p>
+              <div className="article__ending__subscription__email">
+                <div className="input-wrapper">
+                  <input type="text" placeholder="Your email" />
                 </div>
-                <div className="mail-btn">
-                  <MailPlusIcon size={34} />
+                <div className="btn-wrapper">
+                  <button>
+                    <MailPlusIcon size={38} />
+                    <div>Get this newsletter</div>
+                  </button>
                 </div>
               </div>
-              <div className="article__ending__author__actions__right">
-                <a href="">
-                  <div>
-                    <DiscordIcon size={20} fill="#A8A8A8" />
+              <div className="article__ending__subscription__terms">
+                <p>
+                  By signing up, you will receive weekly email on my article and
+                  give me the consent to keep track of your email in my
+                  database. Review the{" "}
+                  <span className="underline">Privacy Policy</span> for more
+                  information about my privacy practices.
+                </p>
+              </div>
+            </div>
+
+            <div className="article__ending__author">
+              <div className="article__ending__author__avatar">
+                <Image
+                  src="/1803151.jpg"
+                  layout="fill"
+                  alt="Author's avatar"
+                  objectFit="cover"
+                  objectPosition="top"
+                />
+              </div>
+              <div className="article__ending__author__name">
+                <span>Chong Mum Khong</span>
+              </div>
+              <div className="article__ending__author__followers">
+                3.14 Followers
+              </div>
+              <div className="article__ending__author__tagline">
+                Mind your own business.
+              </div>
+              <div className="article__ending__author__description">
+                Son, Friend, Moron, Tech Advocate, Paper money Investor, CSS,
+                Next.js, Nuxt.js · @kusama @solana @cardano @avalanche @terra ·
+                #English #Japanese #Malay #Chinese #Korean · $supernatural
+                $science $tech $fitness $finance
+              </div>
+              <div className="article__ending__author__actions">
+                <div className="article__ending__author__actions__left">
+                  <div className="follow-btn">
+                    <span>Follow</span>
                   </div>
-                </a>
-                <a href="">
-                  <TwitterIcon />
-                </a>
-                <a href="">
-                  <LinkedInIcon />
-                </a>
-                <a href="">
-                  <div>
-                    <GitHubIcon fill="#A8A8A8" />
+                  <div className="mail-btn">
+                    <MailPlusIcon size={34} />
                   </div>
-                </a>
-                <a href="">
-                  <div>
-                    <GlobeIcon fill="#A8A8A8" />
-                  </div>
-                </a>
+                </div>
+                <div className="article__ending__author__actions__right">
+                  <a href="">
+                    <div>
+                      <DiscordIcon size={20} fill="#A8A8A8" />
+                    </div>
+                  </a>
+                  <a href="">
+                    <TwitterIcon />
+                  </a>
+                  <a href="">
+                    <LinkedInIcon />
+                  </a>
+                  <a href="">
+                    <div>
+                      <GitHubIcon fill="#A8A8A8" />
+                    </div>
+                  </a>
+                  <a href="">
+                    <div>
+                      <GlobeIcon fill="#A8A8A8" />
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
