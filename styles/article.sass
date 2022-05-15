@@ -180,15 +180,19 @@
           display: flex
           align-items: center
           .follow-btn
-            background: var(--color1)
-            border: 1px solid var(--color1)
-            border-radius: 999px
             padding: 8px 16px
             line-height: 1.2
           .mail-btn
             margin-left: 10px
-            border-radius: 999px
+
+          .follow-btn,
+          .mail-btn
             background: var(--color1)
+            border-radius: 999px
+            cursor: pointer
+            transition: background .2s
+            &:hover
+              background: #4F46E5
         &__right
           display: flex
           gap: 10px
@@ -198,6 +202,12 @@
             width: 34px
             display: grid
             place-items: center
+
+          a
+            transition: color .2s
+            color: #a8a8a8
+            &:hover
+              color: #fff
 
     &__dates
       font-size: .85em

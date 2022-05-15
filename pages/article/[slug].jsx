@@ -9,6 +9,7 @@ import Header from "../../components/Header";
 import Skeleton from "../../components/Skeleton";
 import Layout from "../../components/Layout";
 import { BLOCKS } from "@contentful/rich-text-types";
+import { projectsUrl, socialsUrl } from "../../services/getUrls";
 import TwitterIcon from "../../components/icons/logo/TwitterIcon";
 import FacebookIcon from "../../components/icons/logo/FacebookIcon";
 import GitHubIcon from "../../components/icons/logo/GitHubIcon";
@@ -221,8 +222,8 @@ export default function Article({ article }) {
               </div>
             </div>
             <div className="article__ending__tags">
-              {tags.map((tag) => (
-                <span>{tag}</span>
+              {tags.map((tag, index) => (
+                <span key={index}>{tag}</span>
               ))}
             </div>
             <div className="article__ending__dates">
@@ -289,9 +290,8 @@ export default function Article({ article }) {
               </div>
               <div className="article__ending__author__description">
                 Son, Friend, Moron, Tech Advocate, Paper money Investor, CSS,
-                Next.js, Nuxt.js · @kusama @solana @cardano @avalanche @terra ·
-                #English #Japanese #Malay #Chinese #Korean · $supernatural
-                $science $tech $fitness $finance
+                Next.js, Nuxt.js · @kusama @solana @cardano @avalanche @secret
+                @substrate · #English #Japanese #Malay #Chinese #Korean
               </div>
               <div className="article__ending__author__actions">
                 <div className="article__ending__author__actions__left">
@@ -303,25 +303,25 @@ export default function Article({ article }) {
                   </div>
                 </div>
                 <div className="article__ending__author__actions__right">
-                  <a href="">
+                  <a href={socialsUrl.discord} target={"_blank"}>
                     <div>
-                      <DiscordIcon size={20} fill="#A8A8A8" />
+                      <DiscordIcon size={20} fill="currentColor" />
                     </div>
                   </a>
-                  <a href="">
-                    <TwitterIcon />
+                  <a href={socialsUrl.twitter} target={"_blank"}>
+                    <TwitterIcon fill="currentColor" />
                   </a>
-                  <a href="">
-                    <LinkedInIcon />
+                  <a href={socialsUrl.linkedin} target={"_blank"}>
+                    <LinkedInIcon fill="currentColor" />
                   </a>
-                  <a href="">
+                  <a href={socialsUrl.github} target={"_blank"}>
                     <div>
-                      <GitHubIcon fill="#A8A8A8" />
+                      <GitHubIcon fill="currentColor" />
                     </div>
                   </a>
-                  <a href="">
+                  <a href={projectsUrl.personal} target={"_blank"}>
                     <div>
-                      <GlobeIcon fill="#A8A8A8" />
+                      <GlobeIcon fill="currentColor" />
                     </div>
                   </a>
                 </div>
