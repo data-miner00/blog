@@ -57,7 +57,7 @@
 
 ## About The Project
 
-I am an semi-avid writer where I will try to document everything I found intereseting and useful that can also serves as a refresher for later in the form of words, typically as an article or blogpost. 
+I am an semi-avid writer where I will try to document everything I found interesting and useful that can also serves as a refresher for later in future in the form of words, where I can read and reminisce.
 
 ### Previously
 
@@ -90,13 +90,15 @@ Here is a list of technologies that this projects are built and depend on.
 - [x] Initiate project
 - [x] Work on first phase
 - [ ] Work on second phase
-- [ ] Add a brand new version of ui a.k.a v2
 - [ ] Use env for all urls
 - [ ] Add dark mode/light mode
 - [ ] Add i18n
   - [ ] English
   - [ ] Japanese
 - [ ] Add animations
+- [ ] Add 404 page
+- [ ] Update skeleton
+- [ ] Add to top button
 
 See the [open issues](https://github.com/data-miner00/blog/issues) for a full list of proposed features (and known issues).
 
@@ -143,6 +145,10 @@ Resources that I've found useful and used for reference as well as information g
 - [GitHub Pages](https://pages.github.com)
 - [Font Awesome](https://fontawesome.com)
 - [React Icons](https://react-icons.github.io/react-icons/search)
+- [Reddium](https://reddium.vercel.app/)
+- [Fedium](https://fedium.herokuapp.com/)
+- [Medium](https://medium.com/)
+- [Kent C Dodds](https://kentcdodds.com/links)
+- [Screenlane](https://screenlane.com/screen/medium-web-app-230/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
