@@ -10,19 +10,21 @@ import Skeleton from "../../components/Skeleton";
 import Layout from "../../components/Layout";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { projectsUrl, socialsUrl } from "../../services/getUrls";
-import TwitterIcon from "../../components/icons/logo/TwitterIcon";
-import FacebookIcon from "../../components/icons/logo/FacebookIcon";
-import GitHubIcon from "../../components/icons/logo/GitHubIcon";
-import LinkedInIcon from "../../components/icons/logo/LinkedInIcon";
-import ChainIcon from "../../components/icons/ChainIcon";
-import ClapIcon from "../../components/icons/ClapIcon";
-import BookmarkIcon from "../../components/icons/AddBookmarkIcon";
-import ArrowPointingUpFromBoxIcon from "../../components/icons/ArrowPointingUpFromBoxIcon";
-import DialogIcon from "../../components/icons/DialogIcon";
-import AddBookmarkIcon from "../../components/icons/AddBookmarkIcon";
-import MailPlusIcon from "../../components/icons/MailPlusIcon";
-import GlobeIcon from "../../components/icons/GlobeIcon";
-import DiscordIcon from "../../components/icons/logo/DiscordIcon";
+import {
+  TwitterIcon,
+  FacebookIcon,
+  GitHubIcon,
+  LinkedInIcon,
+  ChainIcon,
+  ClapIcon,
+  BookmarkIcon,
+  ArrowPointingUpFromBoxIcon,
+  DialogIcon,
+  AddBookmarkIcon,
+  MailPlusIcon,
+  GlobeIcon,
+  DiscordIcon,
+} from "../../components/icons";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
