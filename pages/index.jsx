@@ -126,7 +126,7 @@ export default function Home({ articles }) {
             </p>
           </div>
           <div className="home__banner__button">
-            <button>Recommend me</button>
+            <a href="#feeds">Recommend me</a>
           </div>
         </section>
 
@@ -154,7 +154,7 @@ export default function Home({ articles }) {
           </div>
         </section>
 
-        <section className="home__feeds">
+        <section className="home__feeds" id="feeds">
           <div className="wrap">
             <main>
               {articles.map((t) => (
