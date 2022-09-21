@@ -213,7 +213,14 @@ export default function Footer(): JSX.Element {
           {/* 7 */}
           <div className="text-lg text-gray-400 md:col-span-full xl:col-start-1 xl:row-start-3 xl:row-span-1 xl:mt-24">
             <p>
-              Made by Mum Khong with ❤ at{" "}
+              Made by Mum Khong with{" "}
+              <span
+                title="love"
+                className=" transition-colors duration-200 hover:text-pink-400 cursor-pointer"
+              >
+                ❤
+              </span>{" "}
+              at{" "}
               <a className="footer-item-link" href={mapLocationUrl}>
                 Malacca, Malaysia.
               </a>
