@@ -1,10 +1,6 @@
 import Image from "next/image";
 
-import LinkedInIcon from "./icons/logo/LinkedInIcon";
-import GitHubIcon from "./icons/logo/GitHubIcon";
-import TwitterIcon from "./icons/logo/TwitterIcon";
-import DiscordIcon from "./icons/logo/DiscordIcon";
-
+import { LinkedInIcon, GitHubIcon, TwitterIcon, DiscordIcon } from "./icons";
 import {
   personalUrl,
   projectsUrl,

@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Layout from "../components/Layout";
 import TrendingItem from "../components/TrendingItem";
 import HomefeedItem from "../components/HomefeedItem";
-import TrendingIcon from "../components/icons/TrendingIcon";
+import { TrendingIcon } from "../components/icons";
 
 export const getStaticProps = async () => {
   const res = await client.getEntries({ content_type: "article" });
