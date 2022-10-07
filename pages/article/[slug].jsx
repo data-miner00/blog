@@ -26,6 +26,7 @@ import {
   DiscordIcon,
 } from "../../components/icons";
 import { getLinkToClipboard } from "../../services/getLinkToClipboard";
+import { getStaticSidePath } from "../../services/getStaticSidePath";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -189,19 +190,19 @@ export default function Article({ article }) {
             <div className="article__author__action-group">
               <a
                 target="_blank"
-                href={`http://twitter.com/share?url=${window.location.href}`}
+                href={`http://twitter.com/share?url=${getStaticSidePath()}`}
               >
                 <TwitterIcon />
               </a>
               <a
                 target="_blank"
-                href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${getStaticSidePath()}`}
               >
                 <FacebookIcon />
               </a>
               <a
                 target="_blank"
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${getStaticSidePath()}`}
               >
                 <LinkedInIcon />
               </a>
