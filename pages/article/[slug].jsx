@@ -25,6 +25,7 @@ import {
   GlobeIcon,
   DiscordIcon,
 } from "../../components/icons";
+import { getLinkToClipboard } from "../../services/getLinkToClipboard";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -186,18 +187,27 @@ export default function Article({ article }) {
               </div>
             </div>
             <div className="article__author__action-group">
-              <div>
+              <a
+                target="_blank"
+                href={`http://twitter.com/share?url=${window.location.href}`}
+              >
                 <TwitterIcon />
-              </div>
-              <div>
+              </a>
+              <a
+                target="_blank"
+                href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+              >
                 <FacebookIcon />
-              </div>
-              <div>
+              </a>
+              <a
+                target="_blank"
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${window.location.href}`}
+              >
                 <LinkedInIcon />
-              </div>
-              <div>
+              </a>
+              <button onClick={getLinkToClipboard}>
                 <ChainIcon size={34} />
-              </div>
+              </button>
               <div className="vr"></div>
               <div>
                 <ArrowPointingUpFromBoxIcon fill="#ccc" size={34} />
@@ -305,23 +315,23 @@ export default function Article({ article }) {
                   </div>
                 </div>
                 <div className="article__ending__author__actions__right">
-                  <a href={socialsUrl.discord} target={"_blank"}>
+                  <a href={socialsUrl.discord} target="_blank">
                     <div>
                       <DiscordIcon size={20} fill="currentColor" />
                     </div>
                   </a>
-                  <a href={socialsUrl.twitter} target={"_blank"}>
+                  <a href={socialsUrl.twitter} target="_blank">
                     <TwitterIcon fill="currentColor" />
                   </a>
-                  <a href={socialsUrl.linkedin} target={"_blank"}>
+                  <a href={socialsUrl.linkedin} target="_blank">
                     <LinkedInIcon fill="currentColor" />
                   </a>
-                  <a href={socialsUrl.github} target={"_blank"}>
+                  <a href={socialsUrl.github} target="_blank">
                     <div>
                       <GitHubIcon fill="currentColor" />
                     </div>
                   </a>
-                  <a href={projectsUrl.personal} target={"_blank"}>
+                  <a href={projectsUrl.personal} target="_blank">
                     <div>
                       <GlobeIcon fill="currentColor" />
                     </div>
