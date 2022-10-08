@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import TrendingItem from "../components/TrendingItem";
 import HomefeedItem from "../components/HomefeedItem";
 import { TrendingIcon } from "../components/icons";
+import tempData from "../data/tempDataForTrending.json";
 
 export const getStaticProps = async () => {
   const articlesRes = await client.getEntries({ content_type: "article" });
@@ -19,81 +20,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const tempData = [
-  {
-    index: "01",
-    author: "Chong Mum Khong",
-    avatarUrl:
-      "https://miro.medium.com/fit/c/40/40/1*abRenZmSXa-oa2rm9tCJwg.png",
-    title: "A very good soothing music for the night",
-    description:
-      "This is a very very long long pong description than span almost two lines i suppose",
-    coverImgUrl: "/mountain.jpg",
-    date: "Apr 5",
-    minRead: 6,
-  },
-  {
-    index: "02",
-    author: "Chong Mum Khong",
-    avatarUrl:
-      "https://miro.medium.com/fit/c/40/40/1*AQbRi7322aPUWTzp_zOhTg.png",
-    title: "A very good soothing music for the night",
-    description:
-      "This is a very very long long pong description than span almost two lines i suppose",
-    coverImgUrl: "/mountain.jpg",
-    date: "Apr 5",
-    minRead: 6,
-  },
-  {
-    index: "03",
-    author: "Chong Mum Khong",
-    avatarUrl:
-      "https://miro.medium.com/fit/c/40/40/1*1v3kYlO1sYoqfZLuKzIwbQ.png",
-    title: "A very good soothing music for the night",
-    description:
-      "This is a very very long long pong description than span almost two lines i suppose",
-    coverImgUrl: "/mountain.jpg",
-    date: "Apr 5",
-    minRead: 6,
-  },
-  {
-    index: "04",
-    author: "Chong Mum Khong",
-    avatarUrl: "/1803151smol.jpg",
-    title: "A very good soothing music for the night",
-    description:
-      "This is a very very long long pong description than span almost two lines i suppose",
-    coverImgUrl: "/mountain.jpg",
-    date: "Apr 5",
-    minRead: 6,
-  },
-  {
-    index: "05",
-    author: "Chong Mum Khong",
-    avatarUrl: "/1803151smol.jpg",
-    title: "A very good soothing music for the night",
-    description:
-      "This is a very very long long pong description than span almost two lines i suppose",
-    coverImgUrl: "/mountain.jpg",
-    date: "Apr 5",
-    minRead: 6,
-  },
-  {
-    index: "06",
-    author: "Chong Mum Khong",
-    avatarUrl: "/1803151smol.jpg",
-    title: "A very good soothing music for the night",
-    description:
-      "This is a very very long long pong description than span almost two lines i suppose",
-    coverImgUrl: "/mountain.jpg",
-    date: "Apr 5",
-    minRead: 6,
-  },
-];
-
 export default function Home({ articles, tags }) {
-  console.log(articles);
-
   articles = articles.map((a) => ({
     slug: a.fields.slug,
     author: "Chong Mum Khong",
@@ -114,8 +41,10 @@ export default function Home({ articles, tags }) {
         <title>Personal Next.js Blog</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+
       <div className="home">
         <Header />
+
         <section className="home__banner">
           <div className="home__banner__label">
             <span>It's almost sunset.</span>
