@@ -17,7 +17,9 @@
     "contentful": "^9.1.21",
     "next": "12",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.23",
