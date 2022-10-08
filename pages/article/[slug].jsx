@@ -27,6 +27,7 @@ import {
 } from "../../components/icons";
 import { getLinkToClipboard } from "../../services/getLinkToClipboard";
 import { getStaticSidePath } from "../../services/getStaticSidePath";
+import { getShareUrl, SocialMedia } from "../../services/getShareUrl";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -77,12 +78,11 @@ const renderOptions = {
 };
 
 export default function Article({ article }) {
-  console.log(article);
   if (!article) return <Skeleton />;
+
   const { title, subtitle, tags, image, cheers, language, content, minutes } =
     article.fields;
   const { createdAt, updatedAt } = article.sys;
-
   const floatTipRef = useRef();
 
   useEffect(() => {
@@ -190,19 +190,31 @@ export default function Article({ article }) {
             <div className="article__author__action-group">
               <a
                 target="_blank"
-                href={`http://twitter.com/share?url=${getStaticSidePath()}`}
+                href={getShareUrl(
+                  SocialMedia.Twitter,
+                  getStaticSidePath(),
+                  title
+                )}
               >
                 <TwitterIcon />
               </a>
               <a
                 target="_blank"
-                href={`https://www.facebook.com/sharer/sharer.php?u=${getStaticSidePath()}`}
+                href={getShareUrl(
+                  SocialMedia.Facebook,
+                  getStaticSidePath(),
+                  title
+                )}
               >
                 <FacebookIcon />
               </a>
               <a
                 target="_blank"
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${getStaticSidePath()}`}
+                href={getShareUrl(
+                  SocialMedia.LinkedIn,
+                  getStaticSidePath(),
+                  title
+                )}
               >
                 <LinkedInIcon />
               </a>
