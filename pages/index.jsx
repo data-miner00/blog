@@ -7,10 +7,13 @@ import HomefeedItem from "../components/HomefeedItem";
 import { TrendingIcon } from "../components/icons";
 
 export const getStaticProps = async () => {
-  const res = await client.getEntries({ content_type: "article" });
+  const articlesRes = await client.getEntries({ content_type: "article" });
+  const tagsRes = await client.getTags();
+
   return {
     props: {
-      articles: res.items,
+      articles: articlesRes.items,
+      tags: tagsRes.items.map((tag) => tag.name),
     },
     revalidate: 10,
   };
@@ -88,7 +91,7 @@ const tempData = [
   },
 ];
 
-export default function Home({ articles }) {
+export default function Home({ articles, tags }) {
   console.log(articles);
 
   articles = articles.map((a) => ({
@@ -182,16 +185,10 @@ export default function Home({ articles }) {
                   </p>
                 </div>
                 <div className=" pb-6 border-b border-solid border-gray-600">
-                  {[
-                    "Self",
-                    "Meditation",
-                    "Environment",
-                    "Investing",
-                    "Text",
-                  ].map((t, index) => (
+                  {tags.map((tag, index) => (
                     <div className="inline-block" key={index}>
                       <div className="inline-block py-[6px] px-[16px] border border-gray-600 rounded-[3px] text-gray-300 mb-2 mr-2 text-[13px] ">
-                        <span>{t}</span>
+                        <span>{tag}</span>
                       </div>
                     </div>
                   ))}
