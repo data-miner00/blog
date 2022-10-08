@@ -35,3 +35,7 @@ yarn-error.log*
 
 # environment
 .env
+
+# database
+*.sqlite
+*.sqlite-journal
