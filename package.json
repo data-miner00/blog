@@ -16,6 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "contentful": "^9.1.21",
     "next": "12",
+    "node-fetch": "^3.2.10",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sqlite": "^4.1.2",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.23",
+    "@types/node-fetch": "^2.6.2",
     "@types/react": "^18.0.0",
     "autoprefixer": "^10.4.4",
     "postcss": "^8.4.12",
