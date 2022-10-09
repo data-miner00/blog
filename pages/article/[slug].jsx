@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { getLanguage } from "../../services/getLanguage";
 import { client } from "../../services/getContentfulClient";
@@ -28,6 +28,8 @@ import {
 import { getLinkToClipboard } from "../../services/getLinkToClipboard";
 import { getStaticSidePath } from "../../services/getStaticSidePath";
 import { getShareUrl, SocialMedia } from "../../services/getShareUrl";
+import { getApiClient as clientApi } from "../../services/getApiClient/clientSide";
+import { getApiClient as serverApi } from "../../services/getApiClient/serverSide";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -61,8 +63,13 @@ export const getStaticProps = async (context) => {
     };
   }
 
+  const article = items[0];
+  const articleId = article.sys.id;
+
+  const cheers = await serverApi().getCheers(articleId);
+
   return {
-    props: { article: items[0] },
+    props: { article, _cheers: cheers, articleId },
     revalidate: 10,
   };
 };
@@ -77,13 +84,14 @@ const renderOptions = {
   },
 };
 
-export default function Article({ article }) {
+export default function Article({ article, _cheers, articleId }) {
   if (!article) return <Skeleton />;
 
-  const { title, subtitle, tags, image, cheers, language, content, minutes } =
+  const { title, subtitle, tags, image, language, content, minutes } =
     article.fields;
   const { createdAt, updatedAt } = article.sys;
   const floatTipRef = useRef();
+  const [cheers, setCheers] = useState(_cheers);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -133,12 +141,19 @@ export default function Article({ article }) {
                 </div>
               </div>
               <div className="article__float-tip__content__btm">
-                <div className="action--cheers action">
+                <button
+                  className="action--cheers action"
+                  onClick={() => {
+                    clientApi()
+                      .incrementCheers(articleId)
+                      .then(() => setCheers(cheers + 1));
+                  }}
+                >
                   <div className="action--cheers__icon">
                     <ClapIcon fill="#fff" />
                   </div>
                   <div className="action--cheers__counter">{cheers}</div>
-                </div>
+                </button>
 
                 <div className="action">
                   <DialogIcon fill="#fff" />
@@ -233,10 +248,17 @@ export default function Article({ article }) {
           <div className="article__ending">
             <div className="article__ending__actions">
               <div className="article__ending__actions__left">
-                <div className="flex items-center mr-5">
+                <button
+                  className="flex items-center mr-5"
+                  onClick={() => {
+                    clientApi()
+                      .incrementCheers(articleId)
+                      .then(() => setCheers(cheers + 1));
+                  }}
+                >
                   <ClapIcon size={28} fill="#fff" className="mr-1" />
                   <span>{cheers}</span>
-                </div>
+                </button>
                 <div>
                   <DialogIcon size={28} fill="#fff" />
                 </div>
