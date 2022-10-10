@@ -8,12 +8,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const db = await sqlite.open({
-    filename: "./data/db.sqlite",
-    driver: sqlite3.Database,
-  });
+  try {
+    const db = await sqlite.open({
+      filename: "./data/db.sqlite",
+      driver: sqlite3.Database,
+    });
 
-  const cheers = await db.all("SELECT * FROM Cheers;");
+    const cheers = await db.all("SELECT * FROM Cheers;");
 
-  res.status(200).json({ data: cheers });
+    res.status(200).json({ data: cheers });
+  } catch (error) {
+    res.status(500).json({ error });
+  }
 };
