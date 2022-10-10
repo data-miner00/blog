@@ -1,4 +1,4 @@
-export function getCApiClient() {
+export function getApiClient() {
   const baseUrl = `${window.location.protocol}//${window.location.host}`;
 
   async function incrementCheers(article_id: string) {
