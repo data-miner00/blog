@@ -1,11 +1,12 @@
 {
   "name": "blog",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "node ./scripts/setup.js"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.0",
