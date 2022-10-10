@@ -30,6 +30,7 @@ import { getStaticSidePath } from "../../services/getStaticSidePath";
 import { getShareUrl, SocialMedia } from "../../services/getShareUrl";
 import { getApiClient as clientApi } from "../../services/getApiClient/clientSide";
 import { getApiClient as serverApi } from "../../services/getApiClient/serverSide";
+import { getCheers } from "../../services/getCheers";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
@@ -66,7 +67,7 @@ export const getStaticProps = async (context) => {
   const article = items[0];
   const articleId = article.sys.id;
 
-  const cheers = await serverApi().getCheers(articleId);
+  const cheers = await getCheers(articleId);
 
   return {
     props: { article, _cheers: cheers, articleId },
