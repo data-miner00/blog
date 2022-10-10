@@ -69,7 +69,32 @@ I have decided to refurbish this project and make it into actual use for my futu
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Built With
+## Cheers (Clap button)
+
+Cheers, the clap icon from Medium.com is also available for each of the article for the users to interact. It is analogous to Facebook's like or Instagram's love button that allow users to express their interest on the subject that is being presented.
+
+To store such states in this project, I've decided to use a local SQLite database for that as it is the simplest and quickest to do the job. A database migration is performed via the `setup.js` in the `scripts` folder.
+
+The access to the database is achieved via Next.js's server side API routes. Two endpoints has been exposed, a `GET` endpoint to retrieve all the data within the SQLite database and a `GET` and `POST` endpoint to retrieve or increment the cheers of a particular article.
+
+```
+# Get all data in the database
+GET /api/cheers
+
+# Retrieve number of cheers of an article
+GET /api/cheers/:articleId
+
+# Increment number of cheers of an article
+POST /api/cheers/:articleId
+```
+
+The api designs are not RESTful and there are no authentication required to interact with the endpoints as well, so anyone can actually call the endpoints outside of the application. I am totally aware of the flaws mentioned but since the use case is quite simple, this will work for now.
+
+Further improvement will need to be made for safeguarding the API endpoints in the future.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Built With
 
 Here is a list of technologies that this projects are built and depend on.
 
@@ -79,7 +104,7 @@ Here is a list of technologies that this projects are built and depend on.
 - [Typescript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Contentful](https://www.contentful.com)
-- [Bootstrap](https://getbootstrap.com)
+- [SQLite](https://www.sqlite.org/index.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -87,18 +112,15 @@ Here is a list of technologies that this projects are built and depend on.
 
 ## Roadmap
 
-- [x] Initiate project
-- [x] Work on first phase
-- [ ] Work on second phase
-- [ ] Use env for all urls
+- [x] Renovate website
+- [x] Use env for all urls
 - [ ] Add dark mode/light mode
-- [ ] Add i18n
-  - [ ] English
-  - [ ] Japanese
 - [ ] Add animations
 - [ ] Add 404 page
 - [ ] Update skeleton
 - [ ] Add to top button
+- [x] Quasi-workable cheers button
+- [ ] Simple popup menu
 
 See the [open issues](https://github.com/data-miner00/blog/issues) for a full list of proposed features (and known issues).
 
@@ -150,5 +172,6 @@ Resources that I've found useful and used for reference as well as information g
 - [Medium](https://medium.com/)
 - [Kent C Dodds](https://kentcdodds.com/links)
 - [Screenlane](https://screenlane.com/screen/medium-web-app-230/)
+- [Next.js API Routes with SQL DB](https://www.youtube.com/watch?v=PxiQDo0CmDE)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
