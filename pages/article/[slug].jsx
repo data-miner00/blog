@@ -92,6 +92,7 @@ export default function Article({ article, _cheers, articleId }) {
   const { createdAt, updatedAt } = article.sys;
   const floatTipRef = useRef();
   const [cheers, setCheers] = useState(_cheers);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -233,7 +234,20 @@ export default function Article({ article, _cheers, articleId }) {
               >
                 <LinkedInIcon />
               </a>
-              <button onClick={getLinkToClipboard}>
+              <button
+                onClick={() => {
+                  getLinkToClipboard();
+                  setCopied(true);
+                  setInterval(() => setCopied(false), 2000);
+                }}
+                className="relative"
+              >
+                {copied && (
+                  <div className="absolute z-10 -top-10 -left-8 h-9 w-24 leading-9 font-bold bg-green-500 rounded-md text-center">
+                    <span>Copied!</span>
+                    <div className="absolute w-2 h-2 -bottom-1 left-11 z-0 bg-green-500 transform rotate-45"></div>
+                  </div>
+                )}
                 <ChainIcon size={34} />
               </button>
               <div className="vr"></div>
