@@ -73,9 +73,13 @@ I have decided to refurbish this project and make it into actual use for my futu
 
 Cheers, the clap icon from Medium.com is also available for each of the article for the users to interact. It is analogous to Facebook's like or Instagram's love button that allow users to express their interest on the subject that is being presented.
 
-To store such states in this project, I've decided to use a local SQLite database for that as it is the simplest and quickest to do the job. A database migration is performed via the `setup.js` in the `scripts` folder.
+## An unexpected issue
 
-The access to the database is achieved via Next.js's server side API routes. Two endpoints has been exposed, a `GET` endpoint to retrieve all the data within the SQLite database and a `GET` and `POST` endpoint to retrieve or increment the cheers of a particular article.
+To store such states in this project, I originally tried to use SQLite because of it's simplicity and I don't need to manage a hosted databases as it would be an overkill for such a simple use case. However, I had faced numerous issues that are related to SQLite while deploying to Vercel.
+
+After debugging for a while on why it works fine on my local development setup but failed while deploying, I found the culprits and addressed them accordingly in my next deployment. The deployment was a success. Just as I thought everything works and about to celebrate, I found out that the database is inaccessible as evidenced by unpersisting states and failed API calls.
+
+The list of original exposed endpoints
 
 ```
 # Get all data in the database
@@ -88,9 +92,13 @@ GET /api/cheers/:articleId
 POST /api/cheers/:articleId
 ```
 
-The api designs are not RESTful and there are no authentication required to interact with the endpoints as well, so anyone can actually call the endpoints outside of the application. I am totally aware of the flaws mentioned but since the use case is quite simple, this will work for now.
+The first endpoint fails in the Vercel hosted environment but works fine in local. It returns 500 internal server error each time I visit the endpoint. Frustrated, I searched `Is SQLite supported in Vercel` in Google and found out that SQLite is **NOT** supported on Vercel.
 
-Further improvement will need to be made for safeguarding the API endpoints in the future.
+Reason being that Vercel host our projects on [Serverless Functions](https://vercel.com/docs/concepts/functions/serverless-functions) (a.k.a lambdas, epheremal storage) that allows runing code on-demand by upscaling or downscaling base on the traffic. In other words, there instance that host the codes may be terminated at some point and being replaced by another new instance.
+
+Hence, the data and files that does not track by the version control system will be wiped off when the instance dies off. I should have researched on the compatibilities before I implemented anything.
+
+The codes will still work in a traditionally hosted file system environment thus I created a fork to introduce cloud hosted databases.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -104,7 +112,7 @@ Here is a list of technologies that this projects are built and depend on.
 - [Typescript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Contentful](https://www.contentful.com)
-- [SQLite](https://www.sqlite.org/index.html)
+- [Firebase](https://firebase.google.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -121,6 +129,7 @@ Here is a list of technologies that this projects are built and depend on.
 - [ ] Add to top button
 - [x] Quasi-workable cheers button
 - [ ] Simple popup menu
+- [ ] Code cleanup
 
 See the [open issues](https://github.com/data-miner00/blog/issues) for a full list of proposed features (and known issues).
 
@@ -173,5 +182,6 @@ Resources that I've found useful and used for reference as well as information g
 - [Kent C Dodds](https://kentcdodds.com/links)
 - [Screenlane](https://screenlane.com/screen/medium-web-app-230/)
 - [Next.js API Routes with SQL DB](https://www.youtube.com/watch?v=PxiQDo0CmDE)
+- [Reddit Post](https://www.reddit.com/r/nextjs/comments/mrmk5j/vercel_cant_open_sqlite_database_during_production/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
