@@ -29,8 +29,7 @@ import { getLinkToClipboard } from "../../services/getLinkToClipboard";
 import { getStaticSidePath } from "../../services/getStaticSidePath";
 import { getShareUrl, SocialMedia } from "../../services/getShareUrl";
 import { getApiClient as clientApi } from "../../services/getApiClient/clientSide";
-import { getApiClient as serverApi } from "../../services/getApiClient/serverSide";
-import { getCheers } from "../../services/getCheers";
+import { getCheers } from "../../services/getCheersClient";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
