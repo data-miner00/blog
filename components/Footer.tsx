@@ -2,102 +2,11 @@ import Image from "next/image";
 
 import { LinkedInIcon, GitHubIcon, TwitterIcon, DiscordIcon } from "./icons";
 import {
-  personalUrl,
-  projectsUrl,
-  mapLocationUrl,
-  socialsUrl,
-  githubUrl,
-} from "../services/getUrls";
-
-type FooterMenuSection = {
-  label: string;
-  href: string;
-};
-
-const aboutMeSection: FooterMenuSection[] = [
-  {
-    label: "Introduction",
-    href: personalUrl.intro,
-  },
-  {
-    label: "Education",
-    href: personalUrl.edu,
-  },
-  {
-    label: "Portfolio",
-    href: personalUrl.portfolio,
-  },
-  {
-    label: "Resume",
-    href: personalUrl.resume,
-  },
-];
-
-const githubSection: FooterMenuSection[] = [
-  {
-    label: "Repository",
-    href: githubUrl.repo,
-  },
-  {
-    label: "Issues",
-    href: githubUrl.issues,
-  },
-  {
-    label: "Pull requests",
-    href: githubUrl.pr,
-  },
-  {
-    label: "Readme",
-    href: githubUrl.readme,
-  },
-  {
-    label: "CI/CD",
-    href: "",
-  },
-];
-
-const projectsSection: FooterMenuSection[] = [
-  {
-    label: "Personal website",
-    href: projectsUrl.personal,
-  },
-  {
-    label: "Newtab",
-    href: projectsUrl.newtab,
-  },
-  {
-    label: "Book",
-    href: projectsUrl.book,
-  },
-  {
-    label: "Twitter clone",
-    href: projectsUrl.twitter,
-  },
-  {
-    label: "Covid Tracker",
-    href: projectsUrl.covid,
-  },
-  {
-    label: "Hackernews",
-    href: projectsUrl.hacker,
-  },
-  {
-    label: "Hungry",
-    href: projectsUrl.hungry,
-  },
-  {
-    label: "Leed",
-    href: projectsUrl.hungry,
-  },
-  {
-    label: "Promotion website",
-    href: projectsUrl.promo,
-  },
-  {
-    label: "Resource website",
-    href: projectsUrl.resource,
-  },
-];
+  aboutMeSection,
+  githubSection,
+  projectsSection,
+} from "../data/footerMenuData";
+import { mapLocationUrl, socialsUrl } from "../services/getUrls";
 
 export default function Footer(): JSX.Element {
   return (
