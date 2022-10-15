@@ -2,14 +2,21 @@ import Image from "next/image";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { getLanguage } from "../../services/getLanguage";
-import { client } from "../../services/getContentfulClient";
-import { getDate } from "../../services/getDate";
+import { BLOCKS } from "@contentful/rich-text-types";
+
 import Header from "../../components/Header";
 import Skeleton from "../../components/Skeleton";
 import Layout from "../../components/Layout";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { getLanguage } from "../../services/getLanguage";
+import { client } from "../../services/getContentfulClient";
+import { getDate } from "../../services/getDate";
 import { projectsUrl, socialsUrl } from "../../services/getUrls";
+import { getLinkToClipboard } from "../../services/getLinkToClipboard";
+import { getStaticSidePath } from "../../services/getStaticSidePath";
+import { getShareUrl, SocialMedia } from "../../services/getShareUrl";
+import { getApiClient as clientApi } from "../../services/getApiClient/clientSide";
+import { getCheers } from "../../services/getCheersClient";
+
 import {
   TwitterIcon,
   FacebookIcon,
@@ -25,11 +32,6 @@ import {
   GlobeIcon,
   DiscordIcon,
 } from "../../components/icons";
-import { getLinkToClipboard } from "../../services/getLinkToClipboard";
-import { getStaticSidePath } from "../../services/getStaticSidePath";
-import { getShareUrl, SocialMedia } from "../../services/getShareUrl";
-import { getApiClient as clientApi } from "../../services/getApiClient/clientSide";
-import { getCheers } from "../../services/getCheersClient";
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({

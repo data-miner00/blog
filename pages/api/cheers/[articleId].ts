@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
+
 import { getCheers, incrementCheers } from "../../../services/getCheersClient";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

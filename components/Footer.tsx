@@ -1,12 +1,13 @@
 import Image from "next/image";
 
 import { LinkedInIcon, GitHubIcon, TwitterIcon, DiscordIcon } from "./icons";
+import { mapLocationUrl, socialsUrl } from "../services/getUrls";
+
 import {
   aboutMeSection,
   githubSection,
   projectsSection,
 } from "../data/footerMenuData";
-import { mapLocationUrl, socialsUrl } from "../services/getUrls";
 
 export default function Footer(): JSX.Element {
   return (

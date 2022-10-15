@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { client } from "../services/getContentfulClient";
+
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 import TrendingItem from "../components/TrendingItem";
 import HomefeedItem from "../components/HomefeedItem";
+import { client } from "../services/getContentfulClient";
 import { TrendingIcon } from "../components/icons";
 import tempData from "../data/tempDataForTrending.json";
 

@@ -6,6 +6,7 @@ import {
   updateDoc,
   increment,
 } from "firebase/firestore";
+
 import { firestore, collections } from "./getFirebaseClient";
 
 export async function getCheers(articleId: string) {
