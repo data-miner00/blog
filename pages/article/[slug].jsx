@@ -194,7 +194,7 @@ export default function Article({ article, _cheers, articleId }) {
               <div className="article__author__name-group__rhs">
                 <div className="article__author__name-group__rhs__name">
                   <span>Chong Mum Khong</span>
-                  <a href="https://www.facebook.com" target="_blank">
+                  <a href={socialsUrl.twitter} target="_blank">
                     Follow
                   </a>
                 </div>
@@ -352,15 +352,19 @@ export default function Article({ article, _cheers, articleId }) {
                 Mind your own business.
               </div>
               <div className="article__ending__author__description">
-                Son, Friend, Moron, Tech Advocate, Paper money Investor, CSS,
-                Next.js, Nuxt.js · @kusama @solana @cardano @avalanche @secret
-                @substrate · #English #Japanese #Malay #Chinese #Korean
+                Son, Friend, Moron, Tech Advocate, CSS, C#, Next.js, Nuxt.js ·
+                @kusama @solana @cardano @avalanche · #English #Japanese #Malay
+                #Chinese #Korean
               </div>
               <div className="article__ending__author__actions">
                 <div className="article__ending__author__actions__left">
-                  <div className="follow-btn">
+                  <a
+                    className="follow-btn"
+                    href={socialsUrl.twitter}
+                    target="_blank"
+                  >
                     <span>Follow</span>
-                  </div>
+                  </a>
                   <div className="mail-btn">
                     <MailPlusIcon size={34} />
                   </div>
