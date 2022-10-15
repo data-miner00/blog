@@ -20,9 +20,10 @@ export const projectsUrl = {
   covid: process.env.APP_PROJECTS_COVID_URL,
   hacker: process.env.APP_PROJECTS_HACKER_URL,
   hungry: process.env.APP_PROJECTS_HUNGRY_URL,
-  leed: process.env.APP_PROJECTS_LEED_URL,
-  promo: process.env.APP_PROJECTS_PROMO_URL,
+  linker: process.env.APP_PROJECTS_LINKER_URL,
+  positron: process.env.APP_PROJECTS_POSITRON_URL,
   resource: process.env.APP_PROJECTS_RESOURCE_URL,
+  algorand: process.env.APP_PROJECTS_ALGORAND_URL,
 };
 
 export const socialsUrl = {

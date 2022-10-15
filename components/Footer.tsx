@@ -94,7 +94,7 @@ export default function Footer(): JSX.Element {
 
           {/* 5 */}
           <div className="text-lg md:row-start-2 xl:row-start-1 xl:row-span-1 xl:col-start-9 xl:col-span-4 md:col-span-4">
-            <div className="font-semibold">About</div>
+            <div className="font-semibold">History</div>
             <p className="text-gray-400 mt-6">
               Started out back in May 2021 but poorly designed and maintained.
               Improvement continues in April 2022 to revamp most aspects of the

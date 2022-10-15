@@ -53,6 +53,10 @@ export const projectsSection: Array<FooterMenuSection> = [
     href: projectsUrl.personal,
   },
   {
+    label: "Algorand Sandbox",
+    href: projectsUrl.algorand,
+  },
+  {
     label: "Newtab",
     href: projectsUrl.newtab,
   },
@@ -77,15 +81,15 @@ export const projectsSection: Array<FooterMenuSection> = [
     href: projectsUrl.hungry,
   },
   {
-    label: "Leed",
-    href: projectsUrl.hungry,
+    label: "Linker",
+    href: projectsUrl.linker,
   },
   {
-    label: "Promotion website",
-    href: projectsUrl.promo,
+    label: "Positron+",
+    href: projectsUrl.positron,
   },
   {
-    label: "Resource website",
+    label: "Gallerium",
     href: projectsUrl.resource,
   },
 ];
