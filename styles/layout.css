@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+
 :root {
   --padding: 0 20%;
 
@@ -5,6 +7,8 @@
   /* --color1: #31263e; */
   --color2: #44355b;
   --color3: #221e22;
+
+  --caveat: "Caveat", cursive;
 }
 
 .layout {
@@ -32,34 +36,11 @@ header {
 
 .logo {
   font-size: 1.75em;
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 2px;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
-}
-
-/* Burger */
-#rect1,
-#rect2,
-#rect3 {
-  transition: 0.2s all ease;
-  transform: translateY(100%);
-}
-
-#rect2 {
-  transition-delay: 100ms;
-}
-#rect3 {
-  transition-delay: 200ms;
-}
-#burger {
-  cursor: pointer;
-}
-
-#burger:hover #rect1,
-#burger:hover #rect2,
-#burger:hover #rect3 {
-  transform: translateY(0);
+  font-family: var(--caveat);
 }
 
 @media screen and (max-width: 1440px) {
