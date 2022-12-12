@@ -43,10 +43,10 @@ function FloatingDescriptor({
               <div className="action--cheers__counter">{cheers}</div>
             </button>
 
-            <div className="action">
+            <div className="action" style={{ cursor: "not-allowed" }}>
               <DialogIcon fill="#fff" />
             </div>
-            <div className="action">
+            <div className="action" style={{ cursor: "not-allowed" }}>
               <AddBookmarkIcon fill="#fff" />
             </div>
           </div>

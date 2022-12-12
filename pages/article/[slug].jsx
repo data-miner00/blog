@@ -134,6 +134,7 @@ export default function Article({ article, _cheers, articleId }) {
             width="100%"
           />
         </div>
+
         <div className="content-wrapper">
           <div className="article__info">
             <div className="article__info__title">{title}</div>
@@ -234,11 +235,14 @@ export default function Article({ article, _cheers, articleId }) {
                   <ClapIcon size={28} fill="#fff" className="mr-1" />
                   <span>{cheers}</span>
                 </button>
-                <div>
+                <div style={{ cursor: "not-allowed" }}>
                   <DialogIcon size={28} fill="#fff" />
                 </div>
               </div>
-              <div className="article__ending__actions__right">
+              <div
+                className="article__ending__actions__right"
+                style={{ cursor: "not-allowed" }}
+              >
                 <BookmarkIcon size={28} fill="#fff" />
                 <ArrowPointingUpFromBoxIcon size={28} fill="#fff" />
               </div>
