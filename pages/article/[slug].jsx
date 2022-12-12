@@ -2,11 +2,11 @@ import Image from "next/image";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
 
 import Header from "../../components/Header";
 import Skeleton from "../../components/Skeleton";
 import Layout from "../../components/Layout";
+import FloatingDescriptor from "../../components/article/FloatingDescriptor";
 import { getLanguage } from "../../services/getLanguage";
 import { client } from "../../services/getContentfulClient";
 import { getDate } from "../../services/getDate";
@@ -115,49 +115,18 @@ export default function Article({ article, _cheers, articleId }) {
 
       <div className="article">
         <Header />
-        <div className="article__float-tip">
-          <div className="inner-wrapper">
-            <div className="article__float-tip__content" ref={floatTipRef}>
-              <div className="article__float-tip__content__top">
-                <div className="article__float-tip__content__top__title">
-                  {title}
-                </div>
-                <div className="article__float-tip__content__top__author">
-                  by Chong Mum Khong
-                </div>
-                <div className="article__float-tip__content__top__tags">
-                  {tags.map((tag) => (
-                    <div key={tag} className="label-tag">
-                      {tag}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="article__float-tip__content__btm">
-                <button
-                  className="action--cheers action"
-                  onClick={() => {
-                    clientApi()
-                      .incrementCheers(articleId)
-                      .then(() => setCheers(cheers + 1));
-                  }}
-                >
-                  <div className="action--cheers__icon">
-                    <ClapIcon fill="#fff" />
-                  </div>
-                  <div className="action--cheers__counter">{cheers}</div>
-                </button>
+        <FloatingDescriptor
+          floatTipRef={floatTipRef}
+          title={title}
+          tags={tags}
+          onClap={() => {
+            clientApi()
+              .incrementCheers(articleId)
+              .then(() => setCheers(cheers + 1));
+          }}
+          cheers={cheers}
+        />
 
-                <div className="action">
-                  <DialogIcon fill="#fff" />
-                </div>
-                <div className="action">
-                  <AddBookmarkIcon fill="#fff" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="article__illus">
           <img
             src={`https:${image.fields.file.url}`}
