@@ -76,16 +76,6 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const renderOptions = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
-      if (node.data.target.fields.file.contentType === "image/jpeg") {
-        return <Image src={node.data.target.fields.file.url} />;
-      }
-    },
-  },
-};
-
 export default function Article({ article, _cheers, articleId }) {
   if (!article) return <Skeleton />;
 
@@ -259,7 +249,7 @@ export default function Article({ article, _cheers, articleId }) {
             </div>
           </div>
           <div className="article__body">
-            {documentToReactComponents(content, renderOptions)}
+            {documentToReactComponents(content)}
           </div>
           <div className="article__ending">
             <div className="article__ending__actions">
