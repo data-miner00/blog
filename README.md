@@ -122,14 +122,16 @@ Here is a list of technologies that this projects are built and depend on.
 
 - [x] Renovate website
 - [x] Use env for all urls
-- [ ] Add dark mode/light mode
 - [ ] Add animations
 - [ ] Add 404 page
-- [ ] Update skeleton
+- [x] Update skeleton
 - [ ] Add to top button
 - [x] Quasi-workable cheers button
 - [ ] Simple popup menu
 - [ ] Code cleanup
+- [ ] About page
+- [ ] Bookmarked page
+- [ ] Add tags page
 
 See the [open issues](https://github.com/data-miner00/blog/issues) for a full list of proposed features (and known issues).
 
