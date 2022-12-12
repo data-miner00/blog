@@ -16,7 +16,12 @@ export default function Footer(): JSX.Element {
         <div className="max-w-7xl mx-auto grid gap-y-12 md:gap-y-0 grid-cols-1 xl:grid-cols-12 xl:gap-x-6 md:auto-rows-auto xl:grid-rows-3 md:gap-4 md:grid-cols-8">
           {/* 1 */}
           <div className="md:col-start-1 md:row-start-1 xl:col-span-3 xl:row-span-2 md:col-span-3 xl:pb-[150px] overflow-hidden text-2xl">
-            <div className="uppercase font-bold text-white">Mumk</div>
+            <div
+              className="font-bold text-white text-4xl"
+              style={{ fontFamily: "var(--caveat)" }}
+            >
+              Mumk
+            </div>
             <div className="font-semibold text-gray-400 mt-6">
               My personal blogging website on non-technical stuffs.
             </div>
