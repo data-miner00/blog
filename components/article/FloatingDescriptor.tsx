@@ -40,7 +40,9 @@ function FloatingDescriptor({
               <div className="action--cheers__icon">
                 <ClapIcon fill="#fff" />
               </div>
-              <div className="action--cheers__counter">{cheers}</div>
+              {cheers > 0 && (
+                <div className="action--cheers__counter">{cheers}</div>
+              )}
             </button>
 
             <div className="action" style={{ cursor: "not-allowed" }}>

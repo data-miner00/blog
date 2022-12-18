@@ -233,7 +233,7 @@ export default function Article({ article, _cheers, articleId }) {
                   }}
                 >
                   <ClapIcon size={28} fill="#fff" className="mr-1" />
-                  <span>{cheers}</span>
+                  {cheers > 0 && <span>{cheers}</span>}
                 </button>
                 <div style={{ cursor: "not-allowed" }}>
                   <DialogIcon size={28} fill="#fff" />
