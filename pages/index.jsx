@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 import Header from "../components/Header";
 import Layout from "../components/Layout";
@@ -39,7 +40,7 @@ export default function Home({ articles, tags }) {
   return (
     <>
       <Head>
-        <title>Personal Next.js Blog</title>
+        <title>My Blog | Mumk</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
@@ -116,11 +117,11 @@ export default function Home({ articles, tags }) {
                 </div>
                 <div className=" pb-6 border-b border-solid border-gray-600">
                   {tags.map((tag, index) => (
-                    <div className="inline-block" key={index}>
-                      <div className="inline-block py-[6px] px-[16px] border border-gray-600 rounded-[3px] text-gray-300 mb-2 mr-2 text-[13px] ">
+                    <Link href={`/tags/${tag}`} key={index}>
+                      <div className="inline-block py-[6px] px-[16px] border border-gray-600 rounded-[3px] text-gray-300 mb-2 mr-2 text-[13px] cursor-pointer">
                         <span>{tag}</span>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
                 <div className="py-6">

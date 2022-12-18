@@ -109,7 +109,7 @@ export default function Article({ article, _cheers, articleId }) {
   return (
     <>
       <Head>
-        <title>{title} | Next Blog</title>
+        <title>{title} | Mumk</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
