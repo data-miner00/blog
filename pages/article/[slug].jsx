@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -67,20 +68,20 @@ export const getStaticProps = async (context) => {
 
   const article = items[0];
   const articleId = article.sys.id;
+  const tags = article.metadata.tags.map((tag) => tag.sys.id);
 
   const cheers = await getCheers(articleId);
 
   return {
-    props: { article, _cheers: cheers, articleId },
+    props: { article, _cheers: cheers, articleId, tags },
     revalidate: 10,
   };
 };
 
-export default function Article({ article, _cheers, articleId }) {
+export default function Article({ article, _cheers, articleId, tags }) {
   if (!article) return <Skeleton />;
 
-  const { title, subtitle, tags, image, language, content, minutes } =
-    article.fields;
+  const { title, subtitle, image, language, content, minutes } = article.fields;
   const { createdAt, updatedAt } = article.sys;
   const floatTipRef = useRef();
   const [cheers, setCheers] = useState(_cheers);
@@ -249,7 +250,9 @@ export default function Article({ article, _cheers, articleId }) {
             </div>
             <div className="article__ending__tags">
               {tags.map((tag, index) => (
-                <span key={index}>{tag}</span>
+                <Link key={index} href={`/tags/${tag}`}>
+                  {tag}
+                </Link>
               ))}
             </div>
             <div className="article__ending__dates">

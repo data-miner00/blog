@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MutableRefObject } from "react";
 import { AddBookmarkIcon, ClapIcon, DialogIcon } from "../icons";
 
@@ -29,9 +30,9 @@ function FloatingDescriptor({
             </div>
             <div className="article__float-tip__content__top__tags">
               {tags.map((tag) => (
-                <div key={tag} className="label-tag">
+                <Link key={tag} href={`/tags/${tag}`}>
                   {tag}
-                </div>
+                </Link>
               ))}
             </div>
           </div>
