@@ -91,7 +91,7 @@ export default function Article({ article, _cheers, articleId }) {
       if (floatTipRef.current) {
         if (
           window.pageYOffset > 500 &&
-          window.pageYOffset < document.documentElement.scrollHeight - 1800
+          window.pageYOffset < document.documentElement.scrollHeight - 2100
         ) {
           floatTipRef.current.style.opacity = 1;
           floatTipRef.current.style.pointerEvents = "all";
