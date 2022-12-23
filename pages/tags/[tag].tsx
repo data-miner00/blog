@@ -3,6 +3,7 @@ import Head from "next/head";
 import Header from "../../components/Header";
 import Layout from "../../components/Layout";
 import HomefeedItem from "../../components/HomefeedItem";
+import Skeleton from "../../components/Skeleton";
 
 import { client } from "../../services/getContentfulClient";
 
@@ -25,20 +26,12 @@ export const getStaticProps = async (context: any) => {
     "metadata.tags.sys.id[all]": context.params.tag,
   });
 
-  if (!items.length) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-
   return {
     props: {
       tag: context.params.tag,
       articles: items,
     },
+    revalidate: 10,
   };
 };
 
@@ -48,6 +41,8 @@ type Props = {
 };
 
 function Tag({ tag, articles }: Props): JSX.Element {
+  if (!articles || !tag) return <Skeleton />;
+
   articles = articles.map((a) => ({
     slug: a.fields.slug,
     author: "Chong Mum Khong",
@@ -77,22 +72,35 @@ function Tag({ tag, articles }: Props): JSX.Element {
           </h1>
 
           <div className="max-w-[695px]">
-            {articles.map((t) => (
-              <HomefeedItem
-                key={t.slug}
-                slug={t.slug}
-                author={t.author}
-                avatarUrl={t.avatarUrl}
-                coverImgUrl={t.coverImgUrl}
-                minRead={t.minRead}
-                description={t.description}
-                title={t.title}
-                date={t.date}
-                language={t.language}
-                category={t.category}
-                publication={t.publication}
-              />
-            ))}
+            {articles.length > 0 ? (
+              articles.map((t) => (
+                <HomefeedItem
+                  key={t.slug}
+                  slug={t.slug}
+                  author={t.author}
+                  avatarUrl={t.avatarUrl}
+                  coverImgUrl={t.coverImgUrl}
+                  minRead={t.minRead}
+                  description={t.description}
+                  title={t.title}
+                  date={t.date}
+                  language={t.language}
+                  category={t.category}
+                  publication={t.publication}
+                />
+              ))
+            ) : (
+              <p
+                className="text-6xl font-extrabold uppercase text-transparent"
+                style={{ WebkitTextStroke: "1px #ddd" }}
+              >
+                Unfortunately
+                <br />
+                No articles found
+                <br />
+                For the topic specified.
+              </p>
+            )}
           </div>
         </main>
       </div>
