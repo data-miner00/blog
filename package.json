@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "analyze": "node scripts/readingTimeAnalyzer.js"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.0",

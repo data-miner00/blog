@@ -39,3 +39,6 @@ yarn-error.log*
 # database
 *.sqlite
 *.sqlite-journal
+
+# Text files
+article.txt
