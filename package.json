@@ -13,6 +13,7 @@
     "@contentful/rich-text-types": "^15.12.0",
     "contentful": "^9.1.21",
     "firebase": "^9.12.1",
+    "framer-motion": "^8.0.2",
     "next": "12",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
