@@ -21,7 +21,7 @@ type Props = {
 export default function HomefeedItem(props: Props): JSX.Element {
   return (
     <Link href={`/article/${props.slug}`}>
-      <div className="flex gap-8 mb-16 md:mb-12 md:gap-0 items-stretch md:items-center flex-col-reverse md:flex-row cursor-pointer">
+      <div className="flex gap-8 mb-16 md:mb-12 md:gap-0 items-stretch md:items-center justify-between flex-col-reverse md:flex-row cursor-pointer">
         <div className="mr-5">
           <div className="flex items-center mb-2">
             <div className="h-5 w-5 rounded-full bg-gray-300 overflow-hidden">
