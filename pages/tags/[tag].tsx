@@ -29,7 +29,7 @@ export const getStaticProps = async (context: any) => {
   return {
     props: {
       tag: context.params.tag,
-      articles: items,
+      _articles: items,
     },
     revalidate: 10,
   };
@@ -37,13 +37,13 @@ export const getStaticProps = async (context: any) => {
 
 type Props = {
   tag: string;
-  articles: Array<any>;
+  _articles: Array<any>;
 };
 
-function Tag({ tag, articles }: Props): JSX.Element {
-  if (!articles || !tag) return <Skeleton />;
+function Tag({ tag, _articles }: Props): JSX.Element {
+  if (!_articles || !tag) return <Skeleton />;
 
-  articles = articles.map((a) => ({
+  const articles = _articles.map((a) => ({
     slug: a.fields.slug,
     author: "Chong Mum Khong",
     avatarUrl: "/1803151smol.jpg",

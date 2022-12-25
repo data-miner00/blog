@@ -15,15 +15,15 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      articles: articlesRes.items,
+      _articles: articlesRes.items,
       tags: tagsRes.items.map((tag) => tag.name),
     },
     revalidate: 10,
   };
 };
 
-export default function Home({ articles, tags }) {
-  articles = articles.map((a) => ({
+export default function Home({ _articles, tags }) {
+  const articles = _articles.map((a) => ({
     slug: a.fields.slug,
     author: "Chong Mum Khong",
     avatarUrl: "/1803151smol.jpg",
