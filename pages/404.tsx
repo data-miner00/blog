@@ -5,18 +5,21 @@ function NotFound(): JSX.Element {
   return (
     <div>
       <Header />
-      <div className="py-[200px] max-w-[1192px] mx-auto">
-        <p
-          className="text-8xl font-bold text-transparent uppercase py-10"
-          style={{ WebkitTextStroke: "1px #ddd" }}
-        >
-          404 Not Found
+      <div className="px-6 py-[150px] md:py-[200px] max-w-[1192px] mx-auto">
+        <p className="text-lg md:text-2xl font-bold uppercase text-white">
+          That's abit unfortunate
         </p>
-        <p
-          className="text-6xl font-bold text-transparent uppercase"
-          style={{ WebkitTextStroke: "1px #ddd" }}
-        >
-          The said page could not be found.
+        <p className="text-6xl md:text-8xl font-bold text-transparent uppercase">
+          <span style={{ WebkitTextStroke: "1px #ddd" }}>404</span>{" "}
+          <span className="text-white">Not</span>{" "}
+          <span style={{ WebkitTextStroke: "1px #ddd" }}>Found</span>
+        </p>
+        <p className="text-2xl md:text-6xl font-bold text-transparent uppercase">
+          <span style={{ WebkitTextStroke: "1px #ddd" }}>
+            The requested page does
+          </span>{" "}
+          <span className="text-white">not</span>{" "}
+          <span style={{ WebkitTextStroke: "1px #ddd" }}>exist.</span>
         </p>
       </div>
     </div>

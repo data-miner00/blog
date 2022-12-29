@@ -60,7 +60,7 @@ export const getStaticProps = async (context) => {
   if (!items.length) {
     return {
       redirect: {
-        destination: "/",
+        destination: "/404",
         permanent: false,
       },
     };
