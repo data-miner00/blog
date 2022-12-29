@@ -2,14 +2,10 @@
 
 <!-- PROJECT SHIELDS -->
 
-![Build Shield](https://img.shields.io/badge/build-passing-brightgreen)
-![Coverage Shield](https://img.shields.io/badge/coverage-100%25-brightgreen)
-![Test Shield](https://img.shields.io/badge/test-failing-critical)
-![Veracode Shield](https://img.shields.io/badge/veracode-inactive-inactive)
-![Star Shield](https://img.shields.io/badge/stars-0-ff69b4)
-![Issues Shield](https://img.shields.io/badge/issues-0-blue)
-![Contentful Shield](https://img.shields.io/badge/contentful-active-blue)
-![e2e Shield](https://img.shields.io/badge/e2e-unset-inactive)
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -26,7 +22,7 @@
     <a href=""><strong>Visit website »</strong></a>
     <br />
     <br />
-    <a href="">Visit book</a>
+    <a href="https://blog-mumk.vercel.app">Visit book</a>
     ·
     <a href="https://github.com/data-miner00/blog/issues">Report Bug</a>
     ·
@@ -56,6 +52,8 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
+
+![Website screenshot][website-screenshot]
 
 I am an semi-avid writer where I will try to document everything I found interesting and useful that can also serves as a refresher for later in future in the form of words, where I can read and reminisce.
 
@@ -113,6 +111,7 @@ Here is a list of technologies that this projects are built and depend on.
 - [TailwindCSS](https://tailwindcss.com/)
 - [Contentful](https://www.contentful.com)
 - [Firebase](https://firebase.google.com/)
+- [Framer Motion](https://www.framer.com/motion/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -122,16 +121,16 @@ Here is a list of technologies that this projects are built and depend on.
 
 - [x] Renovate website
 - [x] Use env for all urls
-- [ ] Add animations
-- [ ] Add 404 page
+- [x] Add animations
+- [x] Add 404 page
 - [x] Update skeleton
-- [ ] Add to top button
+- [x] Add to top button
 - [x] Quasi-workable cheers button
 - [ ] Simple popup menu
 - [ ] Code cleanup
 - [ ] About page
 - [ ] Bookmarked page
-- [ ] Add tags page
+- [x] Add tags page
 
 See the [open issues](https://github.com/data-miner00/blog/issues) for a full list of proposed features (and known issues).
 
@@ -187,3 +186,15 @@ Resources that I've found useful and used for reference as well as information g
 - [Reddit Post](https://www.reddit.com/r/nextjs/comments/mrmk5j/vercel_cant_open_sqlite_database_during_production/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/data-miner00/blog.svg?style=for-the-badge
+[contributors-url]: https://github.com/data-miner00/blog/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/data-miner00/blog.svg?style=for-the-badge
+[forks-url]: https://github.com/data-miner00/blog/network/members
+[stars-shield]: https://img.shields.io/github/stars/data-miner00/blog.svg?style=for-the-badge
+[stars-url]: https://github.com/data-miner00/blog/stargazers
+[issues-shield]: https://img.shields.io/github/issues/data-miner00/blog.svg?style=for-the-badge
+[issues-url]: https://github.com/data-miner00/blog/issues
+[website-screenshot]: images/screenshot.png
