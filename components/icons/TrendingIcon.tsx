@@ -1,5 +1,5 @@
 export default function TrendingIcon(): JSX.Element {
-  const bgColor = "#1c1c1c";
+  const bgColor = "#0d1117";
   const strokeColor = "#fff";
 
   return (
