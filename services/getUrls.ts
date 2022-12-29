@@ -1,39 +1,43 @@
+const portfolioBaseUrl = "https://portfolio-six-ecru-52.vercel.app";
 export const personalUrl = {
-  intro: process.env.APP_INTRODUCTION_URL,
-  edu: process.env.APP_EDUCATION_URL,
-  portfolio: process.env.APP_PORTFOLIO_URL,
-  resume: process.env.APP_RESUME_URL,
+  intro: portfolioBaseUrl + "/profile",
+  edu: portfolioBaseUrl + "/education",
+  portfolio: portfolioBaseUrl + "/projects",
+  resume: portfolioBaseUrl,
 };
 
+const repoBaseUrl = "https://github.com/data-miner00/blog";
 export const githubUrl = {
-  repo: process.env.APP_GITHUB_REPO_URL,
-  issues: process.env.APP_GITHUB_ISSUES_URL,
-  pr: process.env.APP_GITHUB_PR_URL,
-  readme: process.env.APP_GITHUB_README_URL,
+  repo: repoBaseUrl,
+  issues: repoBaseUrl + "/issues",
+  pr: repoBaseUrl + "/pulls",
+  readme: repoBaseUrl + "/blob/master/README.md",
 };
 
+const githubUserBaseUrl = "https://github.com/data-miner00";
 export const projectsUrl = {
-  personal: process.env.APP_PROJECTS_PERSONAL_URL,
-  newtab: process.env.APP_PROJECTS_NEWTAB_URL,
-  book: process.env.APP_PROJECTS_BOOK_URL,
-  twitter: process.env.APP_PROJECTS_TWITTER_URL,
-  covid: process.env.APP_PROJECTS_COVID_URL,
-  hacker: process.env.APP_PROJECTS_HACKER_URL,
-  hungry: process.env.APP_PROJECTS_HUNGRY_URL,
-  linker: process.env.APP_PROJECTS_LINKER_URL,
-  positron: process.env.APP_PROJECTS_POSITRON_URL,
-  resource: process.env.APP_PROJECTS_RESOURCE_URL,
-  algorand: process.env.APP_PROJECTS_ALGORAND_URL,
+  personal: "https://portfolio-six-ecru-52.vercel.app/",
+  newtab: "https://newtab-remastered.vercel.app/",
+  book: "https://book-dun-three.vercel.app/",
+  twitter: githubUserBaseUrl + "/Twitter-Clone",
+  covid: "https://ng-covid-tracker.web.app/",
+  hacker: githubUserBaseUrl + "/ng-hackernews",
+  hungry: githubUserBaseUrl + "/Hungry",
+  linker: githubUserBaseUrl + "/Linker",
+  positron: githubUserBaseUrl + "/positron",
+  resource: githubUserBaseUrl + "/web-ui",
+  algorand: githubUserBaseUrl + "/sandbox.algo",
 };
 
 export const socialsUrl = {
-  github: process.env.APP_SOCIALS_GITHUB_URL,
-  twitter: process.env.APP_SOCIALS_TWITTER_URL,
-  discord: process.env.APP_SOCIALS_DISCORD_URL,
-  linkedin: process.env.APP_SOCIALS_LINKEDIN_URL,
+  github: githubUserBaseUrl,
+  twitter: "https://twitter.com/Has66771004",
+  discord: "https://discord.com/users/579562292316864512",
+  linkedin: "https://www.linkedin.com/in/chong-mum-khong-343b3b1b0/",
 };
 
-export const mapLocationUrl = process.env.APP_LOCATION_MAP_URL;
+export const mapLocationUrl =
+  "https://www.google.com.my/maps/place/Silverscape+Luxury+Residences/@2.1842208,102.2603256,16.58z/data=!4m5!3m4!1s0x31d1ee04c849c9c5:0xfd2f48ac5ca0a43f!8m2!3d2.1819983!4d102.2627071";
 
 export default {
   personalUrl,
