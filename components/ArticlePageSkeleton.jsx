@@ -1,6 +1,6 @@
 import Header from "./Header";
 
-export default function Skeleton() {
+export default function ArticlePageSkeleton() {
   return (
     <div className="loading">
       <Header />

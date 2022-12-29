@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import Header from "../../components/Header";
-import Skeleton from "../../components/Skeleton";
+import ArticlePageSkeleton from "../../components/ArticlePageSkeleton";
 import Layout from "../../components/Layout";
 import FloatingDescriptor from "../../components/article/FloatingDescriptor";
 import { getLanguage } from "../../services/getLanguage";
@@ -79,7 +79,7 @@ export const getStaticProps = async (context) => {
 };
 
 export default function Article({ article, _cheers, articleId, tags }) {
-  if (!article) return <Skeleton />;
+  if (!article) return <ArticlePageSkeleton />;
 
   const { title, subtitle, image, language, content, minutes } = article.fields;
   const { createdAt, updatedAt } = article.sys;
