@@ -3,7 +3,7 @@ import Head from "next/head";
 import Header from "../../components/Header";
 import Layout from "../../components/Layout";
 import HomefeedItem from "../../components/HomefeedItem";
-import Skeleton from "../../components/Skeleton";
+import TagPageSkeleton from "../../components/TagPageSkeleton";
 
 import { client } from "../../services/getContentfulClient";
 
@@ -41,7 +41,7 @@ type Props = {
 };
 
 function Tag({ tag, _articles }: Props): JSX.Element {
-  if (!_articles || !tag) return <Skeleton />;
+  if (!_articles || !tag) return <TagPageSkeleton />;
 
   const articles = _articles.map((a) => ({
     slug: a.fields.slug,
