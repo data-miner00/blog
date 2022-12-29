@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import Header from "../components/Header";
 import Layout from "../components/Layout";
@@ -8,6 +9,13 @@ import HomefeedItem from "../components/HomefeedItem";
 import { client } from "../services/getContentfulClient";
 import { TrendingIcon } from "../components/icons";
 import { getDate } from "../services/getDate";
+import {
+  trendingItemContainerMotion,
+  trendingItemMotion,
+  masterContainerMotion,
+  masterContainerChildrenMotion,
+  blogItemMotion,
+} from "../motions/homepage";
 
 export const getStaticProps = async () => {
   const articlesRes = await client.getEntries({ content_type: "article" });
@@ -47,22 +55,36 @@ export default function Home({ _articles, tags }) {
       <div className="home">
         <Header />
 
-        <section className="home__banner">
-          <div className="home__banner__label">
+        <motion.section
+          className="home__banner"
+          variants={masterContainerMotion}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div
+            className="home__banner__label"
+            variants={masterContainerChildrenMotion}
+          >
             <span>It's almost sunset.</span>
-          </div>
-          <div className="home__banner__para">
+          </motion.div>
+          <motion.div
+            className="home__banner__para"
+            variants={masterContainerChildrenMotion}
+          >
             <p>
               You are now on top of an unknown mountain inside a very deep
               forest, all by yourself. Beyond the cliff is an ocean of lush
               green trees, covering the soil under the horizon. You figure that
               it's probably time to go back and read some blogs...😋
             </p>
-          </div>
-          <div className="home__banner__button">
+          </motion.div>
+          <motion.div
+            className="home__banner__button"
+            variants={masterContainerChildrenMotion}
+          >
             <a href="#feeds">Recommend me</a>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         <section className="home__trending">
           <div className="wrap">
@@ -72,43 +94,57 @@ export default function Home({ _articles, tags }) {
                 <span>Trending on Mumk</span>
               </div>
             </div>
-            <div className="home__trending__content">
+            <motion.ul
+              className="home__trending__content"
+              variants={trendingItemContainerMotion}
+              initial="hidden"
+              animate="show"
+            >
               {articles.slice(0, 6).map((article, index) => (
-                <TrendingItem
-                  key={index}
-                  index={index + 1}
-                  slug={article.slug}
-                  author={article.author}
-                  avatarUrl={article.avatarUrl}
-                  minRead={article.minRead}
-                  title={article.title}
-                  date={getDate(article.date, 2)}
-                />
+                <motion.li variants={trendingItemMotion}>
+                  <TrendingItem
+                    key={index}
+                    index={index + 1}
+                    slug={article.slug}
+                    author={article.author}
+                    avatarUrl={article.avatarUrl}
+                    minRead={article.minRead}
+                    title={article.title}
+                    date={getDate(article.date, 2)}
+                  />
+                </motion.li>
               ))}
-            </div>
+            </motion.ul>
           </div>
         </section>
 
         <section className="home__feeds" id="feeds">
           <div className="wrap">
-            <main>
+            <ul>
               {articles.map((t) => (
-                <HomefeedItem
-                  key={t.slug}
-                  slug={t.slug}
-                  author={t.author}
-                  avatarUrl={t.avatarUrl}
-                  coverImgUrl={t.coverImgUrl}
-                  minRead={t.minRead}
-                  description={t.description}
-                  title={t.title}
-                  date={t.date}
-                  language={t.language}
-                  category={t.category}
-                  publication={t.publication}
-                />
+                <motion.li
+                  variants={blogItemMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                >
+                  <HomefeedItem
+                    key={t.slug}
+                    slug={t.slug}
+                    author={t.author}
+                    avatarUrl={t.avatarUrl}
+                    coverImgUrl={t.coverImgUrl}
+                    minRead={t.minRead}
+                    description={t.description}
+                    title={t.title}
+                    date={t.date}
+                    language={t.language}
+                    category={t.category}
+                    publication={t.publication}
+                  />
+                </motion.li>
               ))}
-            </main>
+            </ul>
             <aside>
               <div className="sticky top-[70px]">
                 <div className="mb-6">

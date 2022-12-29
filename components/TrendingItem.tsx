@@ -10,7 +10,7 @@ type Props = {
   minRead: number;
 };
 
-export default function TrendingItem(props: Props): JSX.Element {
+function TrendingItem(props: Props): JSX.Element {
   return (
     <Link href={`/article/${props.slug}`}>
       <div className="flex px-4 cursor-pointer">
@@ -33,3 +33,5 @@ export default function TrendingItem(props: Props): JSX.Element {
     </Link>
   );
 }
+
+export default TrendingItem;
