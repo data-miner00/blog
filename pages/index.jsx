@@ -7,7 +7,7 @@ import TrendingItem from "../components/TrendingItem";
 import HomefeedItem from "../components/HomefeedItem";
 import { client } from "../services/getContentfulClient";
 import { TrendingIcon } from "../components/icons";
-import tempData from "../data/tempDataForTrending.json";
+import { getDate } from "../services/getDate";
 
 export const getStaticProps = async () => {
   const articlesRes = await client.getEntries({ content_type: "article" });
@@ -73,15 +73,16 @@ export default function Home({ _articles, tags }) {
               </div>
             </div>
             <div className="home__trending__content">
-              {tempData.map((t) => (
+              {articles.slice(0, 6).map((article, index) => (
                 <TrendingItem
-                  key={t.index}
-                  index={t.index}
-                  author={t.author}
-                  avatarUrl={t.avatarUrl}
-                  minRead={t.minRead}
-                  title={t.title}
-                  date={t.date}
+                  key={index}
+                  index={index + 1}
+                  slug={article.slug}
+                  author={article.author}
+                  avatarUrl={article.avatarUrl}
+                  minRead={article.minRead}
+                  title={article.title}
+                  date={getDate(article.date, 2)}
                 />
               ))}
             </div>

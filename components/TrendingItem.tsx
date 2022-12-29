@@ -2,6 +2,7 @@ import Link from "next/link";
 
 type Props = {
   index: string;
+  slug: string;
   author: string;
   avatarUrl: string;
   title: string;
@@ -11,7 +12,7 @@ type Props = {
 
 export default function TrendingItem(props: Props): JSX.Element {
   return (
-    <Link href={""}>
+    <Link href={`/article/${props.slug}`}>
       <div className="flex px-4 cursor-pointer">
         <div className="text-[30px] font-bold leading-9 mr-5 text-gray-600">
           <span>{props.index}</span>

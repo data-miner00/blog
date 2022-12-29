@@ -319,8 +319,8 @@ export default function Article({ article, _cheers, articleId, tags }) {
               </div>
               <div className="article__ending__author__description">
                 Son, Friend, Moron, Tech Advocate, CSS, C#, Next.js, Nuxt.js ·
-                @kusama @solana @cardano @avalanche · #English #Japanese #Malay
-                #Chinese #Korean
+                @algorand @avalanche @zilliqa @polkadot · #English #Japanese
+                #Malay #Chinese #Korean
               </div>
               <div className="article__ending__author__actions">
                 <div className="article__ending__author__actions__left">
