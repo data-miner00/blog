@@ -66,8 +66,8 @@ function Tag({ tag, _articles }: Props): JSX.Element {
 
       <div>
         <Header />
-        <main className="pt-[150px] pb-[50px] max-w-[1192px] mx-auto">
-          <h1 className=" text-3xl font-bold mb-20">
+        <main className="px-7 pt-[100px] md:pt-[150px] md:pb-[50px] md:max-w-[1192px] mx-auto">
+          <h1 className="text-2xl md:text-3xl font-bold md:mb-20 mb-16">
             Topics related to "{tag}" - {articles.length} results
           </h1>
 
