@@ -101,9 +101,8 @@ export default function Home({ _articles, tags }) {
               animate="show"
             >
               {articles.slice(0, 6).map((article, index) => (
-                <motion.li variants={trendingItemMotion}>
+                <motion.li key={index} variants={trendingItemMotion}>
                   <TrendingItem
-                    key={index}
                     index={index + 1}
                     slug={article.slug}
                     author={article.author}
@@ -123,13 +122,13 @@ export default function Home({ _articles, tags }) {
             <ul>
               {articles.map((t) => (
                 <motion.li
+                  key={t.slug}
                   variants={blogItemMotion}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
                 >
                   <HomefeedItem
-                    key={t.slug}
                     slug={t.slug}
                     author={t.author}
                     avatarUrl={t.avatarUrl}
