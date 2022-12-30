@@ -2,15 +2,13 @@ import "../styles/globals.css";
 import "../styles/layout.css";
 import "../styles/home.sass";
 import "../styles/article.sass";
-import "../styles/preview.sass";
-import Layout from "../components/Layout";
+import "../styles/content.sass";
+import "../styles/footer.sass";
 
 function App({ Component, pageProps }) {
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  );
+  const getLayout = Component.getLayout || ((page) => page);
+
+  return getLayout(<Component {...pageProps} />);
 }
 
 export default App;

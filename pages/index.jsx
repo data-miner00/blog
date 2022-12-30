@@ -1,169 +1,186 @@
 import Head from "next/head";
-import {
-  faTwitter,
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon as Fa } from "@fortawesome/react-fontawesome";
-import { PostPreview } from "../components/PostPreview";
-import { client } from "../services/getContentfulClient";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
 import Header from "../components/Header";
-import { useRef, useEffect } from "react";
+import Layout from "../components/Layout";
+import TrendingItem from "../components/TrendingItem";
+import HomefeedItem from "../components/HomefeedItem";
+import { client } from "../services/getContentfulClient";
+import { TrendingIcon } from "../components/icons";
+import { getDate } from "../services/getDate";
+import {
+  trendingItemContainerMotion,
+  trendingItemMotion,
+  masterContainerMotion,
+  masterContainerChildrenMotion,
+  blogItemMotion,
+} from "../motions/homepage";
 
 export const getStaticProps = async () => {
-  const res = await client.getEntries({ content_type: "article" });
+  const articlesRes = await client.getEntries({ content_type: "article" });
+  const tagsRes = await client.getTags();
+
   return {
     props: {
-      articles: res.items,
+      _articles: articlesRes.items,
+      tags: tagsRes.items.map((tag) => tag.name),
     },
     revalidate: 10,
   };
 };
 
-export default function Home({ articles }) {
-  console.log(articles);
-  const animationBarRef = useRef();
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 50) {
-        animationBarRef.current.style.visibility = "hidden";
-      } else {
-        animationBarRef.current.style.visibility = "visible";
-      }
-    });
-  }, []);
+export default function Home({ _articles, tags }) {
+  const articles = _articles.map((a) => ({
+    slug: a.fields.slug,
+    author: "Chong Mum Khong",
+    avatarUrl: "/1803151smol.jpg",
+    title: a.fields.title,
+    description: a.fields.subtitle,
+    date: a.sys.createdAt,
+    coverImgUrl: `https:${a.fields.image.fields.file.url}`,
+    language: a.fields.language,
+    category: a.fields.category,
+    minRead: a.fields.minutes,
+    publication: a.fields.publication,
+  }));
 
   return (
-    <div className="home">
+    <>
       <Head>
-        <title>Home | Next Blog</title>
+        <title>My Blog | Mumk</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      <Header />
-      {/* Photo by <a href="https://unsplash.com/@danielcgold?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dan Gold</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */}
+      <div className="home">
+        <Header />
 
-      <div className="home__banner">
-        <div className="wrap">
-          <div className="home__banner__label">
-            <h1>
-              Blog Of <br />
-              All Trades/Kinds
-            </h1>
-          </div>
-          <div className="home__banner__para">
+        <motion.section
+          className="home__banner"
+          variants={masterContainerMotion}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div
+            className="home__banner__label"
+            variants={masterContainerChildrenMotion}
+          >
+            <span>It's almost sunset.</span>
+          </motion.div>
+          <motion.div
+            className="home__banner__para"
+            variants={masterContainerChildrenMotion}
+          >
             <p>
-              i study, i document, i rant, <span id="wrte">i wrte</span>. Names
-              Mum Khong, this is my personal blogging site. Topics of all kinds{" "}
-              <a href="#posts">
-                <span id="avai">available</span>
-              </a>
-              .
+              You are now on top of an unknown mountain inside a very deep
+              forest, all by yourself. Beyond the cliff is an ocean of lush
+              green trees, covering the soil under the horizon. You figure that
+              it's probably time to go back and read some blogs...😋
             </p>
-          </div>
-        </div>
-        <div className="home__banner__animation" ref={animationBarRef}>
-          <div id="animated-rect"></div>
-        </div>
-      </div>
+          </motion.div>
+          <motion.div
+            className="home__banner__button"
+            variants={masterContainerChildrenMotion}
+          >
+            <a href="#feeds">Recommend me</a>
+          </motion.div>
+        </motion.section>
 
-      <div className="home__author">
-        <div className="wrap">
-          <div className="home__author__label">
-            <h3>About Me</h3>
-          </div>
-          <div className="home__author__card">
-            <div className="home__author__card__avatar">
-              <img src="1803151.jpg" alt="my avatar" id="avatar" />
-            </div>
-            <div className="home__author__card__details">
-              <div className="home__author__card__details__para">
-                <p>
-                  Hi there. I am Mum Khong, a Software Engineerinng freshgrads
-                  from UTAR. I am 24 this year. The incentive of making this
-                  blog is to improve my writing and critical thinking skills and
-                  make good use of my time.
-                </p>
-              </div>
-              <div className="home__author__card__details__social">
-                <div
-                  className="home__author__card__details__social__icon"
-                  id="facebook"
-                >
-                  <a href="#" target="_blank">
-                    <Fa icon={faFacebook} />
-                  </a>
-                </div>
-
-                <div
-                  className="home__author__card__details__social__icon"
-                  id="instagram"
-                >
-                  <a href="#" target="_blank">
-                    <Fa icon={faInstagram} />
-                  </a>
-                </div>
-                <div
-                  className="home__author__card__details__social__icon"
-                  id="twitter"
-                >
-                  <a href="#" target="_blank">
-                    <Fa icon={faTwitter} />
-                  </a>
-                </div>
-                <div
-                  className="home__author__card__details__social__icon"
-                  id="linkedin"
-                >
-                  <a href="#">
-                    <Fa icon={faLinkedin} />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="home__disclaimer">
-        <div className="wrap-wrap">
+        <section className="home__trending">
           <div className="wrap">
-            <div className="home__disclaimer__label">Disclaimer:</div>
-            <div className="home__disclaimer__body">
-              The articles written are by no means a reliable source for scholar
-              reference whatsoever. Though facts are frequently described in the
-              articles, the content as a whole might be severely opinionated.
-              Fact-finding must be performed by one's who intend to cite an
-              excerpt from any of my article.
+            <div className="home__trending__label">
+              <TrendingIcon />
+              <div>
+                <span>Trending on Mumk</span>
+              </div>
             </div>
+            <motion.ul
+              className="home__trending__content"
+              variants={trendingItemContainerMotion}
+              initial="hidden"
+              animate="show"
+            >
+              {articles.slice(0, 6).map((article, index) => (
+                <motion.li key={index} variants={trendingItemMotion}>
+                  <TrendingItem
+                    index={index + 1}
+                    slug={article.slug}
+                    author={article.author}
+                    avatarUrl={article.avatarUrl}
+                    minRead={article.minRead}
+                    title={article.title}
+                    date={getDate(article.date, 2)}
+                  />
+                </motion.li>
+              ))}
+            </motion.ul>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <div className="home__posts" id="posts">
-        <div className="wrap">
-          {articles.map((post) => (
-            <PostPreview key={post.fields.slug} post={post} />
-          ))}
-        </div>
-      </div>
-
-      <div className="home__illustration">
-        <div className="wrap">
-          <img
-            src="undraw_wall_post.svg"
-            alt=""
-            className="home__illustration__image"
-          />
-          <div className="home__illustration__credit">
-            <a href="https://undraw.co" target="_blank">
-              Lovely illustration by <span id="undraw">unDraw.co</span>
-            </a>
+        <section className="home__feeds" id="feeds">
+          <div className="wrap">
+            <ul>
+              {articles.map((t) => (
+                <motion.li
+                  key={t.slug}
+                  variants={blogItemMotion}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                >
+                  <HomefeedItem
+                    slug={t.slug}
+                    author={t.author}
+                    avatarUrl={t.avatarUrl}
+                    coverImgUrl={t.coverImgUrl}
+                    minRead={t.minRead}
+                    description={t.description}
+                    title={t.title}
+                    date={t.date}
+                    language={t.language}
+                    category={t.category}
+                    publication={t.publication}
+                  />
+                </motion.li>
+              ))}
+            </ul>
+            <aside>
+              <div className="sticky top-[70px]">
+                <div className="mb-6">
+                  <p className="uppercase text-xs font-extrabold text-white tracking-[0.083em]">
+                    Discover more of what matters to you
+                  </p>
+                </div>
+                <div className=" pb-6 border-b border-solid border-gray-600">
+                  {tags.map((tag, index) => (
+                    <Link href={`/tags/${tag}`} key={index}>
+                      <div className="inline-block py-[6px] px-[16px] border border-gray-600 rounded-[3px] text-gray-300 mb-2 mr-2 text-[13px] cursor-pointer">
+                        <span>{tag}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                <div className="py-6">
+                  <p className="text-gray-500 text-xs">
+                    Inspired by{" "}
+                    <a
+                      href="https://medium.com/"
+                      target="_blank"
+                      className="font-bold hover:underline"
+                    >
+                      Medium.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </aside>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 }
+
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

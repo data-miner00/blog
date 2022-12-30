@@ -1,7 +1,7 @@
-$color: #D88C9A
-  
+
+$terms-inset-border: 1px solid #30363d
+
 .article
-  // padding: 150px 50px 50px 50px
   padding: 150px calc(20% + 50px) 50px
   position: relative
 
@@ -14,10 +14,7 @@ $color: #D88C9A
     top: 150px
     width: 100%
     z-index: 0
-    opacity: 0
     pointer-events: none
-    transition: opacity .2s
-    will-change: opacity
     
     .inner-wrapper
       width: 78%
@@ -26,11 +23,15 @@ $color: #D88C9A
 
     &__content
       width: 200px
+      opacity: 0
+      transition: opacity .2s
+      will-change: opacity
+      pointer-events: none
   
       &__top
-        padding: 20px 0
-        border-top: 1px solid #eee
-        border-bottom: 1px solid #eee
+        padding: 20px 3px
+        border-top: 1px solid #666
+        border-bottom: 1px solid #666
         &__title
           font-weight: 600
           font-size: 1.1em
@@ -46,7 +47,7 @@ $color: #D88C9A
           flex-wrap: wrap
           gap: 5px
 
-          .label-tag
+          a
             font-size: .625em
             color: white
             padding: 5px 8px
@@ -55,13 +56,6 @@ $color: #D88C9A
         display: flex
         justify-content: space-between
         padding: 20px 50px 20px 0
-
-        .action
-          transition: color .2s
-          cursor: pointer
-
-          &:hover
-            color: $color
 
         .action--cheers
           display: flex
@@ -82,14 +76,13 @@ $color: #D88C9A
     display: flex
     justify-content: space-between
     align-items: center
-    font-size: .75em
 
     &__name-group
       display: flex
       align-items: center
       &__avatar
-        width: 40px
-        height: 40px
+        width: 50px
+        height: 50px
         border-radius: 250px
         position: relative
         overflow: hidden
@@ -99,60 +92,186 @@ $color: #D88C9A
         flex-direction: column
         row-gap: 3px
         &__name
-          font-weight: 700
+          display: flex
+          align-items: center
+
+          & > *
+            display: block
+
+          a
+            background: var(--color1)
+            border: 1px solid var(--color1)
+            border-radius: 4px
+            padding: 2px 10px
+            margin-left: 10px
+            font-size: 12px
+        
+        &__date
+          color: #ccc
 
     &__action-group
       display: flex
-      width: 80px
+      width: 230px
       justify-content: space-between
+      align-items: center
 
-      .box
-        font-size: 1.5em
-        transition: color .2s
-        cursor: pointer
-
-        &:hover
-          color: $color
+      .vr
+        width: 1px
+        background: #888
+        margin: 0 10px
+        height: 20px
       
   &__body
     font-size: 1.25em
     line-height: 1.6
     padding: 42px 0
     width: 100%
-    overflow: hidden
 
   &__ending
     padding: 30px 0
-    color: #cdcdcd
-    text-align: center
-    border-bottom: 1px solid #eee
-    font-size: .85em
-    font-style: italic
 
-  &__read-more
-    padding-top: 80px
-    &__heading
-      font-size: 2em
-      font-weight: 800
-
-    &__articles-list
-      padding: 40px 0
-
-      .item
+    &__actions
+      display: flex
+      justify-content: space-between
+      margin-bottom: 50px
+      &__left
         display: flex
-        padding-bottom: 40px
-        
-        &__thumbnail
-          height: 160px
-          width: 200px
-          background: #eee
-        &__details
-          padding-left: 40px
-          width: calc(100% - 200px)
-          &__title
-            font-size: 1.75em
-            font-weight: 600
-            padding-bottom: 20px
+        align-items: center
+        gap: 10px
+      &__right
+        display: flex
+        align-items: center
+        gap: 30px
+    &__tags
+      display: flex
+      gap: 10px
+      a
+        color: white
+        display: block
+        padding: 4px 10px
+        background: var(--color1)
+
+    &__author
+      &__avatar
+        width: 80px
+        height: 80px
+        border-radius: 250px
+        position: relative
+        overflow: hidden
+
+      &__name
+        font-weight: 800
+        margin-top: 12px
+
+      &__followers
+        margin-top: 8px
+        font-size: 1.15em
+
+      &__tagline
+        margin-top: 12px
+        font-weight: 600
+
+      &__description
+        @apply text-gray-500
+
+      &__actions
+        display: flex
+        margin-top: 20px
+        justify-content: space-between
+        &__left
+          display: flex
+          align-items: center
+          .follow-btn
+            padding: 8px 16px
+            line-height: 1.2
+          .mail-btn
+            margin-left: 10px
+
+          .follow-btn,
+          .mail-btn
+            background: var(--color1)
+            border-radius: 999px
+            cursor: pointer
+            transition: background .2s
+            &:hover
+              background: #4F46E5
+        &__right
+          display: flex
+          gap: 10px
+
+          div
+            height: 34px
+            width: 34px
+            display: grid
+            place-items: center
+
+          a
+            transition: color .2s
+            color: #a8a8a8
+            &:hover
+              color: #fff
+
+    &__dates
+      font-size: .85em
+      text-align: center
+      margin: 20px 0
+      @apply text-gray-600
+
+    &__subscription
+      color: white
+      border-top: 4px solid var(--color1)
+      padding: 40px
+      background: #161b22
+      margin-bottom: 100px
+      border-radius: 0 0 2px 2px
+
+      h1
+        font-size: 2em
+        font-weight: 600
+
+      &__author
+        font-size: .8em
+        span
+          text-transform: uppercase
+          
+      &__pitch
+        margin-top: 30px
+      
+      &__email
+        display: flex
+        margin: 20px 0
+        align-items: center
+        .input-wrapper
+          flex-grow: 1
+          padding-right: 30px
+          input
+            padding: 3px 0
+            background: transparent
+            border-bottom: 1px solid #ccc
+            width: 100%
+            outline: none
+            &:hover
+              border-bottom-color: #fff
+            &:active, &:focus
+              border-bottom-color: var(--color1)
+
+        .btn-wrapper
+          background: var(--color1)
+          padding: 0 10px
+          border-radius: 999px
+          transition: background .2s
+          overflow: hidden
+          cursor: not-allowed
+          &:hover
+            background: #4F46E5
+          button    
+            display: flex
+            align-items: center
+            padding-right: 8px
+            cursor: not-allowed
+      &__terms
+        font-size: 12px
+
 
 @media screen and (max-width: 1536px)
   .article
@@ -174,3 +293,25 @@ $color: #D88C9A
   .article
     .content-wrapper
       padding: 0
+
+    &__author
+      flex-direction: column
+      &__action-group
+        margin-top: 20px
+
+    &__ending
+      &__subscription
+        padding: 20px
+        h1
+          font-size: 24px
+
+        &__email
+          flex-direction: column
+          gap: 20px
+
+          .input-wrapper
+            padding-right: 0
+      &__author
+        &__actions
+          flex-direction: column
+          gap: 20px
