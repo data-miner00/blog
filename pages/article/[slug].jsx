@@ -91,8 +91,8 @@ export default function Article({ article, _cheers, articleId, tags }) {
     window.addEventListener("scroll", () => {
       if (floatTipRef.current) {
         if (
-          window.pageYOffset > 500 &&
-          window.pageYOffset < document.documentElement.scrollHeight - 2100
+          window.scrollY > 500 &&
+          window.scrollY < document.documentElement.scrollHeight - 2100
         ) {
           floatTipRef.current.style.opacity = 1;
           floatTipRef.current.style.pointerEvents = "all";
@@ -315,12 +315,12 @@ export default function Article({ article, _cheers, articleId, tags }) {
                 3.14 Followers
               </div>
               <div className="article__ending__author__tagline">
-                Mind your own business.
+                Nothing really matters.
               </div>
               <div className="article__ending__author__description">
-                Son, Friend, Moron, Tech Advocate, CSS, C#, Next.js, Nuxt.js ·
-                @algorand @avalanche @zilliqa @polkadot · #English #Japanese
-                #Malay #Chinese #Korean
+                Son, Friend, DIY Enthusiast, Tech Advocate, CSS, C#, Next.js,
+                Nuxt.js · @algorand @avalanche @mumk @neovim · #English
+                #Japanese #Malay #Chinese #Korean
               </div>
               <div className="article__ending__author__actions">
                 <div className="article__ending__author__actions__left">
@@ -336,23 +336,31 @@ export default function Article({ article, _cheers, articleId, tags }) {
                   </div>
                 </div>
                 <div className="article__ending__author__actions__right">
-                  <a href={socialsUrl.discord} target="_blank">
+                  <a href={socialsUrl.discord} target="_blank" title="Discord">
                     <div>
                       <DiscordIcon size={20} fill="currentColor" />
                     </div>
                   </a>
-                  <a href={socialsUrl.twitter} target="_blank">
+                  <a href={socialsUrl.twitter} target="_blank" title="X">
                     <TwitterIcon fill="currentColor" />
                   </a>
-                  <a href={socialsUrl.linkedin} target="_blank">
+                  <a
+                    href={socialsUrl.linkedin}
+                    target="_blank"
+                    title="LinkedIn"
+                  >
                     <LinkedInIcon fill="currentColor" />
                   </a>
-                  <a href={socialsUrl.github} target="_blank">
+                  <a href={socialsUrl.github} target="_blank" title="GitHub">
                     <div>
                       <GitHubIcon fill="currentColor" />
                     </div>
                   </a>
-                  <a href={projectsUrl.personal} target="_blank">
+                  <a
+                    href={projectsUrl.personal}
+                    target="_blank"
+                    title="Website"
+                  >
                     <div>
                       <GlobeIcon fill="currentColor" />
                     </div>
