@@ -8,6 +8,7 @@ type Props = {
   tags: Array<string>;
   onClap: () => Promise<void>;
   cheers: number;
+  isCheersDisabled: boolean;
 };
 
 function FloatingDescriptor({
@@ -16,6 +17,7 @@ function FloatingDescriptor({
   tags,
   onClap,
   cheers,
+  isCheersDisabled,
 }: Props): JSX.Element {
   return (
     <div className="article__float-tip">
@@ -37,7 +39,11 @@ function FloatingDescriptor({
             </div>
           </div>
           <div className="article__float-tip__content__btm">
-            <button className="action--cheers action" onClick={onClap}>
+            <button
+              className="action--cheers action"
+              onClick={onClap}
+              disabled={isCheersDisabled}
+            >
               <div className="action--cheers__icon">
                 <ClapIcon fill="#fff" />
               </div>

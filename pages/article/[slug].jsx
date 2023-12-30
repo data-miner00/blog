@@ -86,6 +86,15 @@ export default function Article({ article, _cheers, articleId, tags }) {
   const floatTipRef = useRef();
   const [cheers, setCheers] = useState(_cheers);
   const [copied, setCopied] = useState(false);
+  const [updatingCheers, setUpdatingCheers] = useState(false);
+
+  async function incrementCheers() {
+    console.log("Cheer cliucked!!");
+    setUpdatingCheers(true);
+    await clientApi().incrementCheers(articleId);
+    setUpdatingCheers(false);
+    setCheers((prev) => ++prev);
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -120,12 +129,9 @@ export default function Article({ article, _cheers, articleId, tags }) {
           floatTipRef={floatTipRef}
           title={title}
           tags={tags}
-          onClap={() => {
-            clientApi()
-              .incrementCheers(articleId)
-              .then(() => setCheers(cheers + 1));
-          }}
+          onClap={incrementCheers}
           cheers={cheers}
+          isCheersDisabled={updatingCheers}
         />
 
         <div className="article__illus">
@@ -227,11 +233,8 @@ export default function Article({ article, _cheers, articleId, tags }) {
               <div className="article__ending__actions__left">
                 <button
                   className="flex items-center mr-5"
-                  onClick={() => {
-                    clientApi()
-                      .incrementCheers(articleId)
-                      .then(() => setCheers(cheers + 1));
-                  }}
+                  onClick={incrementCheers}
+                  disabled={updatingCheers}
                 >
                   <ClapIcon size={28} fill="#fff" className="mr-1" />
                   {cheers > 0 && <span>{cheers}</span>}
