@@ -126,7 +126,7 @@ export default function Footer(): JSX.Element {
             <p>
               Made by Mum Khong with{" "}
               <span
-                title="love"
+                title="heart"
                 className=" transition-colors duration-200 hover:text-pink-400 cursor-pointer"
               >
                 ❤

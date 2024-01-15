@@ -19,8 +19,8 @@ export const aboutMeSection: Array<FooterMenuSection> = [
     href: personalUrl.portfolio,
   },
   {
-    label: "Resume",
-    href: personalUrl.resume,
+    label: "Career",
+    href: personalUrl.career,
   },
 ];
 
@@ -49,47 +49,47 @@ export const githubSection: Array<FooterMenuSection> = [
 
 export const projectsSection: Array<FooterMenuSection> = [
   {
-    label: "Personal website",
+    label: "Website",
     href: projectsUrl.personal,
   },
   {
-    label: "Algorand Sandbox",
-    href: projectsUrl.algorand,
-  },
-  {
-    label: "Newtab",
-    href: projectsUrl.newtab,
+    label: "Blog",
+    href: projectsUrl.blog,
   },
   {
     label: "Book",
     href: projectsUrl.book,
   },
   {
-    label: "Twitter clone",
-    href: projectsUrl.twitter,
-  },
-  {
-    label: "Covid Tracker",
-    href: projectsUrl.covid,
+    label: "Linker",
+    href: projectsUrl.linker,
   },
   {
     label: "Hackernews",
     href: projectsUrl.hacker,
   },
   {
-    label: "Hungry",
-    href: projectsUrl.hungry,
+    label: "Arknights Afk",
+    href: projectsUrl.arknights,
   },
   {
-    label: "Linker",
-    href: projectsUrl.linker,
+    label: "Invoice",
+    href: projectsUrl.invoice,
   },
   {
-    label: "Positron+",
-    href: projectsUrl.positron,
+    label: "Delvis Soligt",
+    href: projectsUrl.delvisSoligt,
   },
   {
-    label: "Gallerium",
-    href: projectsUrl.resource,
+    label: "Nuxt Content Template",
+    href: projectsUrl.nuxtTemplate,
+  },
+  {
+    label: "React Esbuild Template",
+    href: projectsUrl.reactTemplate,
+  },
+  {
+    label: "React Rescript Template",
+    href: projectsUrl.rescriptTemplate,
   },
 ];
