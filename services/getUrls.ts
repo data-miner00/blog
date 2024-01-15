@@ -1,4 +1,4 @@
-const portfolioBaseUrl = "https://portfolio-six-ecru-52.vercel.app";
+const portfolioBaseUrl = "https://mumk.vercel.app";
 export const personalUrl = {
   intro: portfolioBaseUrl + "/profile",
   edu: portfolioBaseUrl + "/education",
@@ -16,7 +16,7 @@ export const githubUrl = {
 
 const githubUserBaseUrl = "https://github.com/data-miner00";
 export const projectsUrl = {
-  personal: "https://portfolio-six-ecru-52.vercel.app/",
+  personal: portfolioBaseUrl,
   newtab: "https://newtab-remastered.vercel.app/",
   book: "https://book-dun-three.vercel.app/",
   twitter: githubUserBaseUrl + "/Twitter-Clone",
