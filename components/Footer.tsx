@@ -26,31 +26,50 @@ export default function Footer(): JSX.Element {
               My personal blogging website on non-technical stuffs.
             </div>
             <div className="mt-6 flex gap-2">
-              <a href={socialsUrl.github} target="_blank">
+              <a
+                href={socialsUrl.github}
+                target="_blank"
+                title="My GitHub account"
+              >
                 <div className="flex justify-center items-center h-8 w-8">
                   <GitHubIcon />
                 </div>
               </a>
 
-              <a href={socialsUrl.discord} target="_blank">
+              <a
+                href={socialsUrl.discord}
+                target="_blank"
+                title="My Discord account"
+              >
                 <div className="flex justify-center items-center h-8 w-8">
                   <DiscordIcon size={20} />
                 </div>
               </a>
 
-              <a href={socialsUrl.linkedin} target="_blank">
+              <a
+                href={socialsUrl.linkedin}
+                target="_blank"
+                title="My LinkedIn account"
+              >
                 <LinkedInIcon fill="white" />
               </a>
 
-              <a href={socialsUrl.twitter} target="_blank">
+              <a
+                href={socialsUrl.twitter}
+                target="_blank"
+                title="My Twitter (X) account"
+              >
                 <TwitterIcon fill="white" />
               </a>
             </div>
 
-            <div className="relative mt-4 h-24">
-              <img
+            <div className="relative mt-14">
+              <Image
+                height={48}
+                width={192}
                 className="absolute bottom-6 md:bottom-0 -left-[4.5rem] md:-left-20"
                 src="/signature.png"
+                alt="My personal hand signature"
               />
             </div>
           </div>
@@ -114,7 +133,12 @@ export default function Footer(): JSX.Element {
             <div className="mt-6">
               <div className=" flex items-center justify-center xl:justify-start">
                 <a href="https://nextjs.org/" target="_blank">
-                  <Image src="/nextjs.svg" height="80px" width="250px" />
+                  <Image
+                    src="/nextjs.svg"
+                    height="80px"
+                    width="250px"
+                    alt="The old Next.js logo"
+                  />
                 </a>
                 <span className="text-gray-400 hidden xl:block">et al.</span>
               </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type Props = {
   index: string;
@@ -20,7 +21,12 @@ function TrendingItem(props: Props): JSX.Element {
         <div className="pt-2">
           <div className="flex items-center mb-3">
             <div className="h-5 w-5 rounded-full bg-gray-300 overflow-hidden">
-              <img src={props.avatarUrl} alt={`${props.author}'s avatar`} />
+              <Image
+                width={20}
+                height={20}
+                src={props.avatarUrl}
+                alt={`${props.author}'s avatar`}
+              />
             </div>
             <div className="text-[13px] font-semibold ml-2">{props.author}</div>
           </div>
