@@ -1,9 +1,15 @@
+import Head from "next/head";
+
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 
 function NotFound(): JSX.Element {
   return (
-    <div>
+    <>
+      <Head>
+        <title>Not Found | Mumk</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Header />
       <div className="px-6 py-[150px] md:py-[200px] max-w-[1192px] mx-auto">
         <p className="text-lg md:text-2xl font-bold uppercase text-white">
@@ -22,7 +28,7 @@ function NotFound(): JSX.Element {
           <span style={{ WebkitTextStroke: "1px #ddd" }}>exist.</span>
         </p>
       </div>
-    </div>
+    </>
   );
 }
 

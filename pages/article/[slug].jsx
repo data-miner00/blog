@@ -86,13 +86,22 @@ export default function Article({ article, _cheers, articleId, tags }) {
   const floatTipRef = useRef();
   const [cheers, setCheers] = useState(_cheers);
   const [copied, setCopied] = useState(false);
+  const [updatingCheers, setUpdatingCheers] = useState(false);
+
+  async function incrementCheers() {
+    console.log("Cheer cliucked!!");
+    setUpdatingCheers(true);
+    await clientApi().incrementCheers(articleId);
+    setUpdatingCheers(false);
+    setCheers((prev) => ++prev);
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (floatTipRef.current) {
         if (
-          window.pageYOffset > 500 &&
-          window.pageYOffset < document.documentElement.scrollHeight - 2100
+          window.scrollY > 500 &&
+          window.scrollY < document.documentElement.scrollHeight - 2100
         ) {
           floatTipRef.current.style.opacity = 1;
           floatTipRef.current.style.pointerEvents = "all";
@@ -110,7 +119,7 @@ export default function Article({ article, _cheers, articleId, tags }) {
   return (
     <>
       <Head>
-        <title>{title} | Mumk</title>
+        <title>{title + " | Mumk"}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
@@ -120,12 +129,9 @@ export default function Article({ article, _cheers, articleId, tags }) {
           floatTipRef={floatTipRef}
           title={title}
           tags={tags}
-          onClap={() => {
-            clientApi()
-              .incrementCheers(articleId)
-              .then(() => setCheers(cheers + 1));
-          }}
+          onClap={incrementCheers}
           cheers={cheers}
+          isCheersDisabled={updatingCheers}
         />
 
         <div className="article__illus">
@@ -227,11 +233,8 @@ export default function Article({ article, _cheers, articleId, tags }) {
               <div className="article__ending__actions__left">
                 <button
                   className="flex items-center mr-5"
-                  onClick={() => {
-                    clientApi()
-                      .incrementCheers(articleId)
-                      .then(() => setCheers(cheers + 1));
-                  }}
+                  onClick={incrementCheers}
+                  disabled={updatingCheers}
                 >
                   <ClapIcon size={28} fill="#fff" className="mr-1" />
                   {cheers > 0 && <span>{cheers}</span>}
@@ -315,12 +318,12 @@ export default function Article({ article, _cheers, articleId, tags }) {
                 3.14 Followers
               </div>
               <div className="article__ending__author__tagline">
-                Mind your own business.
+                Nothing really matters.
               </div>
               <div className="article__ending__author__description">
-                Son, Friend, Moron, Tech Advocate, CSS, C#, Next.js, Nuxt.js ·
-                @algorand @avalanche @zilliqa @polkadot · #English #Japanese
-                #Malay #Chinese #Korean
+                Son, Friend, DIY Enthusiast, Tech Advocate, CSS, C#, Next.js,
+                Nuxt.js · @algorand @avalanche @mumk @neovim · #English
+                #Japanese #Malay #Chinese #Korean
               </div>
               <div className="article__ending__author__actions">
                 <div className="article__ending__author__actions__left">
@@ -336,23 +339,31 @@ export default function Article({ article, _cheers, articleId, tags }) {
                   </div>
                 </div>
                 <div className="article__ending__author__actions__right">
-                  <a href={socialsUrl.discord} target="_blank">
+                  <a href={socialsUrl.discord} target="_blank" title="Discord">
                     <div>
                       <DiscordIcon size={20} fill="currentColor" />
                     </div>
                   </a>
-                  <a href={socialsUrl.twitter} target="_blank">
+                  <a href={socialsUrl.twitter} target="_blank" title="X">
                     <TwitterIcon fill="currentColor" />
                   </a>
-                  <a href={socialsUrl.linkedin} target="_blank">
+                  <a
+                    href={socialsUrl.linkedin}
+                    target="_blank"
+                    title="LinkedIn"
+                  >
                     <LinkedInIcon fill="currentColor" />
                   </a>
-                  <a href={socialsUrl.github} target="_blank">
+                  <a href={socialsUrl.github} target="_blank" title="GitHub">
                     <div>
                       <GitHubIcon fill="currentColor" />
                     </div>
                   </a>
-                  <a href={projectsUrl.personal} target="_blank">
+                  <a
+                    href={projectsUrl.personal}
+                    target="_blank"
+                    title="Website"
+                  >
                     <div>
                       <GlobeIcon fill="currentColor" />
                     </div>

@@ -1,9 +1,9 @@
-const portfolioBaseUrl = "https://portfolio-six-ecru-52.vercel.app";
+const portfolioBaseUrl = "https://mumk.dev";
 export const personalUrl = {
   intro: portfolioBaseUrl + "/profile",
   edu: portfolioBaseUrl + "/education",
   portfolio: portfolioBaseUrl + "/projects",
-  resume: portfolioBaseUrl,
+  career: portfolioBaseUrl + "/career",
 };
 
 const repoBaseUrl = "https://github.com/data-miner00/blog";
@@ -16,17 +16,17 @@ export const githubUrl = {
 
 const githubUserBaseUrl = "https://github.com/data-miner00";
 export const projectsUrl = {
-  personal: "https://portfolio-six-ecru-52.vercel.app/",
-  newtab: "https://newtab-remastered.vercel.app/",
-  book: "https://book-dun-three.vercel.app/",
-  twitter: githubUserBaseUrl + "/Twitter-Clone",
-  covid: "https://ng-covid-tracker.web.app/",
-  hacker: githubUserBaseUrl + "/ng-hackernews",
-  hungry: githubUserBaseUrl + "/Hungry",
+  personal: portfolioBaseUrl,
+  book: "https://book.mumk.dev/",
+  blog: "https://blog.mumk.dev/",
+  nuxtTemplate: "https://nuxt-content-template.netlify.app/",
   linker: githubUserBaseUrl + "/Linker",
-  positron: githubUserBaseUrl + "/positron",
-  resource: githubUserBaseUrl + "/web-ui",
-  algorand: githubUserBaseUrl + "/sandbox.algo",
+  hacker: "https://hackernews-4ea93.web.app/",
+  reactTemplate: "https://react-esbuild-template.vercel.app/",
+  rescriptTemplate: "https://react-rescript-template-kohl.vercel.app/",
+  arknights: githubUserBaseUrl + "/arknights-event-afk",
+  invoice: githubUserBaseUrl + "/invoice",
+  delvisSoligt: githubUserBaseUrl + "/DelvisSoligt",
 };
 
 export const socialsUrl = {

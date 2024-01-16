@@ -25,7 +25,12 @@ export default function HomefeedItem(props: Props): JSX.Element {
         <div className="mr-5">
           <div className="flex items-center mb-2">
             <div className="h-5 w-5 rounded-full bg-gray-300 overflow-hidden">
-              <img src={props.avatarUrl} alt={`${props.author}'s avatar`} />
+              <Image
+                width={20}
+                height={20}
+                src={props.avatarUrl}
+                alt={`${props.author}'s avatar`}
+              />
             </div>
             <div className="text-[13px] ml-2 flex flex-wrap gap-1">
               <div className="">{props.author}</div>

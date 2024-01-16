@@ -2,6 +2,8 @@
   "name": "blog",
   "version": "1.0.0",
   "private": true,
+  "author": "Shaun Chong <mumkhong@skiff.com>",
+  "description": "A place for me to post blogs through Contentful",
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
@@ -14,7 +16,7 @@
     "contentful": "^9.1.21",
     "firebase": "^9.12.1",
     "framer-motion": "^8.0.2",
-    "next": "12",
+    "next": "^12",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
