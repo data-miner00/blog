@@ -19,10 +19,10 @@
   <p align="center">
     A place for my non-technical writings shared to the world.
     <br />
-    <a href=""><strong>Visit website »</strong></a>
+    <a href="https://blog.mumk.dev"><strong>Visit website »</strong></a>
     <br />
     <br />
-    <a href="https://blog-mumk.vercel.app">Visit book</a>
+    <a href="https://blog.mumk.dev">Visit blog</a>
     ·
     <a href="https://github.com/data-miner00/blog/issues">Report Bug</a>
     ·
@@ -127,10 +127,10 @@ Here is a list of technologies that this projects are built and depend on.
 - [x] Add to top button
 - [x] Quasi-workable cheers button
 - [ ] Simple popup menu
-- [ ] Code cleanup
 - [ ] About page
 - [ ] Bookmarked page
 - [x] Add tags page
+- [ ] Add publication
 
 See the [open issues](https://github.com/data-miner00/blog/issues) for a full list of proposed features (and known issues).
 
