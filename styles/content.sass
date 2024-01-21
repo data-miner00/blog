@@ -64,14 +64,18 @@
 
     a
         position: relative
+
         &::before
             content: ''
             position: absolute
             bottom: -3px
-            height: 3px
+            height: 2px
             left: 0
             right: 0
             background: #6c63ff
+        
+        &:hover::before
+            height: 3px
 
 @media screen and (max-width: 768px)
     .article__body
