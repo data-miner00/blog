@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { INLINES } from "@contentful/rich-text-types";
+import { INLINES, BLOCKS } from "@contentful/rich-text-types";
 
 import Header from "../../components/Header";
 import ArticlePageSkeleton from "../../components/ArticlePageSkeleton";
@@ -103,6 +103,16 @@ export default function Article({ article, _cheers, articleId, tags }) {
           <Link href={`/article/${node.data.target.fields.slug}`}>
             {node.data.target.fields.title}
           </Link>
+        );
+      },
+      [BLOCKS.EMBEDDED_ASSET]: (node, _children) => {
+        return (
+          <img
+            src={`https://${node.data.target.fields.file.url}`}
+            alt={node.data.target.fields.description}
+            height={node.data.target.fields.file.details.image.height}
+            width={node.data.target.fields.file.details.image.width}
+          />
         );
       },
     },
