@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { INLINES } from "@contentful/rich-text-types";
 
 import Header from "../../components/Header";
 import ArticlePageSkeleton from "../../components/ArticlePageSkeleton";
@@ -89,12 +90,23 @@ export default function Article({ article, _cheers, articleId, tags }) {
   const [updatingCheers, setUpdatingCheers] = useState(false);
 
   async function incrementCheers() {
-    console.log("Cheer cliucked!!");
     setUpdatingCheers(true);
     await clientApi().incrementCheers(articleId);
     setUpdatingCheers(false);
     setCheers((prev) => ++prev);
   }
+
+  const renderOptions = {
+    renderNode: {
+      [INLINES.ENTRY_HYPERLINK]: (node, _children) => {
+        return (
+          <Link href={`/article/${node.data.target.fields.slug}`}>
+            {node.data.target.fields.title}
+          </Link>
+        );
+      },
+    },
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -226,7 +238,7 @@ export default function Article({ article, _cheers, articleId, tags }) {
             </div>
           </div>
           <div className="article__body">
-            {documentToReactComponents(content)}
+            {documentToReactComponents(content, renderOptions)}
           </div>
           <div className="article__ending">
             <div className="article__ending__actions">
