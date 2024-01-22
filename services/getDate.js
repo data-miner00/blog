@@ -35,6 +35,11 @@ export function getDate(dateString, variation) {
       }
       return `${MONTHS[month]} ${day}, ${year} @ ${hours}:${minutes}am`;
     }
+    case 4:
+      if (year === new Date().getFullYear()) {
+        return `${MONTHS[month]} ${day}`;
+      }
+      return `${MONTHS[month]} ${day}, ${year}`;
     default:
       return `${MONTHS[month]} ${day}`;
   }
