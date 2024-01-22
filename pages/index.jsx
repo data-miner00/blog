@@ -18,7 +18,10 @@ import {
 } from "../motions/homepage";
 
 export const getStaticProps = async () => {
-  const articlesRes = await client.getEntries({ content_type: "article" });
+  const articlesRes = await client.getEntries({
+    content_type: "article",
+    order: "-sys.createdAt",
+  });
   const tagsRes = await client.getTags();
 
   return {
