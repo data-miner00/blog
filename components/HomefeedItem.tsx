@@ -45,7 +45,7 @@ export default function HomefeedItem(props: Props): JSX.Element {
           <h2 className="md:text-[22px] font-bold">{props.title}</h2>
           <p className="text-gray-400 pt-1">{props.description}</p>
           <div className="text-gray-400 text-xs pt-2 flex items-center flex-wrap gap-1">
-            <span>{getDate(props.date, 2)}</span>
+            <span>{getDate(props.date, 4)}</span>
             <div className="">·</div>
             <span>{props.minRead} min read</span>
             <div className="">·</div>
