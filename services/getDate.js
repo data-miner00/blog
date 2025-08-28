@@ -1,6 +1,6 @@
 const MONTHS = [
   "January",
-  "Febrauary",
+  "February",
   "March",
   "April",
   "May",
