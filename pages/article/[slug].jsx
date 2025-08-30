@@ -18,6 +18,10 @@ import { getStaticSidePath } from "../../services/getStaticSidePath";
 import { getShareUrl, SocialMedia } from "../../services/getShareUrl";
 import { getApiClient as clientApi } from "../../services/getApiClient/clientSide";
 import { getCheers } from "../../services/getCheersClient";
+import {
+  isBookmarked as checkIsBookmarked,
+  toggleBookmark as toggleBookmarkStorage,
+} from "../../services/getBookmarks";
 
 import {
   TwitterIcon,
@@ -27,9 +31,9 @@ import {
   ChainIcon,
   ClapIcon,
   BookmarkIcon,
+  BookmarkIconFill,
   ArrowPointingUpFromBoxIcon,
   DialogIcon,
-  AddBookmarkIcon,
   MailPlusIcon,
   GlobeIcon,
   DiscordIcon,
@@ -88,12 +92,17 @@ export default function Article({ article, _cheers, articleId, tags }) {
   const [cheers, setCheers] = useState(_cheers);
   const [copied, setCopied] = useState(false);
   const [updatingCheers, setUpdatingCheers] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   async function incrementCheers() {
     setUpdatingCheers(true);
     await clientApi().incrementCheers(articleId);
     setUpdatingCheers(false);
     setCheers((prev) => ++prev);
+  }
+
+  function toggleBookmark() {
+    setIsBookmarked(toggleBookmarkStorage(articleId));
   }
 
   const renderOptions = {
@@ -136,6 +145,8 @@ export default function Article({ article, _cheers, articleId, tags }) {
         window.removeEventListener("scroll");
       };
     });
+
+    setIsBookmarked(checkIsBookmarked(articleId));
   }, []);
 
   return (
@@ -242,9 +253,14 @@ export default function Article({ article, _cheers, articleId, tags }) {
                 <ChainIcon size={34} />
               </button>
               <div className="vr"></div>
-              <div>
-                <ArrowPointingUpFromBoxIcon fill="#ccc" size={34} />
-              </div>
+
+              <button onClick={toggleBookmark}>
+                {isBookmarked ? (
+                  <BookmarkIconFill fill="#ccc" size={34} />
+                ) : (
+                  <BookmarkIcon fill="#ccc" size={34} />
+                )}
+              </button>
             </div>
           </div>
           <div className="article__body">
@@ -269,7 +285,13 @@ export default function Article({ article, _cheers, articleId, tags }) {
                 className="article__ending__actions__right"
                 style={{ cursor: "not-allowed" }}
               >
-                <BookmarkIcon size={28} fill="#fff" />
+                <button onClick={toggleBookmark}>
+                  {isBookmarked ? (
+                    <BookmarkIconFill fill="#ccc" size={28} />
+                  ) : (
+                    <BookmarkIcon fill="#ccc" size={28} />
+                  )}
+                </button>
                 <ArrowPointingUpFromBoxIcon size={28} fill="#fff" />
               </div>
             </div>
@@ -282,8 +304,8 @@ export default function Article({ article, _cheers, articleId, tags }) {
             </div>
             <div className="article__ending__dates">
               <span>
-                - Article first published on {getDate(createdAt, 3)} · Last
-                edited at {getDate(updatedAt, 3)} -
+                - Blog first published on {getDate(createdAt, 3)} · Last edited
+                at {getDate(updatedAt, 3)} -
               </span>
             </div>
 

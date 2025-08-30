@@ -18,3 +18,4 @@ export { default as FacebookIcon } from "./logo/FacebookIcon";
 export { default as GitHubIcon } from "./logo/GitHubIcon";
 export { default as LinkedInIcon } from "./logo/LinkedInIcon";
 export { default as TwitterIcon } from "./logo/TwitterIcon";
+export { default as BookmarkIconFill } from "./BookmarkIconFill";

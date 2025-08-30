@@ -4,6 +4,8 @@ const LANGUAGES = {
   kr: "한국어",
   ch: "中文",
   ms: "Bahasa Melayu",
+  pt: "Português",
+  es: "Español",
 };
 
 export const getLanguage = (lang) => {

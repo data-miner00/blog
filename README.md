@@ -30,25 +30,6 @@
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#previously">Previously</a></li>
-        <li><a href="#now">Now</a></li>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
@@ -92,11 +73,15 @@ POST /api/cheers/:articleId
 
 The first endpoint fails in the Vercel hosted environment but works fine in local. It returns 500 internal server error each time I visit the endpoint. Frustrated, I searched `Is SQLite supported in Vercel` in Google and found out that SQLite is **NOT** supported on Vercel.
 
-Reason being that Vercel host our projects on [Serverless Functions](https://vercel.com/docs/concepts/functions/serverless-functions) (a.k.a lambdas, epheremal storage) that allows runing code on-demand by upscaling or downscaling base on the traffic. In other words, there instance that host the codes may be terminated at some point and being replaced by another new instance.
+Reason being that Vercel host our projects on [Serverless Functions](https://vercel.com/docs/concepts/functions/serverless-functions) (a.k.a lambdas, epheremal storage) that allows running code on-demand by upscaling or downscaling base on the traffic. In other words, there instance that host the codes may be terminated at some point and being replaced by another new instance.
 
 Hence, the data and files that does not track by the version control system will be wiped off when the instance dies off. I should have researched on the compatibilities before I implemented anything.
 
 The codes will still work in a traditionally hosted file system environment thus I created a fork to introduce cloud hosted databases.
+
+### Considering Remove Firebase
+
+I am currently comtemplating to remove Firebase and replace it with localStorage. This will simplify the feature.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -126,8 +111,6 @@ Here is a list of technologies that this projects are built and depend on.
 - [x] Update skeleton
 - [x] Add to top button
 - [x] Quasi-workable cheers button
-- [ ] Simple popup menu
-- [ ] About page
 - [ ] Bookmarked page
 - [x] Add tags page
 - [ ] Add publication
@@ -184,6 +167,8 @@ Resources that I've found useful and used for reference as well as information g
 - [Screenlane](https://screenlane.com/screen/medium-web-app-230/)
 - [Next.js API Routes with SQL DB](https://www.youtube.com/watch?v=PxiQDo0CmDE)
 - [Reddit Post](https://www.reddit.com/r/nextjs/comments/mrmk5j/vercel_cant_open_sqlite_database_during_production/)
+- [Rendering Linked Assets Entries in Contentful](https://www.contentful.com/blog/rendering-linked-assets-entries-in-contentful/)
+- [Contentful API Docs](https://www.contentful.com/developers/docs/references/content-delivery-api)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
